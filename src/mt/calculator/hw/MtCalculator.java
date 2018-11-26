@@ -1,0 +1,821 @@
+package mt.calculator.hw;
+
+import java.text.DecimalFormat;
+import org.apache.log4j.Logger;
+
+public class MtCalculator {
+
+    private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
+
+    private static MtCalculator INSTANCE;
+
+    private static long instanceUseCount;
+
+    private MtRegister registerX;
+    private MtRegister registerLastX;
+    private MtRegister registerY;
+    private MtRegister registerZ;
+    private MtRegister registerT;
+    private MtRegister registerS;
+
+    private boolean autoEnter;
+
+    private boolean autoMode;
+    private boolean fixMode;
+    private boolean fixMode1;
+    private long fixModeSize;
+    private String fixModeLabel;
+    private boolean floatMode;
+    private boolean engMode;
+    private boolean indF;
+    private boolean indCLX;
+
+    private boolean eraseDisplay;
+
+    /**
+     *
+     */
+    private MtCalculator() {
+        instanceUseCount = 0;
+        this.eraseDisplay = false;
+        this.registerX = new MtRegister();
+        this.registerLastX = new MtRegister();
+        this.registerY = new MtRegister();
+        this.registerZ = new MtRegister();
+        this.registerT = new MtRegister();
+        this.registerS = new MtRegister();
+        this.autoEnter = false;
+        this.autoMode = true;
+        this.fixMode = false;
+        this.fixMode1 = false;
+        this.floatMode = false;
+        this.engMode = false;
+        this.indF = false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static MtCalculator getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new MtCalculator();
+        }
+        instanceUseCount++;
+        return INSTANCE;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterX() {
+        return registerX;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterLastX() {
+        return registerLastX;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterY() {
+        return registerY;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterZ() {
+        return registerZ;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterT() {
+        return registerT;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getRegisterS() {
+        return registerS;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isAutoMode() {
+        return autoMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isFixMode() {
+        return fixMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isFixMode1() {
+        return fixMode1;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isFloatMode() {
+        return floatMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isEngMode() {
+        return engMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public long getFixModeSize() {
+        return fixModeSize;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getFixModeLabel() {
+        return fixModeLabel;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static long getInstanceUseCount() {
+        return instanceUseCount;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isIndF() {
+        return indF;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isIndCLX() {
+        return indCLX;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonF() {
+        indF = !indF;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonEEX() {
+    }
+
+    /**
+     *
+     */
+    public void pressButtonCLR() {
+        registerX = new MtRegister();
+        registerLastX = new MtRegister();
+        registerY = new MtRegister();
+        registerZ = new MtRegister();
+        registerT = new MtRegister();
+    }
+
+    /**
+     *
+     */
+    public void pressButtonCLX() {
+        registerX = new MtRegister();
+    }
+
+    /**
+     *
+     * @param digit
+     */
+    private void pressButtonDigitFixMode(long digit) {
+        fixMode1 = false;
+        fixModeSize = digit;
+        fixModeLabel = "Fix " + Long.toString(digit);
+    }
+
+    /**
+     *
+     * @param digit
+     */
+    private void pressButtonDigitData(long digit) {
+        if (autoEnter) {
+            pressButtonEnter();
+            autoEnter = false;
+        }
+        if (eraseDisplay) {
+            registerX = new MtRegister();
+            eraseDisplay = false;
+        }
+        MtNumber number;
+        number = registerX.getNumber();
+        number = MtNumber.multiply(number, MtNumber.TEN);
+        if (MtNumber.compare(number, MtNumber.ZERO) >= 0) {
+            number = MtNumber.add(number, new MtNumber(digit));
+        } else {
+            number = MtNumber.subtract(number, new MtNumber(digit));
+        }
+        registerX.setNumber(number);
+    }
+
+    /**
+     *
+     * @param digit
+     */
+    private void pressButtonDigit(long digit) {
+        if (fixMode1) {
+            pressButtonDigitFixMode(digit);
+        } else {
+            pressButtonDigitData(digit);
+        }
+    }
+
+    /**
+     *
+     */
+    public void pressButton0() {
+        pressButtonDigit(0L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton1() {
+        pressButtonDigit(1L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton2() {
+        pressButtonDigit(2L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton3() {
+        pressButtonDigit(3L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton4() {
+        pressButtonDigit(4L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton5() {
+        pressButtonDigit(5L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton6() {
+        pressButtonDigit(6L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton7() {
+        if (indF) {
+            pressButtonEPowX();
+            return;
+        }
+        pressButtonDigit(7L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton8() {
+        if (indF) {
+            pressButtonLog();
+            return;
+        }
+        pressButtonDigit(8L);
+    }
+
+    /**
+     *
+     */
+    public void pressButton9() {
+        if (indF) {
+            pressButtonTenPowX();
+            return;
+        }
+        pressButtonDigit(9L);
+
+    }
+
+    /**
+     *
+     */
+    private void pressButtonPi() {
+        indF = false;
+        registerX = new MtRegister();
+        registerX.setNumber(MtNumber.PI);
+        eraseDisplay = true;
+        autoEnter = false;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonDecimalPoint() {
+        if (indF) {
+            pressButtonPi();
+            return;
+        }
+    }
+
+    /**
+     *
+     */
+    public void pressButtonAdd() {
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.add(registerY.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonLn() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.ln(registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonEPowX() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.ePowX(registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonLog() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.log(registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonTenPowX() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonSubtract() {
+        if (indF) {
+            pressButtonLn();
+            return;
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.subtract(registerY.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonMultiply() {
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.multiply(registerY.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonDivide() {
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.divide(registerY.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonCHS() {
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
+        registerX = register;
+        registerLastX = registerX;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonEnter() {
+        registerT = registerZ;
+        registerZ = registerY;
+        registerY = registerX;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonRollDown() {
+        MtRegister register;
+        register = registerX;
+        registerX = registerY;
+        registerY = registerZ;
+        registerZ = registerT;
+        registerT = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonRollUp() {
+        MtRegister register;
+        register = registerT;
+        registerT = registerZ;
+        registerZ = registerY;
+        registerY = registerX;
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonCLS() {
+        indF = false;
+        registerS = new MtRegister();
+    }
+
+    /**
+     *
+     */
+    public void pressButtonSTO() {
+        if (indF) {
+            pressButtonCLS();
+            return;
+        }
+        registerS = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonRCL() {
+        pressButtonEnter();
+        registerX = registerS;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonSqrt() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.sqrRoot(registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonLastX() {
+        if (indF) {
+            pressButtonSqrt();
+            return;
+        }
+        registerX = registerLastX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonOneDivideByX() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.ONE);
+        register.setNumber(MtNumber.divide(register.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonSwapXandY() {
+        if (indF) {
+            pressButtonOneDivideByX();
+            return;
+        }
+        MtRegister register;
+        register = registerX;
+        registerX = registerY;
+        registerY = register;
+        registerLastX = registerX;
+        eraseDisplay = true;
+    }
+
+    /**
+     *
+     */
+    private void clearMode() {
+        autoMode = false;
+        fixMode = false;
+        fixMode1 = false;
+        floatMode = false;
+        engMode = false;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonReset() {
+        INSTANCE = null;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonAuto() {
+        clearMode();
+        autoMode = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonFix() {
+        clearMode();
+        fixMode = true;
+        fixMode1 = true;
+        fixModeSize = 0;
+        fixModeLabel = "Fix ?";
+    }
+
+    /**
+     *
+     */
+    public void pressButtonFloat() {
+        clearMode();
+        floatMode = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonEng() {
+        clearMode();
+        engMode = true;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private String getFixModeDecimalFormatString() {
+        String decimalFormatString = "0000000000000";
+        int decimalPointPosition;
+        decimalPointPosition = (int) (decimalFormatString.length() - fixModeSize);
+        decimalFormatString = decimalFormatString.substring(0, decimalPointPosition) + "." + decimalFormatString.substring(decimalPointPosition);
+        for (int i = 1; i < decimalPointPosition; i++) {
+            decimalFormatString = decimalFormatString.replaceFirst("0", "#");
+        }
+        return decimalFormatString;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private String getFloatModeDecimalFormatString() {
+        String decimalFormatString;
+        decimalFormatString = "0.000000000E00";
+        return decimalFormatString;
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    private String getEngModeDecimalFormatString() {
+        String decimalFormatString;
+        decimalFormatString = "##0.0000000E00";
+        return decimalFormatString;
+    }
+
+    /**
+     *
+     * @param register
+     * @return
+     */
+    private String registerFormatedStringAutoMode(MtRegister register) {
+        String string;
+        string = register.getNumber().getNumber().toPlainString();
+        final int maxDigits;
+        maxDigits = 15;
+        if (string.length() > maxDigits) {
+            string = string.substring(0, maxDigits);
+        }
+        return string;
+    }
+
+    /**
+     *
+     * @param register
+     * @return
+     */
+    private String registerFormatedString(MtRegister register) {
+        if (autoMode) {
+            return registerFormatedStringAutoMode(register);
+        }
+        String decimalFormatString;
+        decimalFormatString = "";
+        if (floatMode) {
+            decimalFormatString = getFloatModeDecimalFormatString();
+        } else if (engMode) {
+            decimalFormatString = getEngModeDecimalFormatString();
+        } else if (fixMode) {
+            decimalFormatString = getFixModeDecimalFormatString();
+        }
+        DecimalFormat decimalFormat;
+        decimalFormat = new DecimalFormat(decimalFormatString);
+        String string;
+        string = decimalFormat.format(register.getNumber().getNumber());
+        if (string.contains("E-")) {
+            string = string.replaceFirst("E", " ");
+        } else {
+            string = string.replaceFirst("E", "  ");
+        }
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerXFormatedString() {
+        String string;
+        string = registerFormatedString(registerX);
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerLastXFormatedString() {
+        String string;
+        string = registerFormatedString(registerLastX);
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerYFormatedString() {
+        String string;
+        string = registerFormatedString(registerY);
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerZFormatedString() {
+        String string;
+        string = registerFormatedString(registerZ);
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerTFormatedString() {
+        String string;
+        string = registerFormatedString(registerT);
+        return string;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String registerSFormatedString() {
+        String string;
+        string = registerFormatedString(registerS);
+        return string;
+    }
+}
