@@ -372,6 +372,7 @@ public class MtCalculator {
             pressButtonPi();
             return;
         }
+        // @TODO handle Decimal Point here
     }
 
     /**
@@ -739,13 +740,14 @@ public class MtCalculator {
             return registerFormatedStringAutoMode(register);
         }
         String decimalFormatString;
-        decimalFormatString = "";
         if (floatMode) {
             decimalFormatString = getFloatModeDecimalFormatString();
         } else if (engMode) {
             decimalFormatString = getEngModeDecimalFormatString();
         } else if (fixMode) {
             decimalFormatString = getFixModeDecimalFormatString();
+        } else { // default autoMode
+            return registerFormatedStringAutoMode(register);
         }
         DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
@@ -764,9 +766,7 @@ public class MtCalculator {
      * @return
      */
     public String registerXFormatedString() {
-        String string;
-        string = registerFormatedString(registerX);
-        return string;
+        return registerFormatedString(registerX);
     }
 
     /**
@@ -774,9 +774,7 @@ public class MtCalculator {
      * @return
      */
     public String registerLastXFormatedString() {
-        String string;
-        string = registerFormatedString(registerLastX);
-        return string;
+        return registerFormatedString(registerLastX);
     }
 
     /**
@@ -784,9 +782,7 @@ public class MtCalculator {
      * @return
      */
     public String registerYFormatedString() {
-        String string;
-        string = registerFormatedString(registerY);
-        return string;
+        return registerFormatedString(registerY);
     }
 
     /**
@@ -794,9 +790,7 @@ public class MtCalculator {
      * @return
      */
     public String registerZFormatedString() {
-        String string;
-        string = registerFormatedString(registerZ);
-        return string;
+        return registerFormatedString(registerZ);
     }
 
     /**
@@ -804,9 +798,7 @@ public class MtCalculator {
      * @return
      */
     public String registerTFormatedString() {
-        String string;
-        string = registerFormatedString(registerT);
-        return string;
+        return registerFormatedString(registerT);
     }
 
     /**
@@ -814,8 +806,6 @@ public class MtCalculator {
      * @return
      */
     public String registerSFormatedString() {
-        String string;
-        string = registerFormatedString(registerS);
-        return string;
+        return registerFormatedString(registerS);
     }
 }

@@ -10,26 +10,41 @@ public class MtRegister {
     private String editableString;
 
     /**
-     * 
+     *
      */
     public MtRegister() {
         this.number = new MtNumber();
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public MtNumber getNumber() {
         return number;
     }
 
     /**
-     * 
-     * @param number 
+     *
+     * @param number
      */
     public void setNumber(MtNumber number) {
         this.number = number;
     }
 
+    /**
+     *
+     * @return
+     */
+    public String getEditableString() {
+        return editableString;
+    }
+
+    /**
+     *
+     * @param editableString
+     */
+    public void setEditableString(String editableString) {
+        this.editableString = editableString;
+    }
 }
