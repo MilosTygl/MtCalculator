@@ -174,7 +174,8 @@ public class MtNumber {
         dw = Math.log(d1);
         dw = dw * d2;
         dw = Math.pow(Math.E, dw);
-        BigDecimal bd = new BigDecimal(dw, MathContext.DECIMAL128);
+        BigDecimal bd;
+        bd = new BigDecimal(dw, MathContext.DECIMAL128);
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(bd);
         return wrkNumber;
