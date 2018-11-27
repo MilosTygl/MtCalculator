@@ -260,5 +260,7 @@
       </Button>
       <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
       <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+      <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
     </children>
 </AnchorPane>

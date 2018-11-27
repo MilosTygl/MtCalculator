@@ -386,6 +386,10 @@ public class MtCalculator {
      */
     private void pressButtonPi() {
         indF = false;
+        if (forceRaiseStack) {
+            forceRaiseStack = false;
+            raiseStack();
+        }
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
         eraseDisplay = true;
@@ -429,7 +433,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.ln(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -444,7 +447,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.ePowX(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -459,7 +461,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.log(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -474,7 +475,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -616,7 +616,26 @@ public class MtCalculator {
     /**
      *
      */
+    private void pressButtonPower() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.pow(registerX.getNumber(), registerY.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
     public void pressButtonRCL() {
+        if (indF) {
+            pressButtonPower();
+            return;
+        }
         if (forceRaiseStack) {
             forceRaiseStack = false;
             raiseStack();
@@ -635,7 +654,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.sqrRoot(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -664,7 +682,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.divide(register.getNumber(), registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }

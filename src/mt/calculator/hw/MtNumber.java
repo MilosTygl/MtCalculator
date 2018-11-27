@@ -140,7 +140,7 @@ public class MtNumber {
      */
     public static MtNumber ePowX(MtNumber n) {
         double x;
-        x = Math.pow(MtNumber.E.getNumber().doubleValue(), n.getNumber().doubleValue());
+        x = Math.pow(Math.E, n.getNumber().doubleValue());
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(new BigDecimal(x));
         return wrkNumber;
@@ -156,6 +156,27 @@ public class MtNumber {
         x = Math.pow(MtNumber.TEN.getNumber().doubleValue(), n.getNumber().doubleValue());
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(new BigDecimal(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n1
+     * @param n2
+     * @return
+     */
+    public static MtNumber pow(MtNumber n1, MtNumber n2) {
+        double d1;
+        d1 = n1.getNumber().doubleValue();
+        double d2;
+        d2 = n2.getNumber().doubleValue();
+        double dw;
+        dw = Math.log(d1);
+        dw = dw * d2;
+        dw = Math.pow(Math.E, dw);
+        BigDecimal bd = new BigDecimal(dw, MathContext.DECIMAL128);
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(bd);
         return wrkNumber;
     }
 
