@@ -11,7 +11,7 @@ public class MtCalculator {
 
     private static MtCalculator INSTANCE;
 
-    private static long instanceUseCount;
+    private long instanceUseCount;
 
     private MtRegister registerX;
     private MtRegister registerLastX;
@@ -41,7 +41,7 @@ public class MtCalculator {
      *
      */
     private MtCalculator() {
-        instanceUseCount = 0;
+        this.instanceUseCount = 0;
         this.eraseDisplay = false;
         this.registerX = new MtRegister();
         this.registerLastX = new MtRegister();
@@ -71,11 +71,12 @@ public class MtCalculator {
         if (INSTANCE == null) {
             INSTANCE = new MtCalculator();
         }
-        instanceUseCount++;
+        INSTANCE.instanceUseCount++;
         return INSTANCE;
     }
 
     public void refreshStatus() {
+        // @TODO Implement logic here
     }
 
     /**
@@ -202,7 +203,7 @@ public class MtCalculator {
      *
      * @return
      */
-    public static long getInstanceUseCount() {
+    public long getInstanceUseCount() {
         return instanceUseCount;
     }
 
@@ -235,6 +236,7 @@ public class MtCalculator {
      *
      */
     public void pressButtonEEX() {
+        // @TODO Implement logic here
     }
 
     /**
@@ -736,7 +738,7 @@ public class MtCalculator {
     /**
      *
      */
-    public void pressButtonReset() {
+    public static void pressButtonReset() {
         INSTANCE = null;
     }
 

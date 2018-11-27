@@ -15,8 +15,8 @@ public class MtNumber {
     public static final MtNumber ZERO = new MtNumber(BigDecimal.ZERO);
     public static final MtNumber ONE = new MtNumber(BigDecimal.ONE);
     public static final MtNumber TEN = new MtNumber(BigDecimal.TEN);
-    public static final MtNumber PI = new MtNumber(new BigDecimal(Math.PI));
-    public static final MtNumber E = new MtNumber(new BigDecimal(Math.E));
+    public static final MtNumber PI = new MtNumber(BigDecimal.valueOf(Math.PI));
+    public static final MtNumber E = new MtNumber(BigDecimal.valueOf(Math.E));
 
     /**
      *
@@ -102,7 +102,7 @@ public class MtNumber {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
         BigDecimal x;
-        x = new BigDecimal(Math.sqrt(n.getNumber().doubleValue()));
+        x = BigDecimal.valueOf(Math.sqrt(n.getNumber().doubleValue()));
         wrkNumber.setNumber(x);
         return wrkNumber;
     }
@@ -116,7 +116,7 @@ public class MtNumber {
         double x;
         x = Math.log(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(new BigDecimal(x));
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
     }
 
@@ -129,7 +129,7 @@ public class MtNumber {
         double x;
         x = Math.log10(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(new BigDecimal(x));
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
     }
 
@@ -142,7 +142,7 @@ public class MtNumber {
         double x;
         x = Math.pow(Math.E, n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(new BigDecimal(x));
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
     }
 
@@ -155,7 +155,7 @@ public class MtNumber {
         double x;
         x = Math.pow(MtNumber.TEN.getNumber().doubleValue(), n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(new BigDecimal(x));
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
     }
 
@@ -175,7 +175,7 @@ public class MtNumber {
         dw = dw * d2;
         dw = Math.pow(Math.E, dw);
         BigDecimal bd;
-        bd = new BigDecimal(dw, MathContext.DECIMAL128);
+        bd = BigDecimal.valueOf(dw);
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(bd);
         return wrkNumber;

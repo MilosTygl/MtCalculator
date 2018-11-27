@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
         calculator.refreshStatus();
-        instanceUseCount.textProperty().setValue(Long.toString(MtCalculator.getInstanceUseCount()));
+        instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
         displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());
         displayRegisterY.textProperty().setValue(calculator.registerYFormatedString());
@@ -259,7 +259,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handleButtonResetAction(ActionEvent event) {
-        MtCalculator.getInstance().pressButtonReset();
+        MtCalculator.pressButtonReset();
         refreshLabel();
     }
 
