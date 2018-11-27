@@ -1,5 +1,7 @@
 package mt.calculator.hw;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import org.apache.log4j.Logger;
 
@@ -31,8 +33,9 @@ public class MtCalculator {
     private boolean forceRaiseStack;
     private boolean degMode;
     private boolean radMode;
-
     private boolean eraseDisplay;
+    private boolean decimalPointPressed;
+    private int decimalPositions;
 
     /**
      *
@@ -56,6 +59,8 @@ public class MtCalculator {
         this.degMode = true;
         this.radMode = false;
         this.forceRaiseStack = true;
+        this.decimalPointPressed = false;
+        this.decimalPositions = 0;
     }
 
     /**
@@ -241,6 +246,8 @@ public class MtCalculator {
         registerY = new MtRegister();
         registerZ = new MtRegister();
         registerT = new MtRegister();
+        decimalPointPressed = false;
+        decimalPositions = 0;
     }
 
     /**
@@ -249,6 +256,8 @@ public class MtCalculator {
     public void pressButtonCLX() {
         registerX = new MtRegister();
         forceRaiseStack = false;
+        decimalPointPressed = false;
+        decimalPositions = 0;
     }
 
     /**
@@ -273,14 +282,23 @@ public class MtCalculator {
         if (eraseDisplay) {
             registerX = new MtRegister();
             eraseDisplay = false;
+            decimalPositions = 0;
+            decimalPointPressed = false;
         }
         MtNumber number;
         number = registerX.getNumber();
-        number = MtNumber.multiply(number, MtNumber.TEN);
-        if (MtNumber.compare(number, MtNumber.ZERO) >= 0) {
-            number = MtNumber.add(number, new MtNumber(digit));
+        BigDecimal bd;
+        if (!decimalPointPressed) {
+            number = MtNumber.multiply(number, MtNumber.TEN);
+            bd = new BigDecimal(digit);
         } else {
-            number = MtNumber.subtract(number, new MtNumber(digit));
+            bd = new BigDecimal(new BigInteger(Long.toString(digit)), decimalPositions);
+            decimalPositions++;
+        }
+        if (MtNumber.compare(number, MtNumber.ZERO) >= 0) {
+            number = MtNumber.add(number, new MtNumber(bd));
+        } else {
+            number = MtNumber.subtract(number, new MtNumber(bd));
         }
         registerX.setNumber(number);
     }
@@ -404,7 +422,8 @@ public class MtCalculator {
             pressButtonPi();
             return;
         }
-        // @TODO handle Decimal Point here
+        decimalPointPressed = true;
+        decimalPositions++;
     }
 
     /**
@@ -814,9 +833,6 @@ public class MtCalculator {
      * @return
      */
     private String registerFormatedString(MtRegister register) {
-        if (autoMode) {
-            return registerFormatedStringAutoMode(register);
-        }
         String decimalFormatString;
         if (floatMode) {
             decimalFormatString = getFloatModeDecimalFormatString();
