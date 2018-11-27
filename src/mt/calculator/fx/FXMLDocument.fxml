@@ -8,12 +8,12 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mt.calculator.fx.FXMLDocumentController">
     <children>
-        <Button fx:id="buttonOFF" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" text="OFF">
+        <Button fx:id="buttonOFF" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" text="OFF">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>  
-        <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="224.0" prefHeight="50.0" prefWidth="285.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
+        <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="233.0" prefHeight="50.0" prefWidth="285.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
             <font>
                 <Font name="Lucida Console" size="24.0" />
             </font>
@@ -27,7 +27,7 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="butttonCLX" layoutX="175.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLXAction" prefHeight="25.0" prefWidth="60.0" text="CLX">
+        <Button fx:id="butttonCLX" layoutX="175.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLXAction" prefHeight="25.0" prefWidth="60.0" text="CL X">
             <font>
                 <Font size="14.0" />
             </font>
@@ -107,7 +107,7 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="buttonCHS" layoutX="100.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonCHSAction" prefHeight="24.0" prefWidth="60.0" text="CHS">
+        <Button fx:id="buttonCHS" layoutX="100.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonCHSAction" prefHeight="24.0" prefWidth="60.0" text="CH S">
             <font>
                 <Font size="14.0" />
             </font>
@@ -117,11 +117,11 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="168.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="141.0" prefHeight="25.0" prefWidth="20.0" text="Z:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="114.0" prefHeight="25.0" prefWidth="20.0" text="T:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="87.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
-        <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0">
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="206.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="179.0" prefHeight="25.0" prefWidth="20.0" text="Z:" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="152.0" prefHeight="25.0" prefWidth="20.0" text="T:" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="312.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
+        <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="206.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
             <font>
                 <Font name="Lucida Console" size="14.0" />
             </font>
@@ -129,7 +129,7 @@
                 <Insets right="10.0" />
             </padding>
         </Label>
-        <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="141.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0">
+        <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="179.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
             <font>
                 <Font name="Lucida Console" size="14.0" />
             </font>
@@ -137,7 +137,7 @@
                 <Insets right="10.0" />
             </padding>
         </Label>
-        <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0">
+        <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="152.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
             <font>
                 <Font name="Lucida Console" size="14.0" />
             </font>
@@ -145,7 +145,7 @@
                 <Insets right="10.0" />
             </padding>
         </Label>
-        <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="87.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0">
+        <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="312.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
             <font>
                 <Font name="Lucida Console" size="14.0" />
             </font>
@@ -173,42 +173,42 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="buttonAuto" layoutX="25.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleButtonAutoAction" prefWidth="60.0" text="Auto">
+        <Button fx:id="buttonAuto" layoutX="26.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonAutoAction" prefWidth="60.0" text="Auto">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="ButtonFix" layoutX="100.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleButtonFixAction" prefHeight="30.0" prefWidth="60.0" text="Fix">
+        <Button fx:id="ButtonFix" layoutX="101.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFixAction" prefHeight="30.0" prefWidth="60.0" text="Fix">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="buttonFloat" layoutX="175.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleButtonFloatAction" prefWidth="60.0" text="Float">
+        <Button fx:id="buttonFloat" layoutX="175.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFloatAction" prefWidth="60.0" text="Float">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Button fx:id="buttonEng" layoutX="249.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleButtonEngAction" prefHeight="30.0" prefWidth="60.0" text="Eng">
+        <Button fx:id="buttonEng" layoutX="249.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonEngAction" prefHeight="30.0" prefWidth="60.0" text="Eng">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Label fx:id="indAutoMode" layoutX="30.0" layoutY="290.0" text="Auto" textFill="RED" />
-        <Label fx:id="indFixMode" layoutX="105.0" layoutY="290.0" text="Fix" textFill="RED" />
-        <Label fx:id="indFloatMode" layoutX="180.0" layoutY="290.0" text="Float" textFill="RED" />
-        <Label fx:id="indEngMode" layoutX="254.0" layoutY="290.0" text="Eng" textFill="RED" />
-        <Label layoutX="28.0" layoutY="195.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
-        <Button fx:id="buttonReset" layoutX="100.0" layoutY="30.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" text="Reset">
+        <Label fx:id="indAutoMode" layoutX="30.0" layoutY="78.0" text="Auto" textFill="RED" />
+        <Label fx:id="indFixMode" layoutX="105.0" layoutY="78.0" text="Fix" textFill="RED" />
+        <Label fx:id="indFloatMode" layoutX="179.0" layoutY="78.0" text="Float" textFill="RED" />
+        <Label fx:id="indEngMode" layoutX="253.0" layoutY="78.0" text="Eng" textFill="RED" />
+        <Label layoutX="28.0" layoutY="206.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
+        <Button fx:id="buttonReset" layoutX="99.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" text="Reset">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
-        <Label fx:id="instanceUseCount" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="10.0" prefHeight="17.0" prefWidth="52.0" text="0" textFill="RED">
+        <Label fx:id="instanceUseCount" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="18.0" prefHeight="17.0" prefWidth="52.0" text="0" textFill="RED">
             <padding>
                 <Insets right="1" />
             </padding>
         </Label>
-      <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="195.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0">
+      <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="285.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
          <font>
             <Font name="Lucida Console" size="14.0" />
          </font>
@@ -216,7 +216,7 @@
             <Insets right="10.0" />
          </padding>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="195.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="90.0" layoutY="285.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
       <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
          <font>
             <Font size="14.0" />
@@ -239,12 +239,26 @@
       </Button>
       <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="351.0" prefWidth="60.0" text="CLS" textFill="RED" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="351.0" prefWidth="60.0" text="CL S" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="411.0" prefWidth="60.0" text="1 / x" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="531.0" prefWidth="60.0" text="e^x" textFill="RED" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="531.0" prefWidth="60.0" text="10^x" textFill="RED" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
+      <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+      <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+      <Button fx:id="buttonDeg" layoutX="174.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonRad" layoutX="246.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
+      <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
     </children>
 </AnchorPane>

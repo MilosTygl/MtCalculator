@@ -29,6 +29,8 @@ public class MtCalculator {
     private boolean engMode;
     private boolean indF;
     private boolean indCLX;
+    private boolean degMode;
+    private boolean radMode;
 
     private boolean eraseDisplay;
 
@@ -51,6 +53,8 @@ public class MtCalculator {
         this.floatMode = false;
         this.engMode = false;
         this.indF = false;
+        this.degMode = true;
+        this.radMode = false;
     }
 
     /**
@@ -111,6 +115,22 @@ public class MtCalculator {
      */
     public MtRegister getRegisterS() {
         return registerS;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isDegMode() {
+        return degMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isRadMode() {
+        return radMode;
     }
 
     /**
@@ -198,6 +218,16 @@ public class MtCalculator {
      */
     public void pressButtonF() {
         indF = !indF;
+    }
+
+    public void pressButtonDeg() {
+        radMode = false;
+        degMode = true;
+    }
+
+    public void pressButtonRad() {
+        degMode = false;
+        radMode = true;
     }
 
     /**
@@ -400,6 +430,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.ln(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
@@ -413,6 +444,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.ePowX(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
@@ -426,6 +458,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.log(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
@@ -439,6 +472,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
@@ -580,6 +614,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.sqrRoot(registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
@@ -606,6 +641,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.divide(register.getNumber(), registerX.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerT = registerZ;
         eraseDisplay = true;
     }
 
