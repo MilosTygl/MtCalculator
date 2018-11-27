@@ -58,6 +58,7 @@ public class FXMLDocumentController implements Initializable {
     private Label indRadMode;
 
     private void refreshLabel() {
+        LOGGER.debug("begin");
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
         calculator.refreshStatus();
@@ -76,6 +77,7 @@ public class FXMLDocumentController implements Initializable {
         indF.setVisible(calculator.isIndF());
         indDegMode.setVisible(calculator.isDegMode());
         indRadMode.setVisible(calculator.isRadMode());
+        LOGGER.debug("end");
     }
 
     @FXML

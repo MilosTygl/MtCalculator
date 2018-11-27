@@ -13,6 +13,7 @@ public class MtRegister {
      *
      */
     public MtRegister() {
+        LOGGER.debug("MtRegister()");
         this.number = new MtNumber();
     }
 

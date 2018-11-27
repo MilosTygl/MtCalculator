@@ -22,6 +22,7 @@ public class MtNumber {
      *
      */
     MtNumber() {
+        LOGGER.debug("MtNumber()");
         number = BigDecimal.ZERO;
     }
 
@@ -30,6 +31,7 @@ public class MtNumber {
      * @param bigDecimal
      */
     MtNumber(BigDecimal bigDecimal) {
+        LOGGER.debug("MtNumber(BigDecimal bigDecimal)");
         number = bigDecimal;
     }
 
@@ -38,6 +40,7 @@ public class MtNumber {
      * @param l
      */
     MtNumber(long l) {
+        LOGGER.debug("MtNumber(long l)");
         number = new BigDecimal(l);
     }
 

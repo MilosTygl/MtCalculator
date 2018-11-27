@@ -41,6 +41,7 @@ public class MtCalculator {
      *
      */
     private MtCalculator() {
+        LOGGER.debug("construtcor");
         this.instanceUseCount = 0;
         this.eraseDisplay = false;
         this.registerX = new MtRegister();
