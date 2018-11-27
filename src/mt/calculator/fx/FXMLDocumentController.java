@@ -60,6 +60,7 @@ public class FXMLDocumentController implements Initializable {
     private void refreshLabel() {
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
+        calculator.refreshStatus();
         instanceUseCount.textProperty().setValue(Long.toString(MtCalculator.getInstanceUseCount()));
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
         displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());

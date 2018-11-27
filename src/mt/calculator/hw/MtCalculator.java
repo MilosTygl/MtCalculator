@@ -28,7 +28,7 @@ public class MtCalculator {
     private boolean floatMode;
     private boolean engMode;
     private boolean indF;
-    private boolean indCLX;
+    private boolean forceRaiseStack;
     private boolean degMode;
     private boolean radMode;
 
@@ -55,6 +55,7 @@ public class MtCalculator {
         this.indF = false;
         this.degMode = true;
         this.radMode = false;
+        this.forceRaiseStack = true;
     }
 
     /**
@@ -67,6 +68,9 @@ public class MtCalculator {
         }
         instanceUseCount++;
         return INSTANCE;
+    }
+
+    public void refreshStatus() {
     }
 
     /**
@@ -207,14 +211,6 @@ public class MtCalculator {
 
     /**
      *
-     * @return
-     */
-    public boolean isIndCLX() {
-        return indCLX;
-    }
-
-    /**
-     *
      */
     public void pressButtonF() {
         indF = !indF;
@@ -252,6 +248,7 @@ public class MtCalculator {
      */
     public void pressButtonCLX() {
         registerX = new MtRegister();
+        forceRaiseStack = false;
     }
 
     /**
@@ -296,6 +293,7 @@ public class MtCalculator {
         if (fixMode1) {
             pressButtonDigitFixMode(digit);
         } else {
+            forceRaiseStack = true;
             pressButtonDigitData(digit);
         }
     }
@@ -418,6 +416,7 @@ public class MtCalculator {
         registerZ = registerT;
         eraseDisplay = true;
         autoEnter = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -432,6 +431,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -446,6 +446,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -460,6 +461,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -474,6 +476,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -493,6 +496,7 @@ public class MtCalculator {
         registerZ = registerT;
         eraseDisplay = true;
         autoEnter = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -508,6 +512,7 @@ public class MtCalculator {
         registerZ = registerT;
         eraseDisplay = true;
         autoEnter = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -523,6 +528,7 @@ public class MtCalculator {
         registerZ = registerT;
         eraseDisplay = true;
         autoEnter = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -534,16 +540,25 @@ public class MtCalculator {
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
         registerX = register;
         registerLastX = registerX;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    private void raiseStack() {
+        registerT = registerZ;
+        registerZ = registerY;
+        registerY = registerX;
+        registerLastX = registerX;
     }
 
     /**
      *
      */
     public void pressButtonEnter() {
-        registerT = registerZ;
-        registerZ = registerY;
-        registerY = registerX;
-        registerLastX = registerX;
+        raiseStack();
+        forceRaiseStack = false;
         eraseDisplay = true;
     }
 
@@ -559,6 +574,7 @@ public class MtCalculator {
         registerT = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -573,6 +589,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -591,6 +608,7 @@ public class MtCalculator {
             pressButtonCLS();
             return;
         }
+        forceRaiseStack = false;
         registerS = registerX;
         eraseDisplay = true;
     }
@@ -599,7 +617,10 @@ public class MtCalculator {
      *
      */
     public void pressButtonRCL() {
-        pressButtonEnter();
+        if (forceRaiseStack) {
+            forceRaiseStack = false;
+            raiseStack();
+        }
         registerX = registerS;
         eraseDisplay = true;
     }
@@ -616,6 +637,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -628,6 +650,7 @@ public class MtCalculator {
         }
         registerX = registerLastX;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -643,6 +666,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -659,6 +683,7 @@ public class MtCalculator {
         registerY = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        forceRaiseStack = true;
     }
 
     /**

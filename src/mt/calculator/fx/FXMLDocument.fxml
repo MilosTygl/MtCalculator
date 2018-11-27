@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mt.calculator.fx.FXMLDocumentController">
     <children>
-        <Button fx:id="buttonOFF" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" text="OFF">
+        <Button fx:id="buttonOFF" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #7F0000;" text="OFF" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>
@@ -198,7 +198,7 @@
         <Label fx:id="indFloatMode" layoutX="179.0" layoutY="78.0" text="Float" textFill="RED" />
         <Label fx:id="indEngMode" layoutX="253.0" layoutY="78.0" text="Eng" textFill="RED" />
         <Label layoutX="28.0" layoutY="206.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
-        <Button fx:id="buttonReset" layoutX="99.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" text="Reset">
+        <Button fx:id="buttonReset" layoutX="100.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #3F3F3F;" text="Reset" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>
@@ -248,12 +248,12 @@
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
       <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
       <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Button fx:id="buttonDeg" layoutX="174.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
+      <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="buttonRad" layoutX="246.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
+      <Button fx:id="buttonRad" layoutX="249.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
          <font>
             <Font size="14.0" />
          </font>
