@@ -351,6 +351,10 @@ public class MtCalculator {
      *
      */
     public void pressButton4() {
+        if (indF) {
+            pressButtonSin();
+            return;
+        }
         pressButtonDigit(4L);
     }
 
@@ -358,6 +362,10 @@ public class MtCalculator {
      *
      */
     public void pressButton5() {
+        if (indF) {
+            pressButtonCos();
+            return;
+        }
         pressButtonDigit(5L);
     }
 
@@ -365,6 +373,10 @@ public class MtCalculator {
      *
      */
     public void pressButton6() {
+        if (indF) {
+            pressButtonTan();
+            return;
+        }
         pressButtonDigit(6L);
     }
 
@@ -442,6 +454,66 @@ public class MtCalculator {
         registerZ = registerT;
         eraseDisplay = true;
         autoEnter = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonSin() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = registerX.getNumber();
+        if (degMode) {
+            wrkNumber = MtNumber.degToRad(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.sin(wrkNumber));
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonCos() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = registerX.getNumber();
+        if (degMode) {
+            wrkNumber = MtNumber.degToRad(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.cos(wrkNumber));
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonTan() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = registerX.getNumber();
+        if (degMode) {
+            wrkNumber = MtNumber.degToRad(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.tan(wrkNumber));
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
         forceRaiseStack = true;
     }
 

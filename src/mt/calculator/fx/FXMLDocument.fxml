@@ -262,5 +262,8 @@
       <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
       <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
     </children>
 </AnchorPane>

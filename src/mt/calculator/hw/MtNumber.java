@@ -186,6 +186,61 @@ public class MtNumber {
 
     /**
      *
+     * @param n
+     * @return
+     */
+    public static MtNumber degToRad(MtNumber n) {
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber();
+        BigDecimal bd;
+        bd = n.getNumber();
+        bd = bd.multiply(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
+        bd = bd.divide(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
+        wrkNumber.setNumber(bd);
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    public static MtNumber sin(MtNumber n) {
+        double x;
+        x = Math.sin(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    public static MtNumber cos(MtNumber n) {
+        double x;
+        x = Math.cos(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    public static MtNumber tan(MtNumber n) {
+        double x;
+        x = Math.tan(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
      * @param n1
      * @param n2
      * @return
