@@ -425,8 +425,10 @@ public class MtCalculator {
         }
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
+        registerLastX = registerX;
         eraseDisplay = true;
-        autoEnter = false;
+        autoEnter = true;
+        forceRaiseStack = true;
     }
 
     /**
@@ -474,6 +476,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -494,6 +497,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -514,6 +518,7 @@ public class MtCalculator {
         registerLastX = registerX;
         registerT = registerZ;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -528,6 +533,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -542,6 +548,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -556,6 +563,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -570,6 +578,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -717,7 +726,6 @@ public class MtCalculator {
         register.setNumber(MtNumber.pow(registerX.getNumber(), registerY.getNumber()));
         registerX = register;
         registerLastX = registerX;
-        registerT = registerZ;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -749,6 +757,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -777,6 +786,7 @@ public class MtCalculator {
         registerX = register;
         registerLastX = registerX;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
