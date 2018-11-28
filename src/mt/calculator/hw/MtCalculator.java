@@ -257,6 +257,10 @@ public class MtCalculator {
      *
      */
     public void pressButtonCLX() {
+        if (indF) {
+            pressButtonCLS();
+            return;
+        }
         registerX = new MtRegister();
         forceRaiseStack = false;
         decimalPointPressed = false;
@@ -423,6 +427,7 @@ public class MtCalculator {
             forceRaiseStack = false;
             raiseStack();
         }
+        pressButtonEnter();
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
         registerLastX = registerX;
@@ -703,12 +708,26 @@ public class MtCalculator {
         registerS = new MtRegister();
     }
 
+    private void pressButtonYpowerX() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.pow(registerY.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+        forceRaiseStack = true;
+    }
+
     /**
      *
      */
     public void pressButtonSTO() {
         if (indF) {
-            pressButtonCLS();
+            pressButtonYpowerX();
             return;
         }
         forceRaiseStack = false;
@@ -719,14 +738,17 @@ public class MtCalculator {
     /**
      *
      */
-    private void pressButtonPower() {
+    private void pressButtonXpowerY() {
         indF = false;
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.pow(registerX.getNumber(), registerY.getNumber()));
         registerX = register;
         registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
         eraseDisplay = true;
+        autoEnter = true;
         forceRaiseStack = true;
     }
 
@@ -735,7 +757,7 @@ public class MtCalculator {
      */
     public void pressButtonRCL() {
         if (indF) {
-            pressButtonPower();
+            pressButtonXpowerY();
             return;
         }
         if (forceRaiseStack) {

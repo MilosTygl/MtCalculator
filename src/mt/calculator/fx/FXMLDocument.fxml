@@ -239,7 +239,7 @@
       </Button>
       <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="351.0" prefWidth="60.0" text="CL S" textFill="RED" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="470.0" prefWidth="60.0" text="CL S" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="411.0" prefWidth="60.0" text="1 / x" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
@@ -265,5 +265,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="185.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+      <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
     </children>
 </AnchorPane>
