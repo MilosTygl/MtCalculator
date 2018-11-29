@@ -244,6 +244,10 @@ public class MtCalculator {
      *
      */
     public void pressButtonCLR() {
+        if (indF) {
+            pressButtonOneDivideByX();
+            return;
+        }
         registerX = new MtRegister();
         registerLastX = new MtRegister();
         registerY = new MtRegister();
@@ -334,6 +338,10 @@ public class MtCalculator {
      *
      */
     public void pressButton1() {
+        if (indF) {
+            pressButtonArcSin();
+            return;
+        }
         pressButtonDigit(1L);
     }
 
@@ -341,6 +349,10 @@ public class MtCalculator {
      *
      */
     public void pressButton2() {
+        if (indF) {
+            pressButtonArcCos();
+            return;
+        }
         pressButtonDigit(2L);
     }
 
@@ -348,6 +360,10 @@ public class MtCalculator {
      *
      */
     public void pressButton3() {
+        if (indF) {
+            pressButtonArcTan();
+            return;
+        }
         pressButtonDigit(3L);
     }
 
@@ -427,7 +443,7 @@ public class MtCalculator {
             forceRaiseStack = false;
             raiseStack();
         }
-        pressButtonEnter();
+//        pressButtonEnter();
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
         registerLastX = registerX;
@@ -488,6 +504,27 @@ public class MtCalculator {
     /**
      *
      */
+    private void pressButtonArcSin() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = MtNumber.arcSin(registerX.getNumber());
+        if (degMode) {
+            wrkNumber = MtNumber.radToDeg(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(wrkNumber);
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        autoEnter = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
     private void pressButtonCos() {
         indF = false;
         MtNumber wrkNumber;
@@ -509,6 +546,27 @@ public class MtCalculator {
     /**
      *
      */
+    private void pressButtonArcCos() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = MtNumber.arcCos(registerX.getNumber());
+        if (degMode) {
+            wrkNumber = MtNumber.radToDeg(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(wrkNumber);
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        autoEnter = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
     private void pressButtonTan() {
         indF = false;
         MtNumber wrkNumber;
@@ -519,6 +577,27 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.tan(wrkNumber));
+        registerX = register;
+        registerLastX = registerX;
+        registerT = registerZ;
+        eraseDisplay = true;
+        autoEnter = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    private void pressButtonArcTan() {
+        indF = false;
+        MtNumber wrkNumber;
+        wrkNumber = MtNumber.arcTan(registerX.getNumber());
+        if (degMode) {
+            wrkNumber = MtNumber.radToDeg(wrkNumber);
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(wrkNumber);
         registerX = register;
         registerLastX = registerX;
         registerT = registerZ;
@@ -760,10 +839,11 @@ public class MtCalculator {
             pressButtonXpowerY();
             return;
         }
-        if (forceRaiseStack) {
-            forceRaiseStack = false;
-            raiseStack();
-        }
+//        if (forceRaiseStack) {
+//            forceRaiseStack = false;
+//            raiseStack();
+//        }
+        raiseStack();
         registerX = registerS;
         eraseDisplay = true;
     }
@@ -815,9 +895,26 @@ public class MtCalculator {
     /**
      *
      */
+    private void pressButtonSqr() {
+        indF = false;
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
+        registerX = register;
+        registerLastX = registerX;
+        registerY = registerZ;
+        registerZ = registerT;
+        eraseDisplay = true;
+        autoEnter = true;
+        forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
     public void pressButtonSwapXandY() {
         if (indF) {
-            pressButtonOneDivideByX();
+            pressButtonSqr();
             return;
         }
         MtRegister register;

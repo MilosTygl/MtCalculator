@@ -205,9 +205,38 @@ public class MtNumber {
      * @param n
      * @return
      */
+    public static MtNumber radToDeg(MtNumber n) {
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber();
+        BigDecimal bd;
+        bd = n.getNumber();
+        bd = bd.multiply(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
+        bd = bd.divide(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
+        wrkNumber.setNumber(bd);
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
     public static MtNumber sin(MtNumber n) {
         double x;
         x = Math.sin(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    public static MtNumber arcSin(MtNumber n) {
+        double x;
+        x = Math.asin(n.getNumber().doubleValue());
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
@@ -231,9 +260,35 @@ public class MtNumber {
      * @param n
      * @return
      */
+    public static MtNumber arcCos(MtNumber n) {
+        double x;
+        x = Math.acos(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
     public static MtNumber tan(MtNumber n) {
         double x;
         x = Math.tan(n.getNumber().doubleValue());
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        return wrkNumber;
+    }
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    public static MtNumber arcTan(MtNumber n) {
+        double x;
+        x = Math.atan(n.getNumber().doubleValue());
         MtNumber wrkNumber;
         wrkNumber = new MtNumber(BigDecimal.valueOf(x));
         return wrkNumber;
