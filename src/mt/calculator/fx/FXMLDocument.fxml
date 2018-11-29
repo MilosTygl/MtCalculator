@@ -217,12 +217,12 @@
          </padding>
       </Label>
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="90.0" layoutY="285.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
-      <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
+      <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
+      <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -246,8 +246,14 @@
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
-      <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+      <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
          <font>
             <Font size="14.0" />
@@ -261,14 +267,23 @@
       <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
       <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+      <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="185.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
-      <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="185.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+      <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+      <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />

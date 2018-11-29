@@ -101,7 +101,7 @@ public class MtNumber {
      * @param n
      * @return
      */
-    public static MtNumber sqrRoot(MtNumber n) {
+    public static MtNumber squareRoot(MtNumber n) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
         BigDecimal x;

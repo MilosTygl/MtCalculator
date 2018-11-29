@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
         LOGGER.debug("begin");
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
-        calculator.refreshStatus();
+//        calculator.refreshStatus();
         instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
         displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());

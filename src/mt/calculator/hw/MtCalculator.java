@@ -76,10 +76,10 @@ public class MtCalculator {
         return INSTANCE;
     }
 
-    public void refreshStatus() {
-        // @TODO Implement logic here
-    }
-
+//    public void refreshStatus() {
+//        // @TODO Implement logic here
+//    }
+//    
     /**
      *
      * @return
@@ -245,7 +245,7 @@ public class MtCalculator {
      */
     public void pressButtonCLR() {
         if (indF) {
-            pressButtonOneDivideByX();
+            pressButtonReciprocal();
             return;
         }
         registerX = new MtRegister();
@@ -427,7 +427,7 @@ public class MtCalculator {
      */
     public void pressButton9() {
         if (indF) {
-            pressButtonTenPowX();
+            pressButtonTenPowerX();
             return;
         }
         pressButtonDigit(9L);
@@ -439,14 +439,13 @@ public class MtCalculator {
      */
     private void pressButtonPi() {
         indF = false;
+        registerLastX = registerX;
         if (forceRaiseStack) {
             forceRaiseStack = false;
             raiseStack();
         }
-//        pressButtonEnter();
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
-        registerLastX = registerX;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -471,8 +470,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.add(registerY.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -493,8 +492,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.sin(wrkNumber));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -514,8 +513,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(wrkNumber);
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -535,8 +534,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.cos(wrkNumber));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -556,8 +555,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(wrkNumber);
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -577,8 +576,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.tan(wrkNumber));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -598,8 +597,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(wrkNumber);
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerT = registerZ;
         eraseDisplay = true;
         autoEnter = true;
@@ -614,8 +613,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ln(registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -629,8 +628,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ePowX(registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -644,8 +643,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.log(registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -654,13 +653,13 @@ public class MtCalculator {
     /**
      *
      */
-    private void pressButtonTenPowX() {
+    private void pressButtonTenPowerX() {
         indF = false;
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -677,8 +676,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.subtract(registerY.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -693,8 +692,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerY.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -709,8 +708,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.divide(registerY.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -725,8 +724,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         forceRaiseStack = true;
     }
 
@@ -759,7 +758,6 @@ public class MtCalculator {
         registerY = registerZ;
         registerZ = registerT;
         registerT = register;
-        registerLastX = registerX;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -774,7 +772,6 @@ public class MtCalculator {
         registerZ = registerY;
         registerY = registerX;
         registerX = register;
-        registerLastX = registerX;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
@@ -792,8 +789,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.pow(registerY.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -822,8 +819,8 @@ public class MtCalculator {
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.pow(registerX.getNumber(), registerY.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -843,6 +840,7 @@ public class MtCalculator {
 //            forceRaiseStack = false;
 //            raiseStack();
 //        }
+        registerLastX = registerX;
         raiseStack();
         registerX = registerS;
         eraseDisplay = true;
@@ -851,13 +849,13 @@ public class MtCalculator {
     /**
      *
      */
-    public void pressButtonSqrt() {
+    private void pressButtonSquareRoot() {
         indF = false;
         MtRegister register;
         register = new MtRegister();
-        register.setNumber(MtNumber.sqrRoot(registerX.getNumber()));
-        registerX = register;
+        register.setNumber(MtNumber.squareRoot(registerX.getNumber()));
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -868,9 +866,10 @@ public class MtCalculator {
      */
     public void pressButtonLastX() {
         if (indF) {
-            pressButtonSqrt();
+            pressButtonSquareRoot();
             return;
         }
+        raiseStack();
         registerX = registerLastX;
         eraseDisplay = true;
         forceRaiseStack = true;
@@ -879,14 +878,14 @@ public class MtCalculator {
     /**
      *
      */
-    public void pressButtonOneDivideByX() {
+    public void pressButtonReciprocal() {
         indF = false;
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ONE);
         register.setNumber(MtNumber.divide(register.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         eraseDisplay = true;
         autoEnter = true;
         forceRaiseStack = true;
@@ -895,13 +894,13 @@ public class MtCalculator {
     /**
      *
      */
-    private void pressButtonSqr() {
+    private void pressButtonSquare() {
         indF = false;
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
-        registerX = register;
         registerLastX = registerX;
+        registerX = register;
         registerY = registerZ;
         registerZ = registerT;
         eraseDisplay = true;
@@ -914,20 +913,20 @@ public class MtCalculator {
      */
     public void pressButtonSwapXandY() {
         if (indF) {
-            pressButtonSqr();
+            pressButtonSquare();
             return;
         }
+        registerLastX = registerX;
         MtRegister register;
         register = registerX;
         registerX = registerY;
         registerY = register;
-        registerLastX = registerX;
         eraseDisplay = true;
         forceRaiseStack = true;
     }
 
     /**
-     *
+     * Set all display mode indicators to their defaults
      */
     private void clearMode() {
         autoMode = false;
