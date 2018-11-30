@@ -22,7 +22,8 @@ public class Main extends Application {
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("MT Calculator JavaFX");
+        stage.setTitle("MT Calculator JavaFX beta");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 
@@ -31,6 +32,7 @@ public class Main extends Application {
 
     @Override
     public void stop() {
+
         LOGGER.debug("begin");
 
         LOGGER.debug("end");
