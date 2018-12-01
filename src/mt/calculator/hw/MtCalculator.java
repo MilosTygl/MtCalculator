@@ -5,6 +5,10 @@ import java.math.BigInteger;
 import java.text.DecimalFormat;
 import org.apache.log4j.Logger;
 
+/**
+ *
+ * @author milos.tygl
+ */
 public class MtCalculator {
 
     private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
@@ -237,11 +241,17 @@ public class MtCalculator {
         indF = !indF;
     }
 
+    /**
+     *
+     */
     public void pressButtonDeg() {
         radMode = false;
         degMode = true;
     }
 
+    /**
+     *
+     */
     public void pressButtonRad() {
         degMode = false;
         radMode = true;
@@ -880,6 +890,9 @@ public class MtCalculator {
         registerS = new MtRegister();
     }
 
+    /**
+     *
+     */
     private void pressButtonYpowerX() {
         indF = false;
         MtRegister register;

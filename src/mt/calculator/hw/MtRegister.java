@@ -2,6 +2,10 @@ package mt.calculator.hw;
 
 import org.apache.log4j.Logger;
 
+/**
+ * 
+ * @author milos.tygl
+ */
 public class MtRegister {
 
     private static final Logger LOGGER = Logger.getLogger(MtRegister.class);

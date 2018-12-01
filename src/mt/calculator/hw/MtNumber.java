@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import org.apache.log4j.Logger;
 
+/**
+ * 
+ * @author milos.tygl
+ */
 public class MtNumber {
 
     private static final Logger LOGGER = Logger.getLogger(MtNumber.class);
