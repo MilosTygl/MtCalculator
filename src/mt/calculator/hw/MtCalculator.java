@@ -298,6 +298,7 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
+            pressButtonFloat();
             return;
         }
         releaseButtonEEX();
@@ -533,6 +534,7 @@ public class MtCalculator {
      */
     private void pressButtonPi() {
         indF = false;
+        releaseButtonEEX();
         registerLastX = registerX;
         if (forceRaiseStack) {
             forceRaiseStack = false;
@@ -579,6 +581,7 @@ public class MtCalculator {
      */
     private void pressButtonSin() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
         if (degMode) {
@@ -600,6 +603,7 @@ public class MtCalculator {
      */
     private void pressButtonArcSin() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcSin(registerX.getNumber());
         if (degMode) {
@@ -621,6 +625,7 @@ public class MtCalculator {
      */
     private void pressButtonCos() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
         if (degMode) {
@@ -642,6 +647,7 @@ public class MtCalculator {
      */
     private void pressButtonArcCos() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcCos(registerX.getNumber());
         if (degMode) {
@@ -663,6 +669,7 @@ public class MtCalculator {
      */
     private void pressButtonTan() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
         if (degMode) {
@@ -684,6 +691,7 @@ public class MtCalculator {
      */
     private void pressButtonArcTan() {
         indF = false;
+        releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcTan(registerX.getNumber());
         if (degMode) {
@@ -705,6 +713,7 @@ public class MtCalculator {
      */
     private void pressButtonLn() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ln(registerX.getNumber()));
@@ -720,6 +729,7 @@ public class MtCalculator {
      */
     private void pressButtonEPowX() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ePowX(registerX.getNumber()));
@@ -735,6 +745,7 @@ public class MtCalculator {
      */
     private void pressButtonLog() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.log(registerX.getNumber()));
@@ -750,6 +761,7 @@ public class MtCalculator {
      */
     private void pressButtonTenPowerX() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
@@ -895,6 +907,7 @@ public class MtCalculator {
      */
     private void pressButtonYpowerX() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.pow(registerY.getNumber(), registerX.getNumber()));
@@ -915,6 +928,7 @@ public class MtCalculator {
             pressButtonYpowerX();
             return;
         }
+        releaseButtonEEX();
         forceRaiseStack = false;
         registerS = registerX;
         eraseDisplay = true;
@@ -925,6 +939,7 @@ public class MtCalculator {
      */
     private void pressButtonXpowerY() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.pow(registerX.getNumber(), registerY.getNumber()));
@@ -960,6 +975,7 @@ public class MtCalculator {
      */
     private void pressButtonSquareRoot() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.squareRoot(registerX.getNumber()));
@@ -991,6 +1007,7 @@ public class MtCalculator {
      */
     public void pressButtonReciprocal() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.ONE);
@@ -1007,6 +1024,7 @@ public class MtCalculator {
      */
     private void pressButtonSquare() {
         indF = false;
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
