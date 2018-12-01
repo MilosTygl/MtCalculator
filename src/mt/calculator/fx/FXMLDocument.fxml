@@ -287,7 +287,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
-      <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="152.0" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
+      <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="172.0" prefHeight="32.0" prefWidth="60.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
          <font>
             <Font name="Lucida Console" size="24.0" />
          </font>
@@ -295,5 +295,7 @@
             <Insets right="10.0" />
          </padding>
       </Label>
+      <Label fx:id="labelExponent" layoutX="28.0" layoutY="152.0" prefHeight="17.0" prefWidth="60.0" text="Exponent:" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="351.0" prefWidth="60.0" text="CL EX" textFill="RED" />
     </children>
 </AnchorPane>

@@ -250,25 +250,37 @@ public class MtCalculator {
     /**
      *
      */
+    private void pressButtonCLEX() {
+        indF = false;
+        exponentPositions = 0;
+        exponent = new MtRegister();
+    }
+
+    /**
+     *
+     */
     public void pressButtonEEX() {
-        if (exponentPressed) {
-            exponentPressed = false;
-            exponentPositions = 0;
-            if (exponent.getNumber().getNumber().intValue()==0) {
-                return;
-            }
-            MtRegister register;
-            register = new MtRegister();
-            register.setNumber(MtNumber.tenPowX(exponent.getNumber()));
-            register.setNumber(MtNumber.multiply(registerX.getNumber(), register.getNumber()));
-            registerLastX = registerX;
-            registerX = register;
-            exponent = new MtRegister();
-            forceRaiseStack = true;
-        } else {
+        if (indF) {
+            pressButtonCLEX();
+            return;
+        }
+        if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
+            return;
         }
+        exponentPressed = false;
+        exponentPositions = 0;
+        if (exponent.getNumber().getNumber().intValue() == 0) {
+            return;
+        }
+        MtRegister register;
+        register = new MtRegister();
+        register.setNumber(MtNumber.tenPowX(exponent.getNumber()));
+        register.setNumber(MtNumber.multiply(registerX.getNumber(), register.getNumber()));
+        registerX = register;
+        exponent = new MtRegister();
+        forceRaiseStack = true;
     }
 
     /**
