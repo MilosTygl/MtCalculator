@@ -22,6 +22,9 @@ public class FXMLDocumentController implements Initializable {
     private Label displayRegisterX;
 
     @FXML
+    private Label displayExponent;
+
+    @FXML
     private Label displayRegisterLastX;
 
     @FXML
@@ -64,6 +67,8 @@ public class FXMLDocumentController implements Initializable {
 //        calculator.refreshStatus();
         instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
+        displayExponent.textProperty().setValue(calculator.exponentFormatedString());
+        displayExponent.setVisible(calculator.isExponentPressed());
         displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());
         displayRegisterY.textProperty().setValue(calculator.registerYFormatedString());
         displayRegisterZ.textProperty().setValue(calculator.registerZFormatedString());

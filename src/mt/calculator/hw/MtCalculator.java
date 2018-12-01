@@ -14,6 +14,7 @@ public class MtCalculator {
     private long instanceUseCount;
 
     private MtRegister registerX;
+    private MtRegister exponent;
     private MtRegister registerLastX;
     private MtRegister registerY;
     private MtRegister registerZ;
@@ -36,6 +37,8 @@ public class MtCalculator {
     private boolean eraseDisplay;
     private boolean decimalPointPressed;
     private int decimalPositions;
+    private boolean exponentPressed;
+    private int exponentPositions;
 
     /**
      *
@@ -45,6 +48,7 @@ public class MtCalculator {
         this.instanceUseCount = 0;
         this.eraseDisplay = false;
         this.registerX = new MtRegister();
+        this.exponent = new MtRegister();
         this.registerLastX = new MtRegister();
         this.registerY = new MtRegister();
         this.registerZ = new MtRegister();
@@ -62,6 +66,8 @@ public class MtCalculator {
         this.forceRaiseStack = true;
         this.decimalPointPressed = false;
         this.decimalPositions = 0;
+        this.exponentPressed = false;
+        this.exponentPositions = 0;
     }
 
     /**
@@ -86,6 +92,14 @@ public class MtCalculator {
      */
     public MtRegister getRegisterX() {
         return registerX;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public MtRegister getExponent() {
+        return exponent;
     }
 
     /**
@@ -237,7 +251,32 @@ public class MtCalculator {
      *
      */
     public void pressButtonEEX() {
-        // @TODO Implement logic here
+        if (exponentPressed) {
+            exponentPressed = false;
+            exponentPositions = 0;
+            if (exponent.getNumber().getNumber().intValue()==0) {
+                return;
+            }
+            MtRegister register;
+            register = new MtRegister();
+            register.setNumber(MtNumber.tenPowX(exponent.getNumber()));
+            register.setNumber(MtNumber.multiply(registerX.getNumber(), register.getNumber()));
+            registerLastX = registerX;
+            registerX = register;
+            exponent = new MtRegister();
+            forceRaiseStack = true;
+        } else {
+            exponentPressed = true;
+            exponentPositions = 1;
+        }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isExponentPressed() {
+        return exponentPressed;
     }
 
     /**
@@ -285,6 +324,25 @@ public class MtCalculator {
      *
      * @param digit
      */
+    private void pressButtonDigitExponent(long digit) {
+        if (exponentPositions > 2) {
+            return;
+        }
+        if (exponentPositions == 1) {
+            exponent.setNumber(new MtNumber(BigDecimal.valueOf(digit)));
+            exponentPositions++;
+            return;
+        }
+        long exp = exponent.getNumber().getNumber().longValue();
+        exp = exp * 10 + digit;
+        exponent.setNumber(new MtNumber(BigDecimal.valueOf(exp)));
+        exponentPositions++;
+    }
+
+    /**
+     *
+     * @param digit
+     */
     private void pressButtonDigitData(long digit) {
         if (autoEnter) {
             pressButtonEnter();
@@ -295,6 +353,10 @@ public class MtCalculator {
             eraseDisplay = false;
             decimalPositions = 0;
             decimalPointPressed = false;
+        }
+        if (exponentPressed) {
+            pressButtonDigitExponent(digit);
+            return;
         }
         MtNumber number;
         number = registerX.getNumber();
@@ -721,6 +783,13 @@ public class MtCalculator {
      *
      */
     public void pressButtonCHS() {
+        if (exponentPressed) {
+            MtRegister wrkExponent;
+            wrkExponent = new MtRegister();
+            wrkExponent.setNumber(MtNumber.multiply(exponent.getNumber(), new MtNumber(-1L)));
+            exponent = wrkExponent;
+            return;
+        }
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
@@ -1104,5 +1173,20 @@ public class MtCalculator {
      */
     public String registerSFormatedString() {
         return registerFormatedString(registerS);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String exponentFormatedString() {
+        String string;
+        string = exponent.getNumber().getNumber().toPlainString();
+        final int maxDigits;
+        maxDigits = 3;
+        if (string.length() > maxDigits) {
+            string = string.substring(0, maxDigits);
+        }
+        return string;
     }
 }

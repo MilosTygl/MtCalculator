@@ -217,12 +217,12 @@
          </padding>
       </Label>
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="90.0" layoutY="285.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
-      <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X" textFill="WHITE">
+      <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX" textFill="WHITE">
+      <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
          <font>
             <Font size="14.0" />
          </font>
@@ -287,5 +287,13 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
+      <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="152.0" prefHeight="50.0" prefWidth="76.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
+         <font>
+            <Font name="Lucida Console" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </Label>
     </children>
 </AnchorPane>
