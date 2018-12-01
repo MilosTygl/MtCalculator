@@ -259,14 +259,8 @@ public class MtCalculator {
     /**
      *
      */
-    public void pressButtonEEX() {
-        if (indF) {
-            pressButtonCLEX();
-            return;
-        }
+    private void releaseButtonEEX() {
         if (!exponentPressed) {
-            exponentPressed = true;
-            exponentPositions = 1;
             return;
         }
         exponentPressed = false;
@@ -281,6 +275,22 @@ public class MtCalculator {
         registerX = register;
         exponent = new MtRegister();
         forceRaiseStack = true;
+    }
+
+    /**
+     *
+     */
+    public void pressButtonEEX() {
+        if (indF) {
+            pressButtonCLEX();
+            return;
+        }
+        if (!exponentPressed) {
+            exponentPressed = true;
+            exponentPositions = 1;
+            return;
+        }
+        releaseButtonEEX();
     }
 
     /**
@@ -541,6 +551,7 @@ public class MtCalculator {
      *
      */
     public void pressButtonAdd() {
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.add(registerY.getNumber(), registerX.getNumber()));
@@ -747,6 +758,7 @@ public class MtCalculator {
             pressButtonLn();
             return;
         }
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.subtract(registerY.getNumber(), registerX.getNumber()));
@@ -763,6 +775,7 @@ public class MtCalculator {
      *
      */
     public void pressButtonMultiply() {
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerY.getNumber(), registerX.getNumber()));
@@ -779,6 +792,7 @@ public class MtCalculator {
      *
      */
     public void pressButtonDivide() {
+        releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.divide(registerY.getNumber(), registerX.getNumber()));
@@ -824,6 +838,7 @@ public class MtCalculator {
      *
      */
     public void pressButtonEnter() {
+        releaseButtonEEX();
         raiseStack();
         forceRaiseStack = false;
         eraseDisplay = true;
