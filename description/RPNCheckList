@@ -1,0 +1,63 @@
+RPN Tutorial - test
+
+https://hansklav.home.xs4all.nl/rpn/
+
+RPN Cheat Sheet
+1. pass
+2. pass
+3. pass
+4. pass
+5. pass
+6. pass
+7. fail because of a four-level stack
+
+Basics of RPN
+1. One number calculations
+Ex I. pass
+Ex II. factorial is not imlemented yet
+Ex III. pass
+
+2. Two-number calculations
+Ex IV. pass
+Ex V. pass
+Ex VI. pass
+Ex VII. pass
+Ex VIII. % is not implemented yet
+
+3. Serial calculations  like 12 + 34 + 56 – 78 + 90 – 12
+Ex IX. pass
+
+4. Chain calculations
+Ex X. pass
+Ex XI. pass
+Ex XII. pass
+
+Finer details of RPN
+5. Nested calculations
+Ex XIII. pass
+Ex XIV. fail: but result is 276 as is expected for four-level stack
+Ex XV. pass
+
+6. Use swap x and y
+Ex XVI. pass
+Ex XVII. pass
+Ex XVIII. pass
+Ex XIX. pass
+Ex XX. pass
+Ex XXI. fail: I need to press ENTER before PI to obtain a correct result
+Ex XXII. pass
+
+7. Use STO and RCL
+Ex XXIII. pass
+Ex XXIV. pass
+Ex XXV. pass
+Ex XXVI. pass
+Ex XXVII. pass
+
+Appendices
+Appendix A.  The Stack
+Ex XXVIII. pass
+
+Appendix B.  LAST x
+
+

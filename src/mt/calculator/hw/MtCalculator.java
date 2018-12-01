@@ -965,7 +965,9 @@ public class MtCalculator {
             pressButtonSquareRoot();
             return;
         }
-        raiseStack();
+        registerT = registerZ;
+        registerZ = registerY;
+        registerY = registerX;
         registerX = registerLastX;
         eraseDisplay = true;
         forceRaiseStack = true;
