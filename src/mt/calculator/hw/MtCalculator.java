@@ -298,7 +298,7 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
-            pressButtonFloat();
+//            pressButtonFloat();
             return;
         }
         releaseButtonEEX();
