@@ -11,6 +11,10 @@ import javafx.scene.control.Label;
 import mt.calculator.hw.MtCalculator;
 import org.apache.log4j.Logger;
 
+/**
+ *
+ * @author milos.tygl
+ */
 public class FXMLDocumentController implements Initializable {
 
     private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
@@ -63,11 +67,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label indRadMode;
 
+    /**
+     *
+     */
     private void refreshLabel() {
         LOGGER.debug("begin");
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
-//        calculator.refreshStatus();
         instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
         displayExponent.textProperty().setValue(calculator.exponentFormatedString());
@@ -89,215 +95,360 @@ public class FXMLDocumentController implements Initializable {
         LOGGER.debug("end");
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonDegAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDeg();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonRadAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRad();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonFAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonF();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonEEXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEEX();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonCLXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCLX();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonCLRAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCLR();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton0Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton0();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton1Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton1();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton2Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton2();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton3Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton3();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton4Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton4();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton5Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton5();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton6Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton6();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton7Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton7();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton8Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton8();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButton9Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton9();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonCHSAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCHS();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonDecimalPointAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDecimalPoint();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonAddAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonAdd();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonSubtractAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSubtract();
         refreshLabel();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     private void handleButtonMultiplyAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonMultiply();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonDivideAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDivide();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonEnterAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEnter();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonRollDownAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRollDown();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonRollUpAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRollUp();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonSwapXandYAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSwapXandY();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonSTOAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSTO();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonRCLAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRCL();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonLastXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonLastX();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonOffAction(ActionEvent event) {
         Platform.exit();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonResetAction(ActionEvent event) {
         MtCalculator.pressButtonReset();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonAutoAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonAuto();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonFixAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonFix();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonFloatAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonFloat();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param event 
+     */
     @FXML
     private void handleButtonEngAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEng();
         refreshLabel();
     }
 
+    /**
+     * 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         refreshLabel();

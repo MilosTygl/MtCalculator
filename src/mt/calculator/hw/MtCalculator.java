@@ -86,10 +86,6 @@ public class MtCalculator {
         return INSTANCE;
     }
 
-//    public void refreshStatus() {
-//        // @TODO Implement logic here
-//    }
-//    
     /**
      *
      * @return
@@ -298,7 +294,6 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
-//            pressButtonFloat();
             return;
         }
         releaseButtonEEX();
@@ -960,10 +955,6 @@ public class MtCalculator {
             pressButtonXpowerY();
             return;
         }
-//        if (forceRaiseStack) {
-//            forceRaiseStack = false;
-//            raiseStack();
-//        }
         registerLastX = registerX;
         raiseStack();
         registerX = registerS;
@@ -1128,7 +1119,7 @@ public class MtCalculator {
      */
     private String getFloatModeDecimalFormatString() {
         String decimalFormatString;
-        decimalFormatString = "0.000000000E00";
+        decimalFormatString = "0.00000000E00";
         return decimalFormatString;
 
     }
