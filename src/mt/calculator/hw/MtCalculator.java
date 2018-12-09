@@ -3,6 +3,7 @@ package mt.calculator.hw;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+import mt.calculator.utils.properties.PropertyFileUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -43,6 +44,9 @@ public class MtCalculator {
     private int decimalPositions;
     private boolean exponentPressed;
     private int exponentPositions;
+    
+    private String k1 = "k1";
+    private String v1;
 
     /**
      *
@@ -72,6 +76,9 @@ public class MtCalculator {
         this.decimalPositions = 0;
         this.exponentPressed = false;
         this.exponentPositions = 0;
+        
+        PropertyFileUtils propertyFileUtils = PropertyFileUtils.getInstance();
+        this.v1 = propertyFileUtils.getProperty(this.k1);
     }
 
     /**
