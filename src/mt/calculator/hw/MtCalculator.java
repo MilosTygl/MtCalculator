@@ -44,9 +44,9 @@ public class MtCalculator {
     private int decimalPositions;
     private boolean exponentPressed;
     private int exponentPositions;
-    
-    private String k1 = "k1";
-    private String v1;
+
+    private final String k1 = "k1";
+    private final String v1;
 
     /**
      *
@@ -76,8 +76,9 @@ public class MtCalculator {
         this.decimalPositions = 0;
         this.exponentPressed = false;
         this.exponentPositions = 0;
-        
-        PropertyFileUtils propertyFileUtils = PropertyFileUtils.getInstance();
+
+        PropertyFileUtils propertyFileUtils;
+        propertyFileUtils = PropertyFileUtils.getInstance();
         this.v1 = propertyFileUtils.getProperty(this.k1);
     }
 
@@ -86,9 +87,16 @@ public class MtCalculator {
      * @return
      */
     public static MtCalculator getInstance() {
+
+        LOGGER.debug("getInstance");
+
         if (INSTANCE == null) {
             INSTANCE = new MtCalculator();
+            LOGGER.debug("New instance");
+        } else {
+            LOGGER.debug("Old instance");
         }
+
         INSTANCE.instanceUseCount++;
         return INSTANCE;
     }

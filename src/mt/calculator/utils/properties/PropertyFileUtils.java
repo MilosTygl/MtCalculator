@@ -42,7 +42,7 @@ public class PropertyFileUtils {
      */
     public static PropertyFileUtils getInstance() {
 
-        LOGGER.debug("get");
+        LOGGER.debug("getInstance");
 
         if (INSTANCE == null) {
             INSTANCE = new PropertyFileUtils();
