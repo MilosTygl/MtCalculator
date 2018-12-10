@@ -3,7 +3,7 @@ package mt.calculator.utils.properties;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import mt.calculator.config.PropertyConf;
+import mt.calculator.config.PropertyConfig;
 import org.apache.log4j.Logger;
 
 /**
@@ -28,7 +28,7 @@ public class PropertyFileUtils {
 
         try {
             FileInputStream fileInputStream;
-            fileInputStream = new FileInputStream(PropertyConf.getPropertyFilePath());
+            fileInputStream = new FileInputStream(PropertyConfig.getPropertyFilePath());
             properties.load(fileInputStream);
             fileInputStream.close();
         } catch (IOException ex) {
