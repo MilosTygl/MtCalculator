@@ -44,6 +44,7 @@ public class MtCalculator {
     private int decimalPositions;
     private boolean exponentPressed;
     private int exponentPositions;
+    private boolean debugMode;
 
     private final String k1 = "k1";
     private final String v1;
@@ -99,6 +100,14 @@ public class MtCalculator {
 
         INSTANCE.instanceUseCount++;
         return INSTANCE;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isDebugMode() {
+        return debugMode;
     }
 
     /**
@@ -870,6 +879,11 @@ public class MtCalculator {
      *
      */
     public void pressButtonEnter() {
+        if (indF) {
+            indF = false;
+            debugMode = !debugMode;
+            return;
+        }
         releaseButtonEEX();
         raiseStack();
         forceRaiseStack = false;
@@ -1134,7 +1148,7 @@ public class MtCalculator {
      */
     private String getFloatModeDecimalFormatString() {
         String decimalFormatString;
-        decimalFormatString = "0.00000000E00";
+        decimalFormatString = "0.000000000000E00";
         return decimalFormatString;
 
     }
@@ -1145,7 +1159,7 @@ public class MtCalculator {
      */
     private String getEngModeDecimalFormatString() {
         String decimalFormatString;
-        decimalFormatString = "##0.0000000E00";
+        decimalFormatString = "##0.000000000000E00";
         return decimalFormatString;
     }
 
@@ -1158,7 +1172,7 @@ public class MtCalculator {
         String string;
         string = register.getNumber().getNumber().toPlainString();
         final int maxDigits;
-        maxDigits = 15;
+        maxDigits = 20;
         if (string.length() > maxDigits) {
             string = string.substring(0, maxDigits);
         }
@@ -1186,9 +1200,14 @@ public class MtCalculator {
         String string;
         string = decimalFormat.format(register.getNumber().getNumber());
         if (string.contains("E-")) {
-            string = string.replaceFirst("E", " ");
         } else {
-            string = string.replaceFirst("E", "  ");
+            string = string.replaceFirst("E", "E ");
+        }
+        if (string.contains("E")) {
+            int i = string.indexOf("E");
+            String stringMantissa = string.substring(0, 12);
+            String stringExponent = string.substring(i + 1);
+            string = stringMantissa + stringExponent;
         }
         return string;
     }

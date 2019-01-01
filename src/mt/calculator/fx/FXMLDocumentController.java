@@ -3,10 +3,14 @@ package mt.calculator.fx;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Shape;
+import mt.calculator.hw.LedDigit;
 
 import mt.calculator.hw.MtCalculator;
 import org.apache.log4j.Logger;
@@ -18,6 +22,15 @@ import org.apache.log4j.Logger;
 public class FXMLDocumentController implements Initializable {
 
     private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
+
+    @FXML
+    private Pane normalDisplayPane;
+
+    @FXML
+    private Pane displayPane;
+
+    @FXML
+    private Pane debugDisplayPane;
 
     @FXML
     private Label instanceUseCount;
@@ -75,6 +88,7 @@ public class FXMLDocumentController implements Initializable {
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
         instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
+        displayString = calculator.registerXFormatedString();
         displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
         displayExponent.textProperty().setValue(calculator.exponentFormatedString());
         displayExponent.setVisible(calculator.isExponentPressed());
@@ -92,7 +106,71 @@ public class FXMLDocumentController implements Initializable {
         indF.setVisible(calculator.isIndF());
         indDegMode.setVisible(calculator.isDegMode());
         indRadMode.setVisible(calculator.isRadMode());
+        displayNumber();
+        normalDisplayPane.setVisible(!calculator.isDebugMode());
+        debugDisplayPane.setVisible(calculator.isDebugMode());
         LOGGER.debug("end");
+    }
+
+    private String displayString;
+
+    /**
+     *
+     * @param pos
+     * @return
+     */
+    private char digitFromDisplayString(int pos) {
+        if (pos < 0) {
+            return ' ';
+        }
+        if (displayString == null) {
+            return ' ';
+        }
+        if (displayString.length() == 0) {
+            return ' ';
+        }
+        if (displayString.length() < pos + 1) {
+            return ' ';
+        }
+        char displayDigit = displayString.charAt(pos);
+        return displayDigit;
+    }
+
+    /**
+     *
+     */
+    private void displayNumber() {
+        ObservableList observableListDisplayPane = displayPane.getChildren();
+        Object[] objectDisplayPane = observableListDisplayPane.toArray();
+        int displayStringIndex = -1;
+
+        for (Object objectDigitPane : objectDisplayPane) {
+            Pane digitPane = (Pane) objectDigitPane;
+            ObservableList observableListDigitPane = digitPane.getChildren();
+            Object[] objectDigitSegment = observableListDigitPane.toArray();
+
+            Shape shapeDigitSegmentA = (Shape) objectDigitSegment[0];
+            Shape shapeDigitSegmentB = (Shape) objectDigitSegment[1];
+            Shape shapeDigitSegmentC = (Shape) objectDigitSegment[2];
+            Shape shapeDigitSegmentD = (Shape) objectDigitSegment[3];
+            Shape shapeDigitSegmentE = (Shape) objectDigitSegment[4];
+            Shape shapeDigitSegmentF = (Shape) objectDigitSegment[5];
+            Shape shapeDigitSegmentG = (Shape) objectDigitSegment[6];
+            Shape shapeDigitSegmentP = (Shape) objectDigitSegment[7];
+
+            displayStringIndex++;
+            char cx = digitFromDisplayString(displayStringIndex);
+            LedDigit ledDigit = new LedDigit(cx);
+
+            shapeDigitSegmentA.setVisible(ledDigit.isSegmentA());
+            shapeDigitSegmentB.setVisible(ledDigit.isSegmentB());
+            shapeDigitSegmentC.setVisible(ledDigit.isSegmentC());
+            shapeDigitSegmentD.setVisible(ledDigit.isSegmentD());
+            shapeDigitSegmentE.setVisible(ledDigit.isSegmentE());
+            shapeDigitSegmentF.setVisible(ledDigit.isSegmentF());
+            shapeDigitSegmentG.setVisible(ledDigit.isSegmentG());
+            shapeDigitSegmentP.setVisible(ledDigit.isSegmentP());
+        }
     }
 
     /**
@@ -306,8 +384,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonDivideAction(ActionEvent event) {
@@ -316,8 +394,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonEnterAction(ActionEvent event) {
@@ -326,8 +404,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonRollDownAction(ActionEvent event) {
@@ -336,8 +414,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonRollUpAction(ActionEvent event) {
@@ -346,8 +424,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonSwapXandYAction(ActionEvent event) {
@@ -356,8 +434,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonSTOAction(ActionEvent event) {
@@ -366,8 +444,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonRCLAction(ActionEvent event) {
@@ -376,8 +454,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonLastXAction(ActionEvent event) {
@@ -386,8 +464,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonOffAction(ActionEvent event) {
@@ -395,8 +473,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonResetAction(ActionEvent event) {
@@ -405,8 +483,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonAutoAction(ActionEvent event) {
@@ -415,8 +493,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonFixAction(ActionEvent event) {
@@ -425,8 +503,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonFloatAction(ActionEvent event) {
@@ -435,8 +513,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void handleButtonEngAction(ActionEvent event) {
@@ -445,9 +523,9 @@ public class FXMLDocumentController implements Initializable {
     }
 
     /**
-     * 
+     *
      * @param url
-     * @param rb 
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

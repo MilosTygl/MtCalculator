@@ -4,24 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mt.calculator.fx.FXMLDocumentController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="330.0" minHeight="-Infinity" minWidth="330.0" prefHeight="789.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mt.calculator.fx.FXMLDocumentController">
     <children>
         <Button fx:id="buttonOFF" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #7F0000;" text="OFF" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>
-        </Button>  
-        <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="25.0" layoutY="233.0" prefHeight="50.0" prefWidth="285.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
-            <font>
-                <Font name="Lucida Console" size="24.0" />
-            </font>
-            <padding>
-                <Insets right="10.0" />
-            </padding>
-        </Label>            
-         
+        </Button>            
         <Button fx:id="buttonEnter" layoutX="25.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonEnterAction" prefHeight="25.0" prefWidth="136.0" text="ENTER ↑">
             <font>
                 <Font size="14.0" />
@@ -117,42 +111,6 @@
                 <Font size="14.0" />
             </font>
         </Button>
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="206.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="179.0" prefHeight="25.0" prefWidth="20.0" text="Z:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="152.0" prefHeight="25.0" prefWidth="20.0" text="T:" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="110.0" layoutY="312.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
-        <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="206.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
-            <font>
-                <Font name="Lucida Console" size="14.0" />
-            </font>
-            <padding>
-                <Insets right="10.0" />
-            </padding>
-        </Label>
-        <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="179.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
-            <font>
-                <Font name="Lucida Console" size="14.0" />
-            </font>
-            <padding>
-                <Insets right="10.0" />
-            </padding>
-        </Label>
-        <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="152.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
-            <font>
-                <Font name="Lucida Console" size="14.0" />
-            </font>
-            <padding>
-                <Insets right="10.0" />
-            </padding>
-        </Label>
-        <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="312.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
-            <font>
-                <Font name="Lucida Console" size="14.0" />
-            </font>
-            <padding>
-                <Insets right="10.0" />
-            </padding>
-        </Label>
         <Button fx:id="buttonRollDown" layoutX="25.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollDownAction" prefHeight="25.0" prefWidth="60.0" text="R ↓">
             <font>
                 <Font size="14.0" />
@@ -197,7 +155,6 @@
         <Label fx:id="indFixMode" layoutX="105.0" layoutY="78.0" text="Fix" textFill="RED" />
         <Label fx:id="indFloatMode" layoutX="179.0" layoutY="78.0" text="Float" textFill="RED" />
         <Label fx:id="indEngMode" layoutX="253.0" layoutY="78.0" text="Eng" textFill="RED" />
-        <Label layoutX="28.0" layoutY="206.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
         <Button fx:id="buttonReset" layoutX="100.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #3F3F3F;" text="Reset" textFill="WHITE">
             <font>
                 <Font size="14.0" />
@@ -208,94 +165,337 @@
                 <Insets right="1" />
             </padding>
         </Label>
-      <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="135.0" layoutY="285.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #DFDFDF;" text="0" textFill="RED">
-         <font>
-            <Font name="Lucida Console" size="14.0" />
-         </font>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="90.0" layoutY="285.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
-      <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonRollUp" layoutX="100.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollUpAction" prefHeight="25.0" prefWidth="60.0" text="R ↑">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonF" layoutX="25.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonFAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #FFAA00;" text="F">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="470.0" prefWidth="60.0" text="CL S" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="470.0" prefWidth="60.0" text="1 / x" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
-      <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
-         <font>
-            <Font size="10.0" />
-         </font></Label>
-      <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
-         <font>
-            <Font size="10.0" />
-         </font></Label>
-      <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="buttonRad" layoutX="249.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
-      <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED">
-         <font>
-            <Font size="10.0" />
-         </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
-      <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
-         <font>
-            <Font size="10.0" />
-         </font></Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-      <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED">
-         <font>
-            <Font size="10.0" />
-         </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
-      <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="26.0" layoutY="170.0" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #dfdfdf;" text="0" textFill="RED">
-         <font>
-            <Font name="Lucida Console" size="24.0" />
-         </font>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
-      </Label>
-      <Label alignment="CENTER" layoutX="100.0" layoutY="351.0" prefWidth="60.0" text="CL EX" textFill="RED" />
-      <Label fx:id="labelExponent" layoutX="26.0" layoutY="152.0" text="EX" />
+        <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonRollUp" layoutX="100.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollUpAction" prefHeight="25.0" prefWidth="60.0" text="R ↑">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonF" layoutX="25.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonFAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #FFAA00;" text="F">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="470.0" prefWidth="60.0" text="CL S" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="470.0" prefWidth="60.0" text="1 / x" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
+        <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonRad" layoutX="249.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
+        <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+        <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+        <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+        <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
+        <Label alignment="CENTER" layoutX="100.0" layoutY="351.0" prefWidth="60.0" text="CL EX" textFill="RED" />
+        <Pane fx:id="debugDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;">
+            <children>
+                <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="8.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="35.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="62.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>  
+                <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="20.0" layoutY="89.0" prefHeight="50.0" prefWidth="285.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="24.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="141.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="168.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="7.0" prefHeight="25.0" prefWidth="20.0" text="T:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="35.0" prefHeight="25.0" prefWidth="20.0" text="Z:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="61.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="144.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="170.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
+                <Label layoutX="20.0" layoutY="64.0" prefHeight="21.0" prefWidth="20.0" text="X:" />
+                <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="20.0" layoutY="29.0" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #BFBFBF" text="0" textFill="RED">
+                    <font>
+                        <Font name="Lucida Console" size="24.0" />
+                    </font>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="labelExponent" layoutX="20.0" layoutY="10.0" text="EX" />
+            </children>
+        </Pane>
+        <Pane fx:id="normalDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;">
+            <children>
+                <Pane fx:id="displayPane" layoutX="4.0" layoutY="16.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
+                    <children>
+                        <Pane layoutX="5.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="25.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="45.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="65.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="85.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="105.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="125.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="145.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="165.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="185.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="205.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="225.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="245.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="265.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="285.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
+                            <children>                 
+                                <Line endX="7.0" layoutX="6.0" layoutY="6.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="15.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="28.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="19.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endY="7.0" layoutX="4.0" layoutY="8.0" stroke="RED" strokeWidth="2.0" />
+                                <Line endX="7.0" layoutX="6.0" layoutY="17.0" stroke="RED" strokeWidth="2.0" />
+                                <Circle fill="RED" layoutX="10.0" layoutY="23.0" radius="2.0" stroke="RED" strokeType="INSIDE" />
+                            </children>
+                        </Pane>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+      <Label alignment="CENTER" layoutX="13.0" layoutY="470.0" prefWidth="60.0" text="Debug" textFill="RED" />
     </children>
 </AnchorPane>
