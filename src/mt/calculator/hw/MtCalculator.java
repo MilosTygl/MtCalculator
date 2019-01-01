@@ -1204,9 +1204,12 @@ public class MtCalculator {
             string = string.replaceFirst("E", "E ");
         }
         if (string.contains("E")) {
-            int i = string.indexOf("E");
-            String stringMantissa = string.substring(0, 12);
-            String stringExponent = string.substring(i + 1);
+            int i;
+            i = string.indexOf("E");
+            String stringMantissa;
+            stringMantissa = string.substring(0, 12);
+            String stringExponent;
+            stringExponent = string.substring(i + 1);
             string = stringMantissa + stringExponent;
         }
         return string;

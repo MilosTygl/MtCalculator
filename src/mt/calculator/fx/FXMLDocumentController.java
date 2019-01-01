@@ -106,7 +106,7 @@ public class FXMLDocumentController implements Initializable {
         indF.setVisible(calculator.isIndF());
         indDegMode.setVisible(calculator.isDegMode());
         indRadMode.setVisible(calculator.isRadMode());
-        displayNumber();
+        displayNumberOnLedDisplay();
         normalDisplayPane.setVisible(!calculator.isDebugMode());
         debugDisplayPane.setVisible(calculator.isDebugMode());
         LOGGER.debug("end");
@@ -139,28 +139,44 @@ public class FXMLDocumentController implements Initializable {
     /**
      *
      */
-    private void displayNumber() {
-        ObservableList observableListDisplayPane = displayPane.getChildren();
-        Object[] objectDisplayPane = observableListDisplayPane.toArray();
-        int displayStringIndex = -1;
+    private void displayNumberOnLedDisplay() {
+        ObservableList observableListDisplayPane;
+        observableListDisplayPane = displayPane.getChildren();
+        Object[] objectDisplayPane;
+        objectDisplayPane = observableListDisplayPane.toArray();
+        int displayStringIndex;
+        displayStringIndex = -1;
 
         for (Object objectDigitPane : objectDisplayPane) {
-            Pane digitPane = (Pane) objectDigitPane;
-            ObservableList observableListDigitPane = digitPane.getChildren();
-            Object[] objectDigitSegment = observableListDigitPane.toArray();
+            Pane digitPane;
+            digitPane = (Pane) objectDigitPane;
+            ObservableList observableListDigitPane;
+            observableListDigitPane = digitPane.getChildren();
+            Object[] objectDigitSegment;
+            objectDigitSegment = observableListDigitPane.toArray();
 
-            Shape shapeDigitSegmentA = (Shape) objectDigitSegment[0];
-            Shape shapeDigitSegmentB = (Shape) objectDigitSegment[1];
-            Shape shapeDigitSegmentC = (Shape) objectDigitSegment[2];
-            Shape shapeDigitSegmentD = (Shape) objectDigitSegment[3];
-            Shape shapeDigitSegmentE = (Shape) objectDigitSegment[4];
-            Shape shapeDigitSegmentF = (Shape) objectDigitSegment[5];
-            Shape shapeDigitSegmentG = (Shape) objectDigitSegment[6];
-            Shape shapeDigitSegmentP = (Shape) objectDigitSegment[7];
+            Shape shapeDigitSegmentA;
+            shapeDigitSegmentA = (Shape) objectDigitSegment[0];
+            Shape shapeDigitSegmentB;
+            shapeDigitSegmentB = (Shape) objectDigitSegment[1];
+            Shape shapeDigitSegmentC;
+            shapeDigitSegmentC = (Shape) objectDigitSegment[2];
+            Shape shapeDigitSegmentD;
+            shapeDigitSegmentD = (Shape) objectDigitSegment[3];
+            Shape shapeDigitSegmentE;
+            shapeDigitSegmentE = (Shape) objectDigitSegment[4];
+            Shape shapeDigitSegmentF;
+            shapeDigitSegmentF = (Shape) objectDigitSegment[5];
+            Shape shapeDigitSegmentG;
+            shapeDigitSegmentG = (Shape) objectDigitSegment[6];
+            Shape shapeDigitSegmentP;
+            shapeDigitSegmentP = (Shape) objectDigitSegment[7];
 
             displayStringIndex++;
-            char cx = digitFromDisplayString(displayStringIndex);
-            LedDigit ledDigit = new LedDigit(cx);
+            char cx;
+            cx = digitFromDisplayString(displayStringIndex);
+            LedDigit ledDigit;
+            ledDigit = new LedDigit(cx);
 
             shapeDigitSegmentA.setVisible(ledDigit.isSegmentA());
             shapeDigitSegmentB.setVisible(ledDigit.isSegmentB());
