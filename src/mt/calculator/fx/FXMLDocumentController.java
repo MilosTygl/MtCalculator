@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 import mt.calculator.hw.LedDigit;
-
 import mt.calculator.hw.MtCalculator;
 import org.apache.log4j.Logger;
 
@@ -27,7 +26,7 @@ public class FXMLDocumentController implements Initializable {
     private Pane normalDisplayPane;
 
     @FXML
-    private Pane displayPane;
+    private Pane ledDisplayPane;
 
     @FXML
     private Pane debugDisplayPane;
@@ -141,7 +140,7 @@ public class FXMLDocumentController implements Initializable {
      */
     private void displayNumberOnLedDisplay() {
         ObservableList observableListDisplayPane;
-        observableListDisplayPane = displayPane.getChildren();
+        observableListDisplayPane = ledDisplayPane.getChildren();
         Object[] objectDisplayPane;
         objectDisplayPane = observableListDisplayPane.toArray();
         int displayStringIndex;

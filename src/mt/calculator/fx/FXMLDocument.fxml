@@ -11,151 +11,8 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="330.0" minHeight="-Infinity" minWidth="330.0" prefHeight="789.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mt.calculator.fx.FXMLDocumentController">
     <children>
+        <!-- Buttons - 1st line -->
         <Button fx:id="buttonOFF" layoutX="25.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonOffAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #7F0000;" text="OFF" textFill="WHITE">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>            
-        <Button fx:id="buttonEnter" layoutX="25.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonEnterAction" prefHeight="25.0" prefWidth="136.0" text="ENTER ↑">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="butttonCLX" layoutX="175.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLXAction" prefHeight="25.0" prefWidth="60.0" text="CL X">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonCLR" layoutX="249.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLRAction" prefHeight="25.0" prefWidth="60.0" text="CLR">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonSubtract" layoutX="25.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButtonSubtractAction" prefHeight="25.0" prefWidth="60.0" text="−">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonAdd" layoutX="25.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButtonAddAction" prefHeight="25.0" prefWidth="60.0" text="+">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonMultiply" layoutX="25.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButtonMultiplyAction" prefHeight="25.0" prefWidth="60.0" text="×">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonDivide" layoutX="25.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonDivideAction" prefHeight="24.0" prefWidth="60.0" text="÷">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button0" layoutX="175.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButton0Action" prefHeight="24.0" prefWidth="60.0" text="0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button1" layoutX="100.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton1Action" prefHeight="25.0" prefWidth="60.0" text="1">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button2" layoutX="175.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton2Action" prefHeight="25.0" prefWidth="60.0" text="2">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button3" layoutX="249.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton3Action" prefHeight="25.0" prefWidth="60.0" text="3">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button4" layoutX="100.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton4Action" prefHeight="25.0" prefWidth="60.0" text="4">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button5" layoutX="175.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton5Action" prefHeight="25.0" prefWidth="60.0" text="5">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button6" layoutX="249.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton6Action" prefHeight="25.0" prefWidth="60.0" text="6">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button7" layoutX="100.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton7Action" prefHeight="25.0" prefWidth="60.0" text="7">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button8" layoutX="175.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton8Action" prefHeight="25.0" prefWidth="60.0" text="8">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="button9" layoutX="249.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton9Action" prefHeight="25.0" prefWidth="60.0" text="9">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonCHS" layoutX="100.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonCHSAction" prefHeight="24.0" prefWidth="60.0" text="CH S">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonDecimalPoint" layoutX="249.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonDecimalPointAction" prefHeight="24.0" prefWidth="60.0" text=".">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonRollDown" layoutX="25.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollDownAction" prefHeight="25.0" prefWidth="60.0" text="R ↓">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonSwapXandY" layoutX="175.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonSwapXandYAction" prefHeight="25.0" prefWidth="60.0" text="X ⇄ Y">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonSTO" layoutX="175.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonSTOAction" prefHeight="25.0" prefWidth="60.0" text="STO">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonRCL" layoutX="249.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonRCLAction" prefHeight="25.0" prefWidth="60.0" text="RCL">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonAuto" layoutX="26.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonAutoAction" prefWidth="60.0" text="Auto">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="ButtonFix" layoutX="101.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFixAction" prefHeight="30.0" prefWidth="60.0" text="Fix">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonFloat" layoutX="175.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFloatAction" prefWidth="60.0" text="Float">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonEng" layoutX="249.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonEngAction" prefHeight="30.0" prefWidth="60.0" text="Eng">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Label fx:id="indAutoMode" layoutX="30.0" layoutY="78.0" text="Auto" textFill="RED" />
-        <Label fx:id="indFixMode" layoutX="105.0" layoutY="78.0" text="Fix" textFill="RED" />
-        <Label fx:id="indFloatMode" layoutX="179.0" layoutY="78.0" text="Float" textFill="RED" />
-        <Label fx:id="indEngMode" layoutX="253.0" layoutY="78.0" text="Eng" textFill="RED" />
-        <Button fx:id="buttonReset" layoutX="100.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #3F3F3F;" text="Reset" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>
@@ -165,82 +22,49 @@
                 <Insets right="1" />
             </padding>
         </Label>
-        <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonRollUp" layoutX="100.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollUpAction" prefHeight="25.0" prefWidth="60.0" text="R ↑">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonF" layoutX="25.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonFAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #FFAA00;" text="F">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="470.0" prefWidth="60.0" text="CL S" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="470.0" prefWidth="60.0" text="1 / x" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
-        <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
-            <font>
-                <Font size="10.0" />
-            </font>
-        </Label>
-        <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
-            <font>
-                <Font size="10.0" />
-            </font>
-        </Label>
-        <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="buttonRad" layoutX="249.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
+        <Button fx:id="buttonReset" layoutX="100.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #3F3F3F;" text="Reset" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
         <Label fx:id="indDegMode" layoutX="179.0" layoutY="19.0" text="Deg" textFill="RED" />
+        <Button fx:id="buttonDeg" layoutX="175.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonDegAction" prefHeight="25.0" prefWidth="60.0" text="Deg">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
         <Label fx:id="indRadMode" layoutX="253.0" layoutY="19.0" text="Rad" textFill="RED" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-        <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED">
+        <Button fx:id="buttonRad" layoutX="249.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleButtonRadAction" prefHeight="25.0" prefWidth="60.0" text="Rad">
             <font>
-                <Font size="10.0" />
+                <Font size="14.0" />
             </font>
-        </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
-        <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+        </Button>
+        <!-- Buttons - 2nd line -->
+        <Label fx:id="indAutoMode" layoutX="30.0" layoutY="78.0" text="Auto" textFill="RED" />
+        <Button fx:id="buttonAuto" layoutX="26.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonAutoAction" prefWidth="60.0" text="Auto">
             <font>
-                <Font size="10.0" />
+                <Font size="14.0" />
             </font>
-        </Label>
-        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
-        <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED">
+        </Button>
+        <Label fx:id="indFixMode" layoutX="105.0" layoutY="78.0" text="Fix" textFill="RED" />
+        <Button fx:id="ButtonFix" layoutX="101.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFixAction" prefHeight="30.0" prefWidth="60.0" text="Fix">
             <font>
-                <Font size="10.0" />
+                <Font size="14.0" />
             </font>
-        </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
-        <Label alignment="CENTER" layoutX="100.0" layoutY="351.0" prefWidth="60.0" text="CL EX" textFill="RED" />
+        </Button>
+        <Label fx:id="indFloatMode" layoutX="179.0" layoutY="78.0" text="Float" textFill="RED" />
+        <Button fx:id="buttonFloat" layoutX="175.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonFloatAction" prefWidth="60.0" text="Float">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label fx:id="indEngMode" layoutX="253.0" layoutY="78.0" text="Eng" textFill="RED" />
+        <Button fx:id="buttonEng" layoutX="249.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleButtonEngAction" prefHeight="30.0" prefWidth="60.0" text="Eng">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Debug Display Pane -->
         <Pane fx:id="debugDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;">
             <children>
                 <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="8.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #E0E0E0" text="0" textFill="RED">
@@ -308,9 +132,10 @@
                 <Label fx:id="labelExponent" layoutX="20.0" layoutY="10.0" text="EX" />
             </children>
         </Pane>
+        <!-- Normal Display Pane -->
         <Pane fx:id="normalDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;">
             <children>
-                <Pane fx:id="displayPane" layoutX="4.0" layoutY="16.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
+                <Pane fx:id="ledDisplayPane" layoutX="4.0" layoutY="16.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
                     <children>
                         <Pane layoutX="5.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
                             <children>                 
@@ -496,6 +321,194 @@
                 </Pane>
             </children>
         </Pane>
-      <Label alignment="CENTER" layoutX="13.0" layoutY="470.0" prefWidth="60.0" text="Debug" textFill="RED" />
+        <!-- Buttons - 3rd line -->
+        <Label fx:id="indF" layoutX="30.0" layoutY="351.0" text="F" textFill="RED" />
+        <Button fx:id="buttonF" layoutX="25.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonFAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #FFAA00;" text="F">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="100.0" layoutY="351.0" prefWidth="60.0" text="CL EX" textFill="RED" />
+        <Button fx:id="buttonEEX" layoutX="100.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonEEXAction" prefHeight="30.0" prefWidth="60.0" text="E EX">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label layoutX="205.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED" />
+        <Button fx:id="buttonSTO" layoutX="175.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonSTOAction" prefHeight="25.0" prefWidth="60.0" text="STO">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>       
+        <Label layoutX="279.0" layoutY="343.0" prefHeight="17.0" prefWidth="15.0" text="y" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="261.0" layoutY="351.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+        <Button fx:id="buttonRCL" layoutX="249.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleButtonRCLAction" prefHeight="25.0" prefWidth="60.0" text="RCL">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Buttons - 4th line -->
+        <Button fx:id="buttonRollDown" layoutX="25.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollDownAction" prefHeight="25.0" prefWidth="60.0" text="R ↓">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonRollUp" layoutX="100.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollUpAction" prefHeight="25.0" prefWidth="60.0" text="R ↑">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>        
+        <Label layoutX="205.0" layoutY="403.0" prefHeight="17.0" prefWidth="15.0" text="2" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="187.0" layoutY="411.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED" />
+        <Button fx:id="buttonSwapXandY" layoutX="175.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonSwapXandYAction" prefHeight="25.0" prefWidth="60.0" text="X ⇄ Y">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="411.0" prefWidth="60.0" text="√ x" textFill="RED" />
+        <Button fx:id="buttonLastX" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonLastXAction" prefHeight="30.0" prefWidth="60.0" text="Last X">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>     
+        <!-- Buttons - 5th line -->
+        <Label alignment="CENTER" layoutX="25.0" layoutY="470.0" prefHeight="17.0" prefWidth="136.0" text="Debug Display" textFill="RED" />
+        <Button fx:id="buttonEnter" layoutX="25.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonEnterAction" prefHeight="25.0" prefWidth="136.0" text="ENTER ↑">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="470.0" prefWidth="60.0" text="CL S" textFill="RED" />
+        <Button fx:id="butttonCLX" layoutX="175.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLXAction" prefHeight="25.0" prefWidth="60.0" text="CL X">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="470.0" prefWidth="60.0" text="1 / x" textFill="RED" />
+        <Button fx:id="buttonCLR" layoutX="249.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonCLRAction" prefHeight="25.0" prefWidth="60.0" text="CLR">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Buttons - 6th line -->
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="531.0" prefWidth="60.0" text="ln" textFill="RED" />
+        <Button fx:id="buttonSubtract" layoutX="25.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButtonSubtractAction" prefHeight="25.0" prefWidth="60.0" text="−">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label layoutX="132.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="114.0" layoutY="531.0" prefHeight="17.0" prefWidth="15.0" text="e" textFill="RED" />
+        <Button fx:id="button7" layoutX="100.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton7Action" prefHeight="25.0" prefWidth="60.0" text="7">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="531.0" prefWidth="60.0" text="log" textFill="RED" />
+        <Button fx:id="button8" layoutX="175.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton8Action" prefHeight="25.0" prefWidth="60.0" text="8">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label layoutX="279.0" layoutY="523.0" prefHeight="17.0" prefWidth="15.0" text="x" textFill="RED">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="256.0" layoutY="531.0" prefHeight="17.0" prefWidth="20.0" text="10" textFill="RED" />
+        <Button fx:id="button9" layoutX="249.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleButton9Action" prefHeight="25.0" prefWidth="60.0" text="9">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Buttons - 7th line -->
+        <Button fx:id="buttonAdd" layoutX="25.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButtonAddAction" prefHeight="25.0" prefWidth="60.0" text="+">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="590.0" prefWidth="60.0" text="sin" textFill="RED" />       
+        <Button fx:id="button4" layoutX="100.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton4Action" prefHeight="25.0" prefWidth="60.0" text="4">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="590.0" prefWidth="60.0" text="cos" textFill="RED" />
+        <Button fx:id="button5" layoutX="175.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton5Action" prefHeight="25.0" prefWidth="60.0" text="5">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="590.0" prefWidth="60.0" text="tan" textFill="RED" />
+        <Button fx:id="button6" layoutX="249.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButton6Action" prefHeight="25.0" prefWidth="60.0" text="6">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Buttons - 8th line -->
+        <Button fx:id="buttonMultiply" layoutX="25.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButtonMultiplyAction" prefHeight="25.0" prefWidth="60.0" text="×">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="649.0" prefWidth="60.0" text="arc sin" textFill="RED" />      
+        <Button fx:id="button1" layoutX="100.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton1Action" prefHeight="25.0" prefWidth="60.0" text="1">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="649.0" prefWidth="60.0" text="arc cos" textFill="RED" />        
+        <Button fx:id="button2" layoutX="175.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton2Action" prefHeight="25.0" prefWidth="60.0" text="2">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="649.0" prefWidth="60.0" text="arc tan" textFill="RED" />
+        <Button fx:id="button3" layoutX="249.0" layoutY="666.0" mnemonicParsing="false" onAction="#handleButton3Action" prefHeight="25.0" prefWidth="60.0" text="3">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <!-- Buttons - 9th line -->
+        <Button fx:id="buttonDivide" layoutX="25.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonDivideAction" prefHeight="24.0" prefWidth="60.0" text="÷">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="buttonCHS" layoutX="100.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonCHSAction" prefHeight="24.0" prefWidth="60.0" text="CH S">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="button0" layoutX="175.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButton0Action" prefHeight="24.0" prefWidth="60.0" text="0">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="705.0" prefWidth="60.0" text="π" textFill="RED" />
+        <Button fx:id="buttonDecimalPoint" layoutX="249.0" layoutY="723.0" mnemonicParsing="false" onAction="#handleButtonDecimalPointAction" prefHeight="24.0" prefWidth="60.0" text=".">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        
     </children>
 </AnchorPane>
