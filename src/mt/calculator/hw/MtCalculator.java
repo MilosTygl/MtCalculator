@@ -46,11 +46,6 @@ public class MtCalculator {
     private int exponentPositions;
     private boolean debugMode;
 
-    private String keyDebugMode;
-    private String valueDebugMode;
-    private String valueDebugModeYes;
-    private String valueDebugModeNo;
-
     /**
      *
      */
@@ -88,14 +83,20 @@ public class MtCalculator {
      */
     private boolean getPropertyDebugMode() {
         boolean propertyDebugMode;
+        String keyDebugMode;
+        String valueDebugMode;
+        String valueDebugModeYes;
+        String valueDebugModeNo;
         propertyDebugMode = false;
         PropertyFileUtils propertyFileUtils;
         propertyFileUtils = PropertyFileUtils.getInstance();
-        this.valueDebugModeYes = "yes";
-        this.valueDebugModeNo = "no";
-        this.keyDebugMode = "debugMode";
-        this.valueDebugMode = valueDebugModeNo;
-        this.valueDebugMode = propertyFileUtils.getProperty(this.keyDebugMode);
+        valueDebugModeYes = "yes";
+        valueDebugModeNo = "no";
+        keyDebugMode = "debugMode";
+        valueDebugMode = propertyFileUtils.getProperty(keyDebugMode);
+        if (valueDebugMode == null) {
+            valueDebugMode = valueDebugModeNo;
+        }
         if (valueDebugMode.equalsIgnoreCase(valueDebugModeYes)) {
             propertyDebugMode = true;
         }
