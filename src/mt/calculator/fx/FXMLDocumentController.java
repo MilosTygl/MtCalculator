@@ -76,38 +76,46 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label indRadMode;
 
-    private String displayString;
-
     /**
      *
      */
-    private void refreshLabel() {
+    private void refreshView() {
+
         LOGGER.debug("begin");
+
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
+
         instanceUseCount.textProperty().setValue(Long.toString(calculator.getInstanceUseCount()));
-        displayString = calculator.registerXFormatedString();
-        displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
-        displayExponent.textProperty().setValue(calculator.exponentFormatedString());
-        displayExponent.setVisible(calculator.isExponentPressed());
-        labelExponent.setVisible(calculator.isExponentPressed());
-        displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());
-        displayRegisterY.textProperty().setValue(calculator.registerYFormatedString());
-        displayRegisterZ.textProperty().setValue(calculator.registerZFormatedString());
-        displayRegisterT.textProperty().setValue(calculator.registerTFormatedString());
-        displayRegisterS.textProperty().setValue(calculator.registerSFormatedString());
+
+        indDegMode.setVisible(calculator.isDegMode());
+        indRadMode.setVisible(calculator.isRadMode());
+
         indAutoMode.setVisible(calculator.isAutoMode());
         indFixMode.setText(calculator.getFixModeLabel());
         indFixMode.setVisible(calculator.isFixMode());
         indFloatMode.setVisible(calculator.isFloatMode());
         indEngMode.setVisible(calculator.isEngMode());
+
         indF.setVisible(calculator.isIndF());
-        indDegMode.setVisible(calculator.isDegMode());
-        indRadMode.setVisible(calculator.isRadMode());
+
+        displayRegisterX.textProperty().setValue(calculator.registerXFormatedString());
+        displayRegisterLastX.textProperty().setValue(calculator.registerLastXFormatedString());
+        displayRegisterY.textProperty().setValue(calculator.registerYFormatedString());
+        displayRegisterZ.textProperty().setValue(calculator.registerZFormatedString());
+        displayRegisterT.textProperty().setValue(calculator.registerTFormatedString());
+        displayRegisterS.textProperty().setValue(calculator.registerSFormatedString());
+
+        displayExponent.textProperty().setValue(calculator.exponentFormatedString());
+        displayExponent.setVisible(calculator.isExponentPressed());
+        labelExponent.setVisible(calculator.isExponentPressed());
+
         LedDisplay ledDisplay = new LedDisplay();
-        ledDisplay.displayNumberOnLedDisplay(displayString, ledDisplayPane);
+        ledDisplay.displayNumberOnLedDisplay(calculator.registerXFormatedString(), ledDisplayPane);
+
         normalDisplayPane.setVisible(!calculator.isDebugMode());
         debugDisplayPane.setVisible(calculator.isDebugMode());
+
         LOGGER.debug("end");
     }
 
@@ -118,7 +126,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDegAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDeg();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -128,7 +136,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRadAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRad();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -138,7 +146,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonF();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -148,7 +156,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEEXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEEX();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -158,7 +166,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCLXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCLX();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -168,7 +176,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCLRAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCLR();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -178,7 +186,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton0Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton0();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -188,7 +196,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton1Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton1();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -198,7 +206,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton2Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton2();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -208,7 +216,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton3Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton3();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -218,7 +226,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton4Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton4();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -228,7 +236,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton5Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton5();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -238,7 +246,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton6Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton6();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -248,7 +256,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton7Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton7();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -258,7 +266,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton8Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton8();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -268,7 +276,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton9Action(ActionEvent event) {
         MtCalculator.getInstance().pressButton9();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -278,7 +286,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCHSAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonCHS();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -288,7 +296,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDecimalPointAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDecimalPoint();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -298,7 +306,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAddAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonAdd();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -308,7 +316,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSubtractAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSubtract();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -318,7 +326,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonMultiplyAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonMultiply();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -328,7 +336,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDivideAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonDivide();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -338,7 +346,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEnterAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEnter();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -348,7 +356,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRollDownAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRollDown();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -358,7 +366,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRollUpAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRollUp();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -368,7 +376,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSwapXandYAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSwapXandY();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -378,7 +386,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSTOAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonSTO();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -388,7 +396,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRCLAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonRCL();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -398,7 +406,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonLastXAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonLastX();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -417,7 +425,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonResetAction(ActionEvent event) {
         MtCalculator.pressButtonReset();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -427,7 +435,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAutoAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonAuto();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -437,7 +445,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFixAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonFix();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -447,7 +455,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFloatAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonFloat();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -457,7 +465,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEngAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEng();
-        refreshLabel();
+        refreshView();
     }
 
     /**
@@ -467,7 +475,7 @@ public class FXMLDocumentController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        refreshLabel();
+        refreshView();
     }
 
 }
