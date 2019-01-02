@@ -46,8 +46,10 @@ public class MtCalculator {
     private int exponentPositions;
     private boolean debugMode;
 
-    private final String k1 = "k1";
-    private final String v1;
+    private final String keyInitialDisplayMode;
+    private String valueInitialDisplayMode;
+    private final String valueInitialDisplayModeNormal;
+    private final String valueInitialDisplayModeDebug;
 
     /**
      *
@@ -78,9 +80,17 @@ public class MtCalculator {
         this.exponentPressed = false;
         this.exponentPositions = 0;
 
+        this.debugMode = false;
         PropertyFileUtils propertyFileUtils;
         propertyFileUtils = PropertyFileUtils.getInstance();
-        this.v1 = propertyFileUtils.getProperty(this.k1);
+        this.valueInitialDisplayModeNormal = "normal";
+        this.valueInitialDisplayModeDebug = "debug";
+        this.keyInitialDisplayMode = "initialDisplayMode";
+        this.valueInitialDisplayMode = valueInitialDisplayModeNormal;
+        this.valueInitialDisplayMode = propertyFileUtils.getProperty(this.keyInitialDisplayMode);
+        if (valueInitialDisplayMode.equalsIgnoreCase(valueInitialDisplayModeDebug)) {
+            this.debugMode = true;
+        }
     }
 
     /**

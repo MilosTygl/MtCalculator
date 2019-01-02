@@ -385,7 +385,7 @@
             </font>
         </Button>     
         <!-- Buttons - 5th line -->
-        <Label alignment="CENTER" layoutX="25.0" layoutY="470.0" prefHeight="17.0" prefWidth="136.0" text="Debug Display" textFill="RED" />
+        <Label alignment="CENTER" layoutX="25.0" layoutY="470.0" prefHeight="17.0" prefWidth="136.0" text="Normal/Debug Display" textFill="RED" />
         <Button fx:id="buttonEnter" layoutX="25.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleButtonEnterAction" prefHeight="25.0" prefWidth="136.0" text="ENTER ↑">
             <font>
                 <Font size="14.0" />
