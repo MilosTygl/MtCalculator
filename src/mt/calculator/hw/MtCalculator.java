@@ -46,10 +46,10 @@ public class MtCalculator {
     private int exponentPositions;
     private boolean debugMode;
 
-    private final String keyInitialDisplayMode;
-    private String valueInitialDisplayMode;
-    private final String valueInitialDisplayModeNormal;
-    private final String valueInitialDisplayModeDebug;
+    private String keyDebugMode;
+    private String valueDebugMode;
+    private String valueDebugModeYes;
+    private String valueDebugModeNo;
 
     /**
      *
@@ -79,18 +79,27 @@ public class MtCalculator {
         this.decimalPositions = 0;
         this.exponentPressed = false;
         this.exponentPositions = 0;
+        this.debugMode = getPropertyDebugMode();
+    }
 
-        this.debugMode = false;
+    /**
+     *
+     * @return
+     */
+    private boolean getPropertyDebugMode() {
+        boolean propertyDebugMode;
+        propertyDebugMode = false;
         PropertyFileUtils propertyFileUtils;
         propertyFileUtils = PropertyFileUtils.getInstance();
-        this.valueInitialDisplayModeNormal = "normal";
-        this.valueInitialDisplayModeDebug = "debug";
-        this.keyInitialDisplayMode = "initialDisplayMode";
-        this.valueInitialDisplayMode = valueInitialDisplayModeNormal;
-        this.valueInitialDisplayMode = propertyFileUtils.getProperty(this.keyInitialDisplayMode);
-        if (valueInitialDisplayMode.equalsIgnoreCase(valueInitialDisplayModeDebug)) {
-            this.debugMode = true;
+        this.valueDebugModeYes = "yes";
+        this.valueDebugModeNo = "no";
+        this.keyDebugMode = "debugMode";
+        this.valueDebugMode = valueDebugModeNo;
+        this.valueDebugMode = propertyFileUtils.getProperty(this.keyDebugMode);
+        if (valueDebugMode.equalsIgnoreCase(valueDebugModeYes)) {
+            propertyDebugMode = true;
         }
+        return propertyDebugMode;
     }
 
     /**
