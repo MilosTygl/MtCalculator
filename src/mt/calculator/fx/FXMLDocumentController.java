@@ -414,25 +414,6 @@ public class FXMLDocumentController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleButtonOffAction(ActionEvent event) {
-        Platform.exit();
-    }
-
-    /**
-     *
-     * @param event
-     */
-    @FXML
-    private void handleButtonResetAction(ActionEvent event) {
-        MtCalculator.pressButtonReset();
-        refreshView();
-    }
-
-    /**
-     *
-     * @param event
-     */
-    @FXML
     private void handleButtonAutoAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonAuto();
         refreshView();
@@ -466,6 +447,25 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonEngAction(ActionEvent event) {
         MtCalculator.getInstance().pressButtonEng();
         refreshView();
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonResetAction(ActionEvent event) {
+        MtCalculator.pressButtonReset();
+        refreshView();
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonOffAction(ActionEvent event) {
+        Platform.exit();
     }
 
     /**
