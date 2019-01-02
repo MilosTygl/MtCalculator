@@ -3,14 +3,11 @@ package mt.calculator.fx;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape;
-import mt.calculator.hw.LedDigit;
 import mt.calculator.hw.MtCalculator;
 import org.apache.log4j.Logger;
 
@@ -79,6 +76,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label indRadMode;
 
+    private String displayString;
+
     /**
      *
      */
@@ -105,87 +104,11 @@ public class FXMLDocumentController implements Initializable {
         indF.setVisible(calculator.isIndF());
         indDegMode.setVisible(calculator.isDegMode());
         indRadMode.setVisible(calculator.isRadMode());
-        displayNumberOnLedDisplay();
+        LedDisplay ledDisplay = new LedDisplay();
+        ledDisplay.displayNumberOnLedDisplay(displayString, ledDisplayPane);
         normalDisplayPane.setVisible(!calculator.isDebugMode());
         debugDisplayPane.setVisible(calculator.isDebugMode());
         LOGGER.debug("end");
-    }
-
-    private String displayString;
-
-    /**
-     *
-     * @param pos
-     * @return
-     */
-    private char digitFromDisplayString(int pos) {
-        if (pos < 0) {
-            return ' ';
-        }
-        if (displayString == null) {
-            return ' ';
-        }
-        if (displayString.length() == 0) {
-            return ' ';
-        }
-        if (displayString.length() < pos + 1) {
-            return ' ';
-        }
-        char displayDigit = displayString.charAt(pos);
-        return displayDigit;
-    }
-
-    /**
-     *
-     */
-    private void displayNumberOnLedDisplay() {
-        ObservableList observableListDisplayPane;
-        observableListDisplayPane = ledDisplayPane.getChildren();
-        Object[] objectDisplayPane;
-        objectDisplayPane = observableListDisplayPane.toArray();
-        int displayStringIndex;
-        displayStringIndex = -1;
-
-        for (Object objectDigitPane : objectDisplayPane) {
-            Pane digitPane;
-            digitPane = (Pane) objectDigitPane;
-            ObservableList observableListDigitPane;
-            observableListDigitPane = digitPane.getChildren();
-            Object[] objectDigitSegment;
-            objectDigitSegment = observableListDigitPane.toArray();
-
-            Shape shapeDigitSegmentA;
-            shapeDigitSegmentA = (Shape) objectDigitSegment[0];
-            Shape shapeDigitSegmentB;
-            shapeDigitSegmentB = (Shape) objectDigitSegment[1];
-            Shape shapeDigitSegmentC;
-            shapeDigitSegmentC = (Shape) objectDigitSegment[2];
-            Shape shapeDigitSegmentD;
-            shapeDigitSegmentD = (Shape) objectDigitSegment[3];
-            Shape shapeDigitSegmentE;
-            shapeDigitSegmentE = (Shape) objectDigitSegment[4];
-            Shape shapeDigitSegmentF;
-            shapeDigitSegmentF = (Shape) objectDigitSegment[5];
-            Shape shapeDigitSegmentG;
-            shapeDigitSegmentG = (Shape) objectDigitSegment[6];
-            Shape shapeDigitSegmentP;
-            shapeDigitSegmentP = (Shape) objectDigitSegment[7];
-
-            displayStringIndex++;
-            char cx;
-            cx = digitFromDisplayString(displayStringIndex);
-            LedDigit ledDigit;
-            ledDigit = new LedDigit(cx);
-
-            shapeDigitSegmentA.setVisible(ledDigit.isSegmentA());
-            shapeDigitSegmentB.setVisible(ledDigit.isSegmentB());
-            shapeDigitSegmentC.setVisible(ledDigit.isSegmentC());
-            shapeDigitSegmentD.setVisible(ledDigit.isSegmentD());
-            shapeDigitSegmentE.setVisible(ledDigit.isSegmentE());
-            shapeDigitSegmentF.setVisible(ledDigit.isSegmentF());
-            shapeDigitSegmentG.setVisible(ledDigit.isSegmentG());
-            shapeDigitSegmentP.setVisible(ledDigit.isSegmentP());
-        }
     }
 
     /**

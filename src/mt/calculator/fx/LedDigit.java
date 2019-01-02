@@ -1,10 +1,14 @@
-package mt.calculator.hw;
+package mt.calculator.fx;
+
+import org.apache.log4j.Logger;
 
 /**
- * 
+ *
  * @author milos.tygl
  */
 public class LedDigit {
+
+    private static final Logger LOGGER = Logger.getLogger(LedDigit.class);
 
     private boolean segmentA;
     private boolean segmentB;
