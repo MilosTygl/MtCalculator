@@ -357,11 +357,13 @@
             </font>
         </Button>
         <!-- Buttons - 4th line -->
+        <Label alignment="CENTER" layoutX="25.0" layoutY="411.0" prefWidth="60.0" text="DROP" textFill="RED" />
         <Button fx:id="buttonRollDown" layoutX="25.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollDownAction" prefHeight="25.0" prefWidth="60.0" text="R ↓">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
+        <Label alignment="CENTER" layoutX="100.0" layoutY="411.0" prefWidth="60.0" text="DUP" textFill="RED" />
         <Button fx:id="buttonRollUp" layoutX="100.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleButtonRollUpAction" prefHeight="25.0" prefWidth="60.0" text="R ↑">
             <font>
                 <Font size="14.0" />
@@ -508,7 +510,6 @@
             <font>
                 <Font size="14.0" />
             </font>
-        </Button>
-        
+        </Button>        
     </children>
 </AnchorPane>

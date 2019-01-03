@@ -913,7 +913,19 @@ public class MtCalculator {
     /**
      *
      */
+    public void pressButtonDROP() {
+        indF = false;
+        // TODO Implement the logic here
+    }
+
+    /**
+     *
+     */
     public void pressButtonRollDown() {
+        if (indF) {
+            pressButtonDROP();
+            return;
+        }
         MtRegister register;
         register = registerX;
         registerX = registerY;
@@ -927,7 +939,19 @@ public class MtCalculator {
     /**
      *
      */
+    public void pressButtonDUP() {
+        indF = false;
+        // TODO Implement the logic here
+    }
+
+    /**
+     *
+     */
     public void pressButtonRollUp() {
+        if (indF) {
+            pressButtonDUP();
+            return;
+        }
         MtRegister register;
         register = registerT;
         registerT = registerZ;
