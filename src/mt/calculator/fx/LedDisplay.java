@@ -45,12 +45,12 @@ public class LedDisplay {
      * @param ledDisplayPane
      */
     public void displayNumberOnLedDisplay(String ledDisplayString, Pane ledDisplayPane) {
-        
+
         LOGGER.debug("begin");
-        
+
         displayString = ledDisplayString;
         displayStringIndex = -1;
-        
+
         ObservableList observableListDisplayPane;
         observableListDisplayPane = ledDisplayPane.getChildren();
         Object[] objectDisplayPane;

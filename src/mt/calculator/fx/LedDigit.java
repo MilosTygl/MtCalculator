@@ -24,6 +24,7 @@ public class LedDigit {
      * @param c
      */
     public LedDigit(char c) {
+        LOGGER.debug(c);
         displayDigitNone();
         switch (c) {
             case ' ':
