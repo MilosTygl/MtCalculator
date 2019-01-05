@@ -664,6 +664,19 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        if (decimalPointPressed) {
+            LOGGER.debug("end 2");
+            return;
+        }
+        if (autoEnter) {
+            pressButtonEnter();
+            autoEnter = false;
+        }
+        if (eraseDisplay) {
+            registerX = new MtRegister();
+            eraseDisplay = false;
+            decimalPositions = 0;
+        }
         decimalPointPressed = true;
         decimalPositions++;
         LOGGER.debug("end");
@@ -1011,6 +1024,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        decimalPointPressed = false;
         releaseButtonEEX();
         raiseStack();
         forceRaiseStack = false;
@@ -1430,8 +1444,17 @@ public class MtCalculator {
      */
     public String registerXFormatedString() {
         LOGGER.debug("begin");
+        String registerXFormatedString2;
+        registerXFormatedString2 = registerFormatedString(registerX);
+        if (autoMode) {
+            if (decimalPointPressed) {
+                if (decimalPositions <= 1) {
+                    registerXFormatedString2 = registerXFormatedString2.concat(".");
+                }
+            }
+        }
         LOGGER.debug("end");
-        return registerFormatedString(registerX);
+        return registerXFormatedString2;
     }
 
     /**
