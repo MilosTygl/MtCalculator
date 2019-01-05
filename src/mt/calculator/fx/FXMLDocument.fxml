@@ -65,9 +65,9 @@
             </font>
         </Button>
         <!-- Debug Display Pane -->
-        <Pane fx:id="debugDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;">
+        <Pane fx:id="debugDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;" visible="true">
             <children>
-                <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="11.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterT" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="11.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="14.0" />
                     </font>
@@ -75,7 +75,7 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="37.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterZ" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="37.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="14.0" />
                     </font>
@@ -83,7 +83,7 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="63.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterY" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="63.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="14.0" />
                     </font>
@@ -91,7 +91,7 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>  
-                <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="20.0" layoutY="89.0" prefHeight="50.0" prefWidth="285.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterX" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="13.0" layoutY="89.0" prefHeight="50.0" prefWidth="291.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="24.0" />
                     </font>
@@ -99,7 +99,7 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterLastX" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="14.0" />
                     </font>
@@ -107,7 +107,7 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="166.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #3F1F1F" text="0" textFill="RED">
+                <Label fx:id="displayRegisterS" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="129.0" layoutY="166.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="14.0" />
                     </font>
@@ -120,8 +120,8 @@
                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="63.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="140.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="166.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
-                <Label layoutX="20.0" layoutY="64.0" prefHeight="21.0" prefWidth="20.0" text="X:" />
-                <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="20.0" layoutY="29.0" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #3F1F1F;" text="0" textFill="RED">
+                <Label layoutX="13.0" layoutY="63.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
+                <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="13.0" layoutY="29.0" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #D7D7D7" text="0" textFill="RED">
                     <font>
                         <Font name="Lucida Console" size="24.0" />
                     </font>
@@ -129,13 +129,13 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="labelExponent" layoutX="20.0" layoutY="10.0" text="EX" />
+                <Label fx:id="labelExponent" layoutX="13.0" layoutY="10.0" prefHeight="17.0" prefWidth="20.0" text="EX:" />
             </children>
         </Pane>
         <!-- Normal Display Pane -->
         <Pane fx:id="normalDisplayPane" layoutX="7.0" layoutY="142.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;" visible="true">
             <children>
-                <Pane fx:id="ledDisplayPane" layoutX="4.0" layoutY="16.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
+                <Pane fx:id="ledDisplayPane" layoutX="4.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
                     <children>
                         <Pane layoutX="5.0" layoutY="4.0" prefHeight="36.0" prefWidth="19.0" style="-fx-background-color: #3F1F1F;">
                             <children>                 
