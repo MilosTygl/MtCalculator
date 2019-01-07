@@ -357,8 +357,8 @@ public class MtCalculator {
         register = new MtRegister();
         register.setNumber(MtNumber.tenPowX(exponent.getNumber()));
         register.setNumber(MtNumber.multiply(registerX.getNumber(), register.getNumber()));
-        register.getNumber().stripTrailingZeroes();
         registerX = register;
+        reformatRegisterX();
         exponent = new MtRegister();
         forceRaiseStack = true;
 
@@ -771,6 +771,7 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
+        reformatRegisterX();
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
@@ -1044,6 +1045,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
@@ -1066,6 +1068,7 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
+        reformatRegisterX();
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
@@ -1088,6 +1091,7 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
+        reformatRegisterX();
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
@@ -1118,6 +1122,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
@@ -1134,6 +1139,8 @@ public class MtCalculator {
     private void raiseStack() {
 
         LOGGER.debug("begin");
+
+        reformatRegisterX();
 
         registerT = registerZ;
         registerZ = registerY;
@@ -1189,6 +1196,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         MtRegister register;
         register = registerX;
         registerX = registerY;
@@ -1226,6 +1234,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         MtRegister register;
         register = registerT;
         registerT = registerZ;
@@ -1286,6 +1295,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         releaseButtonEEX();
         forceRaiseStack = false;
         registerS = registerX;
@@ -1437,6 +1447,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+        reformatRegisterX();
         registerLastX = registerX;
         MtRegister register;
         register = registerX;
@@ -1759,5 +1770,17 @@ public class MtCalculator {
         LOGGER.debug("end");
 
         return string;
+    }
+
+    /**
+     *
+     */
+    private void reformatRegisterX() {
+
+        LOGGER.debug("begin");
+
+        registerX.getNumber().stripTrailingZeroes();
+
+        LOGGER.debug("end");
     }
 }
