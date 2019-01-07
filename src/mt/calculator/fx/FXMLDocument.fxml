@@ -115,13 +115,13 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="11.0" prefHeight="25.0" prefWidth="20.0" text="T:" />
-                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="37.0" prefHeight="25.0" prefWidth="20.0" text="Z:" />
-                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="63.0" prefHeight="25.0" prefWidth="20.0" text="Y:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="11.0" prefHeight="25.0" prefWidth="40.0" text="T:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="37.0" prefHeight="25.0" prefWidth="40.0" text="Z:" />
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="63.0" prefHeight="25.0" prefWidth="40.0" text="Y:" />
                 <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="140.0" prefHeight="25.0" prefWidth="40.0" text="Last X:" />
-                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="105.0" layoutY="166.0" prefHeight="25.0" prefWidth="20.0" text="S:" />
-                <Label layoutX="13.0" layoutY="63.0" prefHeight="25.0" prefWidth="20.0" text="X:" />
-                <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="13.0" layoutY="29.0" prefHeight="36.0" prefWidth="70.0" style="-fx-background-color: #D7D7D7" text="0" textFill="#bf0000">
+                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="85.0" layoutY="166.0" prefHeight="25.0" prefWidth="40.0" text="S:" />
+                <Label layoutX="13.0" layoutY="68.0" prefHeight="20.0" prefWidth="65.0" text="X:" />
+                <Label fx:id="displayExponent" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="13.0" layoutY="28.0" prefHeight="34.0" prefWidth="65.0" style="-fx-background-color: #D7D7D7" text="0" textFill="#bf0000">
                     <font>
                         <Font name="Lucida Console" size="24.0" />
                     </font>
@@ -129,11 +129,11 @@
                         <Insets right="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="labelExponent" layoutX="13.0" layoutY="10.0" prefHeight="17.0" prefWidth="20.0" text="EX:" />
+                <Label fx:id="labelExponent" layoutX="13.0" layoutY="7.0" prefHeight="20.0" prefWidth="65.0" text="EX:" />
             </children>
         </Pane>
         <!-- Normal Display Pane -->
-        <Pane fx:id="normalDisplayPane" layoutX="7.0" layoutY="148.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;" visible="true">
+        <Pane fx:id="normalDisplayPane" layoutX="7.0" layoutY="148.0" prefHeight="200.0" prefWidth="317.0" style="-fx-background-color: #F0F0F0; -fx-border-color: #9F9F9F;" visible="false">
             <children>
                 <Pane fx:id="ledDisplayPane" layoutX="4.0" layoutY="11.0" prefHeight="45.0" prefWidth="309.0" style="-fx-background-color: #1F0000;">
                     <children>
