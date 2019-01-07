@@ -357,6 +357,7 @@ public class MtCalculator {
         register = new MtRegister();
         register.setNumber(MtNumber.tenPowX(exponent.getNumber()));
         register.setNumber(MtNumber.multiply(registerX.getNumber(), register.getNumber()));
+        register.getNumber().stripTrailingZeroes();
         registerX = register;
         exponent = new MtRegister();
         forceRaiseStack = true;

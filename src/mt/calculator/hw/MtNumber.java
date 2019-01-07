@@ -5,7 +5,7 @@ import java.math.MathContext;
 import org.apache.log4j.Logger;
 
 /**
- * 
+ *
  * @author milos.tygl
  */
 public class MtNumber {
@@ -46,6 +46,11 @@ public class MtNumber {
     MtNumber(long l) {
         LOGGER.debug("MtNumber(long l)");
         number = new BigDecimal(l);
+    }
+
+    MtNumber(String string) {
+        LOGGER.debug("MtNumber(String string)");
+        number = new BigDecimal(string);
     }
 
     /**
@@ -332,4 +337,10 @@ public class MtNumber {
         return number.toPlainString();
     }
 
+    /**
+     *
+     */
+    public void stripTrailingZeroes() {
+        number = number.stripTrailingZeros();
+    }
 }
