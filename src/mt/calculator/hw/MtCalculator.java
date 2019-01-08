@@ -1122,7 +1122,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
-        reformatRegisterX();
+//        reformatRegisterX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
