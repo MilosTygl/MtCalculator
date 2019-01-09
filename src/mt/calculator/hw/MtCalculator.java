@@ -539,6 +539,7 @@ public class MtCalculator {
             pressButtonDigitFixMode(digit);
         } else {
             forceRaiseStack = true;
+            pressButtonAuto();
             pressButtonDigitData(digit);
         }
 
