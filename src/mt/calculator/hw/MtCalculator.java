@@ -348,6 +348,9 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
+            if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+                registerX.setNumber(MtNumber.ONE);
+            }
             LOGGER.debug("end 2");
             return;
         }
