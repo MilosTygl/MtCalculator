@@ -345,13 +345,13 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+//        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+//            registerX = new MtRegister();
+//            registerX.setNumber(MtNumber.ONE);
+//        }
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
-            if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
-                registerX = new MtRegister();
-                registerX.setNumber(MtNumber.ONE);
-            }
             LOGGER.debug("end 2");
             return;
         }
@@ -391,7 +391,7 @@ public class MtCalculator {
         registerT = new MtRegister();
         decimalPointPressed = false;
         decimalPositions = 0;
-        
+
         LOGGER.debug("end");
     }
 
@@ -411,7 +411,7 @@ public class MtCalculator {
         forceRaiseStack = false;
         decimalPointPressed = false;
         decimalPositions = 0;
-        
+
         LOGGER.debug("end");
     }
 
@@ -442,6 +442,10 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
+//        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+//            registerX = new MtRegister();
+//            registerX.setNumber(MtNumber.ONE);
+//        }
         if (exponentPositions == 1) {
             exponent.setNumber(new MtNumber(BigDecimal.valueOf(digit)));
             exponentPositions++;
