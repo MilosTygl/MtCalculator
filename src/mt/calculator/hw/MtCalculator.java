@@ -1577,7 +1577,7 @@ public class MtCalculator {
         String string;
         string = register.getNumber().getNumber().toPlainString();
         final int maxDigits;
-        maxDigits = 20;
+        maxDigits = 16;
         if (string.length() > maxDigits) {
             string = string.substring(0, maxDigits);
         }
