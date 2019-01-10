@@ -447,6 +447,9 @@ public class MtNumber {
      * @return
      */
     public String toPlainString() {
+        if (number == null) {
+            return null;
+        }
         return number.toPlainString();
     }
 
@@ -454,6 +457,8 @@ public class MtNumber {
      *
      */
     public void stripTrailingZeroes() {
-        number = number.stripTrailingZeros();
+        if (number != null) {
+            number = number.stripTrailingZeros();
+        }
     }
 }
