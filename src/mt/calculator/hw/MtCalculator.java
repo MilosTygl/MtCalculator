@@ -1596,6 +1596,11 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
+        if (register.getNumber().getNumber() == null) {
+            LOGGER.debug("end1");
+            return "Error";
+        }
+
         String decimalFormatString;
         if (floatMode) {
             decimalFormatString = getFloatModeDecimalFormatString();

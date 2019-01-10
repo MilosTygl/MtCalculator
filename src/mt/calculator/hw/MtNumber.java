@@ -49,8 +49,8 @@ public class MtNumber {
     }
 
     /**
-     * 
-     * @param string 
+     *
+     * @param string
      */
     MtNumber(String string) {
         LOGGER.debug("MtNumber(String string)");
@@ -66,7 +66,12 @@ public class MtNumber {
     public static MtNumber add(MtNumber n1, MtNumber n2) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        wrkNumber.setNumber(n1.getNumber().add(n2.getNumber(), MATH_CONTEXT));
+        try {
+            wrkNumber.setNumber(n1.getNumber().add(n2.getNumber(), MATH_CONTEXT));
+//            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -79,7 +84,12 @@ public class MtNumber {
     public static MtNumber subtract(MtNumber n1, MtNumber n2) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        wrkNumber.setNumber(n1.getNumber().subtract(n2.getNumber(), MATH_CONTEXT));
+        try {
+            wrkNumber.setNumber(n1.getNumber().subtract(n2.getNumber(), MATH_CONTEXT));
+//            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -92,7 +102,12 @@ public class MtNumber {
     public static MtNumber multiply(MtNumber n1, MtNumber n2) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        wrkNumber.setNumber(n1.getNumber().multiply(n2.getNumber(), MATH_CONTEXT));
+        try {
+            wrkNumber.setNumber(n1.getNumber().multiply(n2.getNumber(), MATH_CONTEXT));
+//            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -105,7 +120,12 @@ public class MtNumber {
     public static MtNumber divide(MtNumber n1, MtNumber n2) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        wrkNumber.setNumber(n1.getNumber().divide(n2.getNumber(), MATH_CONTEXT));
+        try {
+            wrkNumber.setNumber(n1.getNumber().divide(n2.getNumber(), MATH_CONTEXT));
+//            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -118,8 +138,13 @@ public class MtNumber {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
         BigDecimal x;
-        x = BigDecimal.valueOf(Math.sqrt(n.getNumber().doubleValue()));
-        wrkNumber.setNumber(x);
+        try {
+            x = BigDecimal.valueOf(Math.sqrt(n.getNumber().doubleValue()));
+            wrkNumber.setNumber(x);
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -129,10 +154,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber ln(MtNumber n) {
-        double x;
-        x = Math.log(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.log(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -142,10 +173,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber log(MtNumber n) {
-        double x;
-        x = Math.log10(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.log10(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -155,10 +192,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber ePowX(MtNumber n) {
-        double x;
-        x = Math.pow(Math.E, n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.pow(Math.E, n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -168,10 +211,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber tenPowX(MtNumber n) {
-        double x;
-        x = Math.pow(MtNumber.TEN.getNumber().doubleValue(), n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.pow(MtNumber.TEN.getNumber().doubleValue(), n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -182,18 +231,24 @@ public class MtNumber {
      * @return
      */
     public static MtNumber pow(MtNumber n1, MtNumber n2) {
-        double d1;
-        d1 = n1.getNumber().doubleValue();
-        double d2;
-        d2 = n2.getNumber().doubleValue();
-        double dw;
-        dw = Math.log(d1);
-        dw = dw * d2;
-        dw = Math.pow(Math.E, dw);
-        BigDecimal bd;
-        bd = BigDecimal.valueOf(dw);
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(bd);
+        wrkNumber = new MtNumber();
+        try {
+            double d1;
+            d1 = n1.getNumber().doubleValue();
+            double d2;
+            d2 = n2.getNumber().doubleValue();
+            double dw;
+            dw = Math.log(d1);
+            dw = dw * d2;
+            dw = Math.pow(Math.E, dw);
+            BigDecimal bd;
+            bd = BigDecimal.valueOf(dw);
+            wrkNumber = new MtNumber(bd);
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -205,11 +260,20 @@ public class MtNumber {
     public static MtNumber degToRad(MtNumber n) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        BigDecimal bd;
-        bd = n.getNumber();
-        bd = bd.multiply(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
-        bd = bd.divide(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
-        wrkNumber.setNumber(bd);
+        if (n.getNumber() == null) {
+            wrkNumber.setNumber(null);
+            return wrkNumber;
+        }
+        try {
+            BigDecimal bd;
+            bd = n.getNumber();
+            bd = bd.multiply(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
+            bd = bd.divide(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
+            wrkNumber.setNumber(bd);
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -221,11 +285,20 @@ public class MtNumber {
     public static MtNumber radToDeg(MtNumber n) {
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
-        BigDecimal bd;
-        bd = n.getNumber();
-        bd = bd.multiply(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
-        bd = bd.divide(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
-        wrkNumber.setNumber(bd);
+        if (n.getNumber() == null) {
+            wrkNumber.setNumber(null);
+            return wrkNumber;
+        }
+        try {
+            BigDecimal bd;
+            bd = n.getNumber();
+            bd = bd.multiply(BigDecimal.valueOf(180L), MathContext.DECIMAL128);
+            bd = bd.divide(MtNumber.PI.getNumber(), MathContext.DECIMAL128);
+            wrkNumber.setNumber(bd);
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -235,10 +308,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber sin(MtNumber n) {
-        double x;
-        x = Math.sin(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.sin(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -248,10 +327,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber arcSin(MtNumber n) {
-        double x;
-        x = Math.asin(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.asin(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -261,10 +346,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber cos(MtNumber n) {
-        double x;
-        x = Math.cos(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.cos(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -274,10 +365,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber arcCos(MtNumber n) {
-        double x;
-        x = Math.acos(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.acos(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -287,10 +384,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber tan(MtNumber n) {
-        double x;
-        x = Math.tan(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.tan(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 
@@ -300,10 +403,16 @@ public class MtNumber {
      * @return
      */
     public static MtNumber arcTan(MtNumber n) {
-        double x;
-        x = Math.atan(n.getNumber().doubleValue());
         MtNumber wrkNumber;
-        wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+        wrkNumber = new MtNumber();
+        try {
+            double x;
+            x = Math.atan(n.getNumber().doubleValue());
+            wrkNumber = new MtNumber(BigDecimal.valueOf(x));
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            wrkNumber.setNumber(null);
+        }
         return wrkNumber;
     }
 

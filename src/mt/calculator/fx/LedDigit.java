@@ -66,6 +66,15 @@ public class LedDigit {
             case '9':
                 displayDigit9();
                 break;
+            case 'E':
+                displayCharUpperE();
+                break;
+            case 'r':
+                displayCharLowerR();
+                break;
+            case 'o':
+                displayCharLowerO();
+                break;
             default:
                 break;
         }
@@ -204,6 +213,35 @@ public class LedDigit {
         segmentC = true;
         segmentD = true;
         segmentF = true;
+        segmentG = true;
+    }
+
+    /**
+     *
+     */
+    private void displayCharUpperE() {
+        segmentA = true;
+        segmentD = true;
+        segmentE = true;
+        segmentF = true;
+        segmentG = true;
+    }
+
+    /**
+     *
+     */
+    private void displayCharLowerR() {
+        segmentE = true;
+        segmentG = true;
+    }
+
+    /**
+     *
+     */
+    private void displayCharLowerO() {
+        segmentC = true;
+        segmentD = true;
+        segmentE = true;
         segmentG = true;
     }
 
