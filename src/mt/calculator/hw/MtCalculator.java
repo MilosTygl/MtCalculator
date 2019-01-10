@@ -349,6 +349,7 @@ public class MtCalculator {
             exponentPressed = true;
             exponentPositions = 1;
             if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+                registerX = new MtRegister();
                 registerX.setNumber(MtNumber.ONE);
             }
             LOGGER.debug("end 2");
@@ -390,7 +391,7 @@ public class MtCalculator {
         registerT = new MtRegister();
         decimalPointPressed = false;
         decimalPositions = 0;
-
+        
         LOGGER.debug("end");
     }
 
@@ -410,7 +411,7 @@ public class MtCalculator {
         forceRaiseStack = false;
         decimalPointPressed = false;
         decimalPositions = 0;
-
+        
         LOGGER.debug("end");
     }
 
