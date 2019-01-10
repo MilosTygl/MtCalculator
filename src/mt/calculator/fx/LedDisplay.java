@@ -14,7 +14,7 @@ public class LedDisplay {
     private static final Logger LOGGER = Logger.getLogger(LedDisplay.class);
 
     private String displayString;
-    int displayStringIndex;
+    private int displayStringIndex;
 
     /**
      *

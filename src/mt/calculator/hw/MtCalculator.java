@@ -3,6 +3,7 @@ package mt.calculator.hw;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+import mt.calculator.utils.properties.PropertyAccess;
 import mt.calculator.utils.properties.PropertyFileUtils;
 import org.apache.log4j.Logger;
 
@@ -76,41 +77,9 @@ public class MtCalculator {
         this.decimalPositions = 0;
         this.exponentPressed = false;
         this.exponentPositions = 0;
-        this.debugMode = getPropertyDebugMode();
+        this.debugMode = PropertyAccess.getPropertyDebugMode();
 
         LOGGER.debug("end");
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean getPropertyDebugMode() {
-
-        LOGGER.debug("begin");
-
-        boolean propertyDebugMode;
-        String keyDebugMode;
-        String valueDebugMode;
-        String valueDebugModeYes;
-        String valueDebugModeNo;
-        propertyDebugMode = false;
-        PropertyFileUtils propertyFileUtils;
-        propertyFileUtils = PropertyFileUtils.getInstance();
-        valueDebugModeYes = "yes";
-        valueDebugModeNo = "no";
-        keyDebugMode = "debugMode";
-        valueDebugMode = propertyFileUtils.getProperty(keyDebugMode);
-        if (valueDebugMode == null) {
-            valueDebugMode = valueDebugModeNo;
-        }
-        if (valueDebugMode.equalsIgnoreCase(valueDebugModeYes)) {
-            propertyDebugMode = true;
-        }
-
-        LOGGER.debug("end");
-
-        return propertyDebugMode;
     }
 
     /**

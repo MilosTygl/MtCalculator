@@ -14,7 +14,7 @@ public class MtNumber {
 
     private static final MathContext MATH_CONTEXT = MathContext.DECIMAL128;
 
-    BigDecimal number;
+    private BigDecimal number;
 
     public static final MtNumber ZERO = new MtNumber(BigDecimal.ZERO);
     public static final MtNumber ONE = new MtNumber(BigDecimal.ONE);
@@ -48,6 +48,10 @@ public class MtNumber {
         number = new BigDecimal(l);
     }
 
+    /**
+     * 
+     * @param string 
+     */
     MtNumber(String string) {
         LOGGER.debug("MtNumber(String string)");
         number = new BigDecimal(string);
