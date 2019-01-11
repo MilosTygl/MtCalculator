@@ -345,7 +345,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
-       if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
             registerX.setNumber(MtNumber.ONE);
         }
         if (!exponentPressed) {
@@ -1525,7 +1525,8 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
-        String decimalFormatString = "0000000000000";
+        String decimalFormatString;
+        decimalFormatString = "0000000000000";
         int decimalPointPosition;
         decimalPointPosition = (int) (decimalFormatString.length() - fixModeSize);
         decimalFormatString = decimalFormatString.substring(0, decimalPointPosition) + "." + decimalFormatString.substring(decimalPointPosition);
@@ -1546,7 +1547,7 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
-        String decimalFormatString;
+        final String decimalFormatString;
         decimalFormatString = "0.000000000000E00";
 
         LOGGER.debug("end");
@@ -1563,7 +1564,7 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
-        String decimalFormatString;
+        final String decimalFormatString;
         decimalFormatString = "##0.000000000000E00";
 
         LOGGER.debug("end");
@@ -1607,7 +1608,7 @@ public class MtCalculator {
             return "Error";
         }
 
-        String decimalFormatString;
+        final String decimalFormatString;
         if (floatMode) {
             decimalFormatString = getFloatModeDecimalFormatString();
         } else if (engMode) {
@@ -1618,7 +1619,7 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return registerFormatedStringAutoMode(register);
         }
-        DecimalFormat decimalFormat;
+        final DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
         String string;
         string = decimalFormat.format(register.getNumber().getNumber());
@@ -1651,6 +1652,7 @@ public class MtCalculator {
 
         String registerXFormatedString2;
         registerXFormatedString2 = registerFormatedString(registerX);
+        
         if (autoMode) {
             if (decimalPointPressed) {
                 if (decimalPositions <= 1) {
@@ -1675,9 +1677,13 @@ public class MtCalculator {
     public String registerLastXFormatedString() {
 
         LOGGER.debug("begin");
+
+        final String s;
+        s = registerFormatedString(registerLastX);
+
         LOGGER.debug("end");
 
-        return registerFormatedString(registerLastX);
+        return s;
     }
 
     /**
@@ -1687,9 +1693,13 @@ public class MtCalculator {
     public String registerYFormatedString() {
 
         LOGGER.debug("begin");
+
+        final String s;
+        s = registerFormatedString(registerY);
+
         LOGGER.debug("end");
 
-        return registerFormatedString(registerY);
+        return s;
     }
 
     /**
@@ -1699,9 +1709,13 @@ public class MtCalculator {
     public String registerZFormatedString() {
 
         LOGGER.debug("begin");
+
+        final String s;
+        s = registerFormatedString(registerZ);
+
         LOGGER.debug("end");
 
-        return registerFormatedString(registerZ);
+        return s;
     }
 
     /**
@@ -1711,9 +1725,13 @@ public class MtCalculator {
     public String registerTFormatedString() {
 
         LOGGER.debug("begin");
+
+        final String s;
+        s = registerFormatedString(registerT);
+
         LOGGER.debug("end");
 
-        return registerFormatedString(registerT);
+        return s;
     }
 
     /**
@@ -1723,9 +1741,13 @@ public class MtCalculator {
     public String registerSFormatedString() {
 
         LOGGER.debug("begin");
+
+        final String s;
+        s = registerFormatedString(registerS);
+
         LOGGER.debug("end");
 
-        return registerFormatedString(registerS);
+        return s;
     }
 
     /**
@@ -1736,10 +1758,12 @@ public class MtCalculator {
 
         LOGGER.debug("begin");
 
-        String decimalFormatString = "#00";
+        final String decimalFormatString;
+        decimalFormatString = "#00";
 
         DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
+        
         String string;
         string = decimalFormat.format(exponent.getNumber().getNumber());
 

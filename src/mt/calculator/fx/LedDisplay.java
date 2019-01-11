@@ -21,21 +21,26 @@ public class LedDisplay {
      * @return
      */
     private char nextDigitFromDisplayString() {
+
+        final char space;
+        space = ' ';
+
         displayStringIndex++;
         if (displayStringIndex < 0) {
-            return ' ';
+            return space;
         }
         if (displayString == null) {
-            return ' ';
+            return space;
         }
         if (displayString.length() == 0) {
-            return ' ';
+            return space;
         }
         if (displayString.length() < displayStringIndex + 1) {
-            return ' ';
+            return space;
         }
         char displayDigit;
         displayDigit = displayString.charAt(displayStringIndex);
+
         return displayDigit;
     }
 
@@ -53,46 +58,55 @@ public class LedDisplay {
 
         ObservableList observableListDisplayPane;
         observableListDisplayPane = ledDisplayPane.getChildren();
+
         Object[] objectDisplayPane;
         objectDisplayPane = observableListDisplayPane.toArray();
 
         for (Object objectDigitPane : objectDisplayPane) {
             Pane digitPane;
             digitPane = (Pane) objectDigitPane;
+
             ObservableList observableListDigitPane;
             observableListDigitPane = digitPane.getChildren();
+
             Object[] objectDigitSegment;
             objectDigitSegment = observableListDigitPane.toArray();
-
-            Shape shapeDigitSegmentA;
-            shapeDigitSegmentA = (Shape) objectDigitSegment[0];
-            Shape shapeDigitSegmentB;
-            shapeDigitSegmentB = (Shape) objectDigitSegment[1];
-            Shape shapeDigitSegmentC;
-            shapeDigitSegmentC = (Shape) objectDigitSegment[2];
-            Shape shapeDigitSegmentD;
-            shapeDigitSegmentD = (Shape) objectDigitSegment[3];
-            Shape shapeDigitSegmentE;
-            shapeDigitSegmentE = (Shape) objectDigitSegment[4];
-            Shape shapeDigitSegmentF;
-            shapeDigitSegmentF = (Shape) objectDigitSegment[5];
-            Shape shapeDigitSegmentG;
-            shapeDigitSegmentG = (Shape) objectDigitSegment[6];
-            Shape shapeDigitSegmentP;
-            shapeDigitSegmentP = (Shape) objectDigitSegment[7];
 
             char cx;
             cx = nextDigitFromDisplayString();
             LedDigit ledDigit;
             ledDigit = new LedDigit(cx);
 
+            Shape shapeDigitSegmentA;
+            shapeDigitSegmentA = (Shape) objectDigitSegment[0];
             shapeDigitSegmentA.setVisible(ledDigit.isSegmentA());
+
+            Shape shapeDigitSegmentB;
+            shapeDigitSegmentB = (Shape) objectDigitSegment[1];
             shapeDigitSegmentB.setVisible(ledDigit.isSegmentB());
+
+            Shape shapeDigitSegmentC;
+            shapeDigitSegmentC = (Shape) objectDigitSegment[2];
             shapeDigitSegmentC.setVisible(ledDigit.isSegmentC());
+
+            Shape shapeDigitSegmentD;
+            shapeDigitSegmentD = (Shape) objectDigitSegment[3];
             shapeDigitSegmentD.setVisible(ledDigit.isSegmentD());
+
+            Shape shapeDigitSegmentE;
+            shapeDigitSegmentE = (Shape) objectDigitSegment[4];
             shapeDigitSegmentE.setVisible(ledDigit.isSegmentE());
+
+            Shape shapeDigitSegmentF;
+            shapeDigitSegmentF = (Shape) objectDigitSegment[5];
             shapeDigitSegmentF.setVisible(ledDigit.isSegmentF());
+
+            Shape shapeDigitSegmentG;
+            shapeDigitSegmentG = (Shape) objectDigitSegment[6];
             shapeDigitSegmentG.setVisible(ledDigit.isSegmentG());
+
+            Shape shapeDigitSegmentP;
+            shapeDigitSegmentP = (Shape) objectDigitSegment[7];
             shapeDigitSegmentP.setVisible(ledDigit.isSegmentP());
         }
         LOGGER.debug("end");
