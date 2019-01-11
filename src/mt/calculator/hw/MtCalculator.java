@@ -345,10 +345,9 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
-//        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
-//            registerX = new MtRegister();
-//            registerX.setNumber(MtNumber.ONE);
-//        }
+       if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+            registerX.setNumber(MtNumber.ONE);
+        }
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
@@ -442,10 +441,9 @@ public class MtCalculator {
             LOGGER.debug("end 1");
             return;
         }
-//        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
-//            registerX = new MtRegister();
-//            registerX.setNumber(MtNumber.ONE);
-//        }
+        if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
+            registerX.setNumber(MtNumber.ONE);
+        }
         if (exponentPositions == 1) {
             exponent.setNumber(new MtNumber(BigDecimal.valueOf(digit)));
             exponentPositions++;
