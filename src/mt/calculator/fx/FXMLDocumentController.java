@@ -76,6 +76,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label indRadMode;
 
+    @FXML
+    private Label indNormalDebugMode;
+
     /**
      *
      */
@@ -113,8 +116,10 @@ public class FXMLDocumentController implements Initializable {
         LedDisplay ledDisplay = new LedDisplay();
         ledDisplay.displayNumberOnLedDisplay(calculator.registerXFormatedString(), ledDisplayPane);
 
-        normalDisplayPane.setVisible(!calculator.isDebugMode());
+        normalDisplayPane.setVisible(calculator.isNormalMode());
         debugDisplayPane.setVisible(calculator.isDebugMode());
+
+        indNormalDebugMode.textProperty().setValue(calculator.getIndNormalDebugMode());
 
         LOGGER.debug("end");
     }

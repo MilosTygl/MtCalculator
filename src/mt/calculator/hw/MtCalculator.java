@@ -112,6 +112,26 @@ public class MtCalculator {
      *
      * @return
      */
+    public boolean isNormalMode() {
+        return !debugMode;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getIndNormalDebugMode() {
+        String indNormalDebugMode = "Debug";
+        if (isDebugMode()) {
+            indNormalDebugMode = "Normal";
+        }
+        return indNormalDebugMode;
+    }
+
+    /**
+     *
+     * @return
+     */
     public MtRegister getRegisterX() {
         return registerX;
     }
@@ -1652,7 +1672,7 @@ public class MtCalculator {
 
         String registerXFormatedString2;
         registerXFormatedString2 = registerFormatedString(registerX);
-        
+
         if (autoMode) {
             if (decimalPointPressed) {
                 if (decimalPositions <= 1) {
@@ -1763,7 +1783,7 @@ public class MtCalculator {
 
         DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
-        
+
         String string;
         string = decimalFormat.format(exponent.getNumber().getNumber());
 
