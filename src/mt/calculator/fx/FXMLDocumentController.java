@@ -628,7 +628,7 @@ public class FXMLDocumentController implements Initializable {
 
         LOGGER.debug("begin");
 
-        MtCalculator.pressButtonReset();
+        MtCalculator.reset();
         refreshView();
 
         LOGGER.debug("end");

@@ -56,6 +56,18 @@ public class PropertyFileUtils {
 
     /**
      *
+     */
+    public static void reset() {
+
+        LOGGER.debug("begin");
+
+        INSTANCE = null;
+
+        LOGGER.debug("end");
+    }
+
+    /**
+     *
      * @param propertyName
      * @return
      */

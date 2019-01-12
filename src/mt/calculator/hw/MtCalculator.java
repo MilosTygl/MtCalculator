@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 import mt.calculator.utils.properties.PropertyAccess;
+import mt.calculator.utils.properties.PropertyFileUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -1473,10 +1474,11 @@ public class MtCalculator {
     /**
      *
      */
-    public static void pressButtonReset() {
+    public static void reset() {
 
         LOGGER.debug("begin");
 
+        PropertyFileUtils.reset();
         INSTANCE = null;
 
         LOGGER.debug("end");
