@@ -1175,7 +1175,12 @@ public class MtCalculator {
         LOGGER.debug("begin");
 
         indF = false;
-        // TODO Implement the logic here
+        registerX = registerY;
+        registerY = registerZ;
+        registerZ = registerT;
+        registerT = new MtRegister();
+        eraseDisplay = true;
+        forceRaiseStack = true;
 
         LOGGER.debug("end");
     }
@@ -1213,7 +1218,11 @@ public class MtCalculator {
         LOGGER.debug("begin");
 
         indF = false;
-        // TODO Implement the logic here
+        registerT = registerZ;
+        registerZ = registerY;
+        registerY = registerX;
+        eraseDisplay = true;
+        forceRaiseStack = true;
 
         LOGGER.debug("end");
     }
