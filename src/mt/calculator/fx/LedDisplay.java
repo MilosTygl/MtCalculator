@@ -3,6 +3,7 @@ package mt.calculator.fx;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
+import mt.calculator.utils.properties.PropertyAccess;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,6 +16,7 @@ public class LedDisplay {
 
     private String displayString;
     private int displayStringIndex;
+    private boolean displayColorGreen;
 
     /**
      *
@@ -55,6 +57,7 @@ public class LedDisplay {
 
         displayString = ledDisplayString;
         displayStringIndex = -1;
+        displayColorGreen = PropertyAccess.getPropertyDisplayColorGreen();
 
         ObservableList observableListDisplayPane;
         observableListDisplayPane = ledDisplayPane.getChildren();

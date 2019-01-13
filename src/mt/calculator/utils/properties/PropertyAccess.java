@@ -19,7 +19,7 @@ public class PropertyAccess {
         LOGGER.debug("begin");
 
         boolean propertyDebugMode;
-        String keyDebugMode;
+        final String keyDebugMode;
         String valueDebugMode;
         final String valueDebugModeYes;
         final String valueDebugModeNo;
@@ -45,4 +45,38 @@ public class PropertyAccess {
         return propertyDebugMode;
     }
 
+    /**
+     * 
+     * @return 
+     */
+    public static boolean getPropertyDisplayColorGreen() {
+
+        LOGGER.debug("begin");
+
+        boolean propertyDisplayColorGreen;
+        final String keyDisplayColorGreen;
+        String valueDisplayColorGreen;
+        final String valueDisplayColorGreenYes;
+        final String valueDisplayColorGreenNo;
+
+        propertyDisplayColorGreen = false;
+        valueDisplayColorGreenYes = "yes";
+        valueDisplayColorGreenNo = "no";
+        keyDisplayColorGreen = "displayColorGreen";
+
+        PropertyFileUtils propertyFileUtils;
+        propertyFileUtils = PropertyFileUtils.getInstance();
+
+        valueDisplayColorGreen = propertyFileUtils.getProperty(keyDisplayColorGreen);
+        if (valueDisplayColorGreen == null) {
+            valueDisplayColorGreen = valueDisplayColorGreenNo;
+        }
+        if (valueDisplayColorGreen.equalsIgnoreCase(valueDisplayColorGreenYes)) {
+            propertyDisplayColorGreen = true;
+        }
+
+        LOGGER.debug("end");
+
+        return propertyDisplayColorGreen;
+    }
 }
