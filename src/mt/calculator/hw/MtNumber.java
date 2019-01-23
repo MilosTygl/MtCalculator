@@ -312,6 +312,36 @@ public class MtNumber {
 
     /**
      *
+     * @param n
+     * @param i
+     * @return
+     */
+    public static MtNumber powN(MtNumber n, int i) {
+
+        LOGGER.debug("begin");
+
+        MtNumber wrkNumber;
+        wrkNumber = new MtNumber();
+
+        try {
+            BigDecimal bd;
+            bd = n.getNumber().pow(i, MATH_CONTEXT);
+            wrkNumber = new MtNumber(bd);
+            wrkNumber.stripTrailingZeroes();
+        } catch (ArithmeticException | NumberFormatException ae) {
+            LOGGER.debug("exception");
+            LOGGER.debug("n: " + n.getNumber());
+            LOGGER.debug("i: " + i);
+            wrkNumber.setNumber(null);
+        }
+
+        LOGGER.debug("end");
+
+        return wrkNumber;
+    }
+
+    /**
+     *
      * @param n1
      * @param n2
      * @return

@@ -1428,7 +1428,8 @@ public class MtCalculator {
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
-        register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
+//        register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
+        register.setNumber(MtNumber.powN(registerX.getNumber(), 2));
         registerLastX = registerX;
         registerX = register;
         registerY = registerZ;
