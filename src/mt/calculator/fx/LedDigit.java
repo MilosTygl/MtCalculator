@@ -98,6 +98,7 @@ public class LedDigit {
      *
      */
     private void displaySpace() {
+        // no segmets to display
     }
 
     /**

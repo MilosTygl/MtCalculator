@@ -12,6 +12,9 @@ import org.apache.log4j.Logger;
  */
 public class LedDisplay {
 
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_END = "end";
+
     private static final Logger LOGGER = Logger.getLogger(LedDisplay.class);
 
     private String displayString;
@@ -53,7 +56,7 @@ public class LedDisplay {
      */
     public void displayNumberOnLedDisplay(String ledDisplayString, Pane ledDisplayPane) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         displayString = ledDisplayString;
         displayStringIndex = -1;
@@ -112,6 +115,6 @@ public class LedDisplay {
             shapeDigitSegmentP = (Shape) objectDigitSegment[7];
             shapeDigitSegmentP.setVisible(ledDigit.isSegmentP());
         }
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 }

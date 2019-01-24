@@ -10,22 +10,25 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
- * 
+ *
  * @author milos.tygl
  */
 public class Main extends Application {
 
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_END = "end";
+
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
     /**
-     * 
+     *
      * @param stage
-     * @throws Exception 
+     * @throws Exception
      */
     @Override
     public void start(Stage stage) throws Exception {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         Parent root;
         root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -37,18 +40,18 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
-     * 
+     *
      */
     @Override
     public void stop() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -59,11 +62,11 @@ public class Main extends Application {
 
         PropertyConfigurator.configure(LogConfig.getLogPropertyFile());
 
-        LOGGER.debug("BEGIN");
+        LOGGER.debug(LOG_BEGIN);
 
         launch(args);
 
-        LOGGER.debug("END");
+        LOGGER.debug(LOG_END);
     }
 
 }

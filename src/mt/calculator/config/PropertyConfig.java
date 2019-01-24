@@ -8,6 +8,9 @@ public class PropertyConfig {
 
     private static final String PROPERTY_FILE = "conf/conf.properties";
 
+    private PropertyConfig() {
+    }
+
     /**
      *
      * @return

@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
  * @author milos.tygl
  */
 public class MtNumber {
+    
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_EXCEPTION = "exception";
 
     private static final Logger LOGGER = Logger.getLogger(MtNumber.class);
 
@@ -73,7 +76,7 @@ public class MtNumber {
      */
     public static MtNumber add(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -81,7 +84,7 @@ public class MtNumber {
         try {
             wrkNumber.setNumber(n1.getNumber().add(n2.getNumber(), MATH_CONTEXT));
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n1: " + n1.getNumber());
             LOGGER.debug("n2: " + n2.getNumber());
             wrkNumber.setNumber(null);
@@ -100,7 +103,7 @@ public class MtNumber {
      */
     public static MtNumber subtract(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -108,7 +111,7 @@ public class MtNumber {
         try {
             wrkNumber.setNumber(n1.getNumber().subtract(n2.getNumber(), MATH_CONTEXT));
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n1: " + n1.getNumber());
             LOGGER.debug("n2: " + n2.getNumber());
             wrkNumber.setNumber(null);
@@ -127,7 +130,7 @@ public class MtNumber {
      */
     public static MtNumber multiply(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -135,7 +138,7 @@ public class MtNumber {
         try {
             wrkNumber.setNumber(n1.getNumber().multiply(n2.getNumber(), MATH_CONTEXT));
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n1: " + n1.getNumber());
             LOGGER.debug("n2: " + n2.getNumber());
             wrkNumber.setNumber(null);
@@ -154,7 +157,7 @@ public class MtNumber {
      */
     public static MtNumber divide(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -162,7 +165,7 @@ public class MtNumber {
         try {
             wrkNumber.setNumber(n1.getNumber().divide(n2.getNumber(), MATH_CONTEXT));
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n1: " + n1.getNumber());
             LOGGER.debug("n2: " + n2.getNumber());
             wrkNumber.setNumber(null);
@@ -180,7 +183,7 @@ public class MtNumber {
      */
     public static MtNumber squareRoot(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -191,7 +194,7 @@ public class MtNumber {
             wrkNumber.setNumber(x);
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -208,7 +211,7 @@ public class MtNumber {
      */
     public static MtNumber ln(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -219,7 +222,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -233,7 +236,7 @@ public class MtNumber {
      */
     public static MtNumber log(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -244,7 +247,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -261,7 +264,7 @@ public class MtNumber {
      */
     public static MtNumber ePowX(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -272,7 +275,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -289,7 +292,7 @@ public class MtNumber {
      */
     public static MtNumber tenPowX(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -300,7 +303,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -318,7 +321,7 @@ public class MtNumber {
      */
     public static MtNumber powN(MtNumber n, int i) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -329,7 +332,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(bd);
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             LOGGER.debug("i: " + i);
             wrkNumber.setNumber(null);
@@ -348,7 +351,7 @@ public class MtNumber {
      */
     public static MtNumber pow(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -367,7 +370,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(bd);
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n1: " + n1.getNumber());
             LOGGER.debug("n2: " + n2.getNumber());
             wrkNumber.setNumber(null);
@@ -385,7 +388,7 @@ public class MtNumber {
      */
     public static MtNumber degToRad(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -402,7 +405,7 @@ public class MtNumber {
             wrkNumber.setNumber(bd);
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -419,7 +422,7 @@ public class MtNumber {
      */
     public static MtNumber radToDeg(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -436,7 +439,7 @@ public class MtNumber {
             wrkNumber.setNumber(bd);
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -453,7 +456,7 @@ public class MtNumber {
      */
     public static MtNumber sin(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -464,7 +467,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -481,7 +484,7 @@ public class MtNumber {
      */
     public static MtNumber arcSin(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -492,7 +495,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -509,7 +512,7 @@ public class MtNumber {
      */
     public static MtNumber cos(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -520,7 +523,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -537,7 +540,7 @@ public class MtNumber {
      */
     public static MtNumber arcCos(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -548,7 +551,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -565,7 +568,7 @@ public class MtNumber {
      */
     public static MtNumber tan(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -576,7 +579,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -593,7 +596,7 @@ public class MtNumber {
      */
     public static MtNumber arcTan(MtNumber n) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtNumber wrkNumber;
         wrkNumber = new MtNumber();
@@ -604,7 +607,7 @@ public class MtNumber {
             wrkNumber = new MtNumber(BigDecimal.valueOf(x));
             wrkNumber.stripTrailingZeroes();
         } catch (ArithmeticException | NumberFormatException ae) {
-            LOGGER.debug("exception");
+            LOGGER.debug(LOG_EXCEPTION);
             LOGGER.debug("n: " + n.getNumber());
             wrkNumber.setNumber(null);
         }
@@ -622,7 +625,7 @@ public class MtNumber {
      */
     public static int compare(MtNumber n1, MtNumber n2) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         int result;
         result = n1.getNumber().compareTo(n2.getNumber());
@@ -654,7 +657,7 @@ public class MtNumber {
      */
     public String toPlainString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (number == null) {
             LOGGER.debug("end1");
@@ -674,7 +677,7 @@ public class MtNumber {
      */
     public void stripTrailingZeroes() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (number != null) {
             number = number.stripTrailingZeros();

@@ -8,7 +8,13 @@ import org.apache.log4j.Logger;
  */
 public class PropertyAccess {
 
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_END = "end";
+
     private static final Logger LOGGER = Logger.getLogger(PropertyAccess.class);
+
+    private PropertyAccess() {
+    }
 
     /**
      *
@@ -16,7 +22,7 @@ public class PropertyAccess {
      */
     public static boolean getPropertyDebugMode() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         boolean propertyDebugMode;
         final String keyDebugMode;
@@ -40,18 +46,18 @@ public class PropertyAccess {
             propertyDebugMode = true;
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return propertyDebugMode;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public static boolean getPropertyDisplayColorGreen() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         boolean propertyDisplayColorGreen;
         final String keyDisplayColorGreen;
@@ -75,7 +81,7 @@ public class PropertyAccess {
             propertyDisplayColorGreen = true;
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return propertyDisplayColorGreen;
     }

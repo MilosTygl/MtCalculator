@@ -8,6 +8,9 @@ public class AppConfig {
 
     private static final String APP_HOME = "/mt-dev/_test/MtCalculator/";
 
+    private AppConfig() {
+    }
+
     /**
      *
      * @return

@@ -8,6 +8,9 @@ public class LogConfig {
 
     private static final String LOG_PROPERTY_FILE = "log/properties/log.properties";
 
+    private LogConfig() {
+    }
+
     /**
      *
      * @return

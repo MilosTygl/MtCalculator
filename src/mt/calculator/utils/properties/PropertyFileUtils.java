@@ -14,7 +14,7 @@ public class PropertyFileUtils {
 
     private static final Logger LOGGER = Logger.getLogger(PropertyFileUtils.class);
 
-    private static PropertyFileUtils INSTANCE;
+    private static PropertyFileUtils instance;
     private final Properties properties;
 
     /**
@@ -44,14 +44,14 @@ public class PropertyFileUtils {
 
         LOGGER.debug("getInstance");
 
-        if (INSTANCE == null) {
-            INSTANCE = new PropertyFileUtils();
+        if (instance == null) {
+            instance = new PropertyFileUtils();
             LOGGER.debug("New instance");
         } else {
             LOGGER.debug("Old instance");
         }
 
-        return INSTANCE;
+        return instance;
     }
 
     /**
@@ -61,7 +61,7 @@ public class PropertyFileUtils {
 
         LOGGER.debug("begin");
 
-        INSTANCE = null;
+        instance = null;
 
         LOGGER.debug("end");
     }

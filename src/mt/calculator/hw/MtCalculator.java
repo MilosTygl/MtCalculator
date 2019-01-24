@@ -13,9 +13,14 @@ import org.apache.log4j.Logger;
  */
 public class MtCalculator {
 
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_END = "end";
+    private static final String LOG_END1 = "end 1";
+    private static final String LOG_END2 = "end 2";
+
     private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
 
-    private static MtCalculator INSTANCE;
+    private static MtCalculator instance;
 
     private long instanceUseCount;
 
@@ -52,7 +57,7 @@ public class MtCalculator {
      */
     private MtCalculator() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         this.instanceUseCount = 0;
         this.eraseDisplay = false;
@@ -79,7 +84,7 @@ public class MtCalculator {
         this.exponentPositions = 0;
         this.debugMode = PropertyAccess.getPropertyDebugMode();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -90,15 +95,15 @@ public class MtCalculator {
 
         LOGGER.debug("getInstance");
 
-        if (INSTANCE == null) {
-            INSTANCE = new MtCalculator();
+        if (instance == null) {
+            instance = new MtCalculator();
             LOGGER.debug("New instance");
         } else {
             LOGGER.debug("Old instance");
         }
 
-        INSTANCE.instanceUseCount++;
-        return INSTANCE;
+        instance.instanceUseCount++;
+        return instance;
     }
 
     /**
@@ -278,11 +283,11 @@ public class MtCalculator {
      */
     public void pressButtonF() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = !indF;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -290,12 +295,12 @@ public class MtCalculator {
      */
     public void pressButtonDeg() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         radMode = false;
         degMode = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -303,12 +308,12 @@ public class MtCalculator {
      */
     public void pressButtonRad() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         degMode = false;
         radMode = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -316,13 +321,13 @@ public class MtCalculator {
      */
     private void pressButtonCLEX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         exponentPositions = 0;
         exponent = new MtRegister();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -330,16 +335,16 @@ public class MtCalculator {
      */
     private void releaseButtonEEX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (!exponentPressed) {
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         exponentPressed = false;
         exponentPositions = 0;
         if (exponent.getNumber().getNumber().intValue() == 0) {
-            LOGGER.debug("end 2");
+            LOGGER.debug(LOG_END2);
             return;
         }
         MtRegister register;
@@ -351,7 +356,7 @@ public class MtCalculator {
         exponent = new MtRegister();
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -359,11 +364,11 @@ public class MtCalculator {
      */
     public void pressButtonEEX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonCLEX();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
@@ -372,12 +377,12 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
-            LOGGER.debug("end 2");
+            LOGGER.debug(LOG_END2);
             return;
         }
         releaseButtonEEX();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -386,8 +391,8 @@ public class MtCalculator {
      */
     public boolean isExponentPressed() {
 
-        LOGGER.debug("begin");
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_BEGIN);
+        LOGGER.debug(LOG_END);
 
         return exponentPressed;
     }
@@ -397,11 +402,11 @@ public class MtCalculator {
      */
     public void pressButtonCLR() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonReciprocal();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         registerX = new MtRegister();
@@ -412,7 +417,7 @@ public class MtCalculator {
         decimalPointPressed = false;
         decimalPositions = 0;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -420,11 +425,11 @@ public class MtCalculator {
      */
     public void pressButtonCLX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonCLS();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         registerX = new MtRegister();
@@ -432,7 +437,7 @@ public class MtCalculator {
         decimalPointPressed = false;
         decimalPositions = 0;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -441,13 +446,13 @@ public class MtCalculator {
      */
     private void pressButtonDigitFixMode(long digit) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         fixMode1 = false;
         fixModeSize = digit;
         fixModeLabel = "Fix " + Long.toString(digit);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -456,10 +461,10 @@ public class MtCalculator {
      */
     private void pressButtonDigitExponent(long digit) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (exponentPositions > 2) {
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
@@ -468,7 +473,7 @@ public class MtCalculator {
         if (exponentPositions == 1) {
             exponent.setNumber(new MtNumber(BigDecimal.valueOf(digit)));
             exponentPositions++;
-            LOGGER.debug("end 2");
+            LOGGER.debug(LOG_END2);
             return;
         }
         long exp = exponent.getNumber().getNumber().longValue();
@@ -476,7 +481,7 @@ public class MtCalculator {
         exponent.setNumber(new MtNumber(BigDecimal.valueOf(exp)));
         exponentPositions++;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -485,7 +490,7 @@ public class MtCalculator {
      */
     private void pressButtonDigitData(long digit) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (autoEnter) {
             pressButtonEnter();
@@ -499,7 +504,7 @@ public class MtCalculator {
         }
         if (exponentPressed) {
             pressButtonDigitExponent(digit);
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         MtNumber number;
@@ -519,7 +524,7 @@ public class MtCalculator {
         }
         registerX.setNumber(number);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -528,7 +533,7 @@ public class MtCalculator {
      */
     private void pressButtonDigit(long digit) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (fixMode1) {
             pressButtonDigitFixMode(digit);
@@ -538,7 +543,7 @@ public class MtCalculator {
             pressButtonDigitData(digit);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -546,11 +551,11 @@ public class MtCalculator {
      */
     public void pressButton0() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         pressButtonDigit(0L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -558,16 +563,16 @@ public class MtCalculator {
      */
     public void pressButton1() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonArcSin();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(1L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -575,16 +580,16 @@ public class MtCalculator {
      */
     public void pressButton2() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonArcCos();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(2L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -592,16 +597,16 @@ public class MtCalculator {
      */
     public void pressButton3() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonArcTan();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(3L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -609,16 +614,16 @@ public class MtCalculator {
      */
     public void pressButton4() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonSin();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(4L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -626,16 +631,16 @@ public class MtCalculator {
      */
     public void pressButton5() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonCos();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(5L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -643,16 +648,16 @@ public class MtCalculator {
      */
     public void pressButton6() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonTan();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(6L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -660,16 +665,16 @@ public class MtCalculator {
      */
     public void pressButton7() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonEPowX();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(7L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -677,16 +682,16 @@ public class MtCalculator {
      */
     public void pressButton8() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonLog();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(8L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -694,16 +699,16 @@ public class MtCalculator {
      */
     public void pressButton9() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonTenPowerX();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         pressButtonDigit(9L);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -711,7 +716,7 @@ public class MtCalculator {
      */
     private void pressButtonPi() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -726,7 +731,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -734,15 +739,15 @@ public class MtCalculator {
      */
     public void pressButtonDecimalPoint() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonPi();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         if (decimalPointPressed) {
-            LOGGER.debug("end 2");
+            LOGGER.debug(LOG_END2);
             return;
         }
         if (autoEnter) {
@@ -757,7 +762,7 @@ public class MtCalculator {
         decimalPointPressed = true;
         decimalPositions++;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -765,7 +770,7 @@ public class MtCalculator {
      */
     public void pressButtonAdd() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         reformatRegisterX();
         releaseButtonEEX();
@@ -780,7 +785,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -788,7 +793,7 @@ public class MtCalculator {
      */
     private void pressButtonSin() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -807,7 +812,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -815,7 +820,7 @@ public class MtCalculator {
      */
     private void pressButtonArcSin() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -834,7 +839,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -842,7 +847,7 @@ public class MtCalculator {
      */
     private void pressButtonCos() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -861,7 +866,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -869,7 +874,7 @@ public class MtCalculator {
      */
     private void pressButtonArcCos() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -888,7 +893,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -896,7 +901,7 @@ public class MtCalculator {
      */
     private void pressButtonTan() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -915,7 +920,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -923,7 +928,7 @@ public class MtCalculator {
      */
     private void pressButtonArcTan() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -942,7 +947,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -950,7 +955,7 @@ public class MtCalculator {
      */
     private void pressButtonLn() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -963,7 +968,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -971,7 +976,7 @@ public class MtCalculator {
      */
     private void pressButtonEPowX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -984,7 +989,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -992,7 +997,7 @@ public class MtCalculator {
      */
     private void pressButtonLog() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1005,7 +1010,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1013,7 +1018,7 @@ public class MtCalculator {
      */
     private void pressButtonTenPowerX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1026,7 +1031,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1034,11 +1039,11 @@ public class MtCalculator {
      */
     public void pressButtonSubtract() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonLn();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         reformatRegisterX();
@@ -1054,7 +1059,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1062,7 +1067,7 @@ public class MtCalculator {
      */
     public void pressButtonMultiply() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         reformatRegisterX();
         releaseButtonEEX();
@@ -1077,7 +1082,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1085,7 +1090,7 @@ public class MtCalculator {
      */
     public void pressButtonDivide() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         reformatRegisterX();
         releaseButtonEEX();
@@ -1100,7 +1105,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1108,17 +1113,16 @@ public class MtCalculator {
      */
     public void pressButtonCHS() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (exponentPressed) {
             MtRegister wrkExponent;
             wrkExponent = new MtRegister();
             wrkExponent.setNumber(MtNumber.multiply(exponent.getNumber(), new MtNumber(-1L)));
             exponent = wrkExponent;
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
-//        reformatRegisterX();
         MtRegister register;
         register = new MtRegister();
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
@@ -1126,7 +1130,7 @@ public class MtCalculator {
         registerX = register;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1134,7 +1138,7 @@ public class MtCalculator {
      */
     private void raiseStack() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         reformatRegisterX();
 
@@ -1143,7 +1147,7 @@ public class MtCalculator {
         registerY = registerX;
         registerLastX = registerX;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1151,11 +1155,11 @@ public class MtCalculator {
      */
     public void pressButtonEnter() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
         if (indF) {
             indF = false;
             debugMode = !debugMode;
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         decimalPointPressed = false;
@@ -1164,7 +1168,7 @@ public class MtCalculator {
         forceRaiseStack = false;
         eraseDisplay = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1172,7 +1176,7 @@ public class MtCalculator {
      */
     public void pressButtonDROP() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         registerX = registerY;
@@ -1182,7 +1186,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1190,11 +1194,11 @@ public class MtCalculator {
      */
     public void pressButtonRollDown() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonDROP();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         reformatRegisterX();
@@ -1207,7 +1211,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1215,7 +1219,7 @@ public class MtCalculator {
      */
     public void pressButtonDUP() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         registerT = registerZ;
@@ -1224,7 +1228,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1232,11 +1236,11 @@ public class MtCalculator {
      */
     public void pressButtonRollUp() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonDUP();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         reformatRegisterX();
@@ -1249,7 +1253,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1257,12 +1261,12 @@ public class MtCalculator {
      */
     private void pressButtonCLS() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         registerS = new MtRegister();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1270,7 +1274,7 @@ public class MtCalculator {
      */
     private void pressButtonYpowerX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1285,7 +1289,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1293,11 +1297,11 @@ public class MtCalculator {
      */
     public void pressButtonSTO() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonYpowerX();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         reformatRegisterX();
@@ -1306,7 +1310,7 @@ public class MtCalculator {
         registerS = registerX;
         eraseDisplay = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1314,7 +1318,7 @@ public class MtCalculator {
      */
     private void pressButtonXpowerY() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1329,7 +1333,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1337,11 +1341,11 @@ public class MtCalculator {
      */
     public void pressButtonRCL() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonXpowerY();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         registerLastX = registerX;
@@ -1349,7 +1353,7 @@ public class MtCalculator {
         registerX = registerS;
         eraseDisplay = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1357,7 +1361,7 @@ public class MtCalculator {
      */
     private void pressButtonSquareRoot() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1370,7 +1374,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1378,11 +1382,11 @@ public class MtCalculator {
      */
     public void pressButtonLastX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonSquareRoot();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         registerT = registerZ;
@@ -1392,7 +1396,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1400,7 +1404,7 @@ public class MtCalculator {
      */
     public void pressButtonReciprocal() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
@@ -1414,7 +1418,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1422,13 +1426,12 @@ public class MtCalculator {
      */
     private void pressButtonSquare() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         indF = false;
         releaseButtonEEX();
         MtRegister register;
         register = new MtRegister();
-//        register.setNumber(MtNumber.multiply(registerX.getNumber(), registerX.getNumber()));
         register.setNumber(MtNumber.powN(registerX.getNumber(), 2));
         registerLastX = registerX;
         registerX = register;
@@ -1438,7 +1441,7 @@ public class MtCalculator {
         autoEnter = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1446,11 +1449,11 @@ public class MtCalculator {
      */
     public void pressButtonSwapXandY() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (indF) {
             pressButtonSquare();
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return;
         }
         reformatRegisterX();
@@ -1462,7 +1465,7 @@ public class MtCalculator {
         eraseDisplay = true;
         forceRaiseStack = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1470,7 +1473,7 @@ public class MtCalculator {
      */
     private void clearMode() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         autoMode = false;
         fixMode = false;
@@ -1478,7 +1481,7 @@ public class MtCalculator {
         floatMode = false;
         engMode = false;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1486,12 +1489,12 @@ public class MtCalculator {
      */
     public static void reset() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         PropertyFileUtils.reset();
-        INSTANCE = null;
+        instance = null;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1499,12 +1502,12 @@ public class MtCalculator {
      */
     public void pressButtonAuto() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         clearMode();
         autoMode = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1512,7 +1515,7 @@ public class MtCalculator {
      */
     public void pressButtonFix() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         clearMode();
         fixMode = true;
@@ -1520,7 +1523,7 @@ public class MtCalculator {
         fixModeSize = 0;
         fixModeLabel = "Fix ?";
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1528,12 +1531,12 @@ public class MtCalculator {
      */
     public void pressButtonFloat() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         clearMode();
         floatMode = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1541,12 +1544,12 @@ public class MtCalculator {
      */
     public void pressButtonEng() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         clearMode();
         engMode = true;
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -1555,7 +1558,7 @@ public class MtCalculator {
      */
     private String getFixModeDecimalFormatString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         String decimalFormatString;
         decimalFormatString = "0000000000000";
@@ -1566,7 +1569,7 @@ public class MtCalculator {
             decimalFormatString = decimalFormatString.replaceFirst("0", "#");
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return decimalFormatString;
     }
@@ -1577,12 +1580,12 @@ public class MtCalculator {
      */
     private String getFloatModeDecimalFormatString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String decimalFormatString;
         decimalFormatString = "0.000000000000E00";
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return decimalFormatString;
 
@@ -1594,12 +1597,12 @@ public class MtCalculator {
      */
     private String getEngModeDecimalFormatString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String decimalFormatString;
         decimalFormatString = "##0.000000000000E00";
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return decimalFormatString;
     }
@@ -1611,7 +1614,7 @@ public class MtCalculator {
      */
     private String registerFormatedStringAutoMode(MtRegister register) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         String string;
         string = register.getNumber().getNumber().toPlainString();
@@ -1621,7 +1624,7 @@ public class MtCalculator {
             string = string.substring(0, maxDigits);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return string;
     }
@@ -1633,7 +1636,7 @@ public class MtCalculator {
      */
     private String registerFormatedString(MtRegister register) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         if (register.getNumber().getNumber() == null) {
             LOGGER.debug("end1");
@@ -1648,15 +1651,14 @@ public class MtCalculator {
         } else if (fixMode) {
             decimalFormatString = getFixModeDecimalFormatString();
         } else { // default autoMode
-            LOGGER.debug("end 1");
+            LOGGER.debug(LOG_END1);
             return registerFormatedStringAutoMode(register);
         }
         final DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
         String string;
         string = decimalFormat.format(register.getNumber().getNumber());
-        if (string.contains("E-")) {
-        } else {
+        if (!string.contains("E-")) {
             string = string.replaceFirst("E", "E ");
         }
         if (string.contains("E")) {
@@ -1669,7 +1671,7 @@ public class MtCalculator {
             string = stringMantissa + stringExponent;
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return string;
     }
@@ -1680,24 +1682,20 @@ public class MtCalculator {
      */
     public String registerXFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         String registerXFormatedString2;
         registerXFormatedString2 = registerFormatedString(registerX);
 
-        if (autoMode) {
-            if (decimalPointPressed) {
-                if (decimalPositions <= 1) {
-                    registerXFormatedString2 = registerXFormatedString2.concat(".");
-                }
-            }
+        if (autoMode && decimalPointPressed && decimalPositions <= 1) {
+            registerXFormatedString2 = registerXFormatedString2.concat(".");
         }
         if (exponentPressed) {
             String registerXFormatedString3 = registerXFormatedString2.concat("               ");
             registerXFormatedString2 = registerXFormatedString3.substring(0, 12).concat(exponentFormatedString());
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return registerXFormatedString2;
     }
@@ -1708,12 +1706,12 @@ public class MtCalculator {
      */
     public String registerLastXFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String s;
         s = registerFormatedString(registerLastX);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return s;
     }
@@ -1724,12 +1722,12 @@ public class MtCalculator {
      */
     public String registerYFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String s;
         s = registerFormatedString(registerY);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return s;
     }
@@ -1740,12 +1738,12 @@ public class MtCalculator {
      */
     public String registerZFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String s;
         s = registerFormatedString(registerZ);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return s;
     }
@@ -1756,12 +1754,12 @@ public class MtCalculator {
      */
     public String registerTFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String s;
         s = registerFormatedString(registerT);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return s;
     }
@@ -1772,12 +1770,12 @@ public class MtCalculator {
      */
     public String registerSFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String s;
         s = registerFormatedString(registerS);
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return s;
     }
@@ -1788,7 +1786,7 @@ public class MtCalculator {
      */
     public String exponentFormatedString() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         final String decimalFormatString;
         decimalFormatString = "#00";
@@ -1803,7 +1801,7 @@ public class MtCalculator {
             string = " " + string;
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return string;
     }
@@ -1813,10 +1811,10 @@ public class MtCalculator {
      */
     private void reformatRegisterX() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         registerX.getNumber().stripTrailingZeroes();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 }

@@ -17,6 +17,9 @@ import org.apache.log4j.Logger;
  */
 public class FXMLDocumentController implements Initializable {
 
+    private static final String LOG_BEGIN = "begin";
+    private static final String LOG_END = "end";
+
     private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
 
     @FXML
@@ -84,7 +87,7 @@ public class FXMLDocumentController implements Initializable {
      */
     private void refreshView() {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator calculator;
         calculator = MtCalculator.getInstance();
@@ -121,7 +124,7 @@ public class FXMLDocumentController implements Initializable {
 
         indNormalDebugMode.textProperty().setValue(calculator.getIndNormalDebugMode());
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -131,12 +134,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDegAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonDeg();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -146,12 +149,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRadAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonRad();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -161,12 +164,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonF();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -176,12 +179,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEEXAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonEEX();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -191,12 +194,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCLXAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonCLX();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -206,12 +209,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCLRAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonCLR();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -221,12 +224,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton0Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton0();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -236,12 +239,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton1Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton1();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -251,12 +254,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton2Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton2();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -266,12 +269,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton3Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton3();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -281,12 +284,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton4Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton4();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -296,12 +299,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton5Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton5();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -311,12 +314,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton6Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton6();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -326,12 +329,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton7Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton7();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -341,12 +344,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton8Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton8();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -356,12 +359,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButton9Action(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButton9();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -371,12 +374,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonCHSAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonCHS();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -386,12 +389,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDecimalPointAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonDecimalPoint();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -401,12 +404,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAddAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonAdd();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -416,12 +419,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSubtractAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonSubtract();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -431,12 +434,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonMultiplyAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonMultiply();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -446,12 +449,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonDivideAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonDivide();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -461,12 +464,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEnterAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonEnter();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -476,12 +479,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRollDownAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonRollDown();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -491,12 +494,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRollUpAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonRollUp();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -506,12 +509,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSwapXandYAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonSwapXandY();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -521,12 +524,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonSTOAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonSTO();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -536,12 +539,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonRCLAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonRCL();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -551,12 +554,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonLastXAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonLastX();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -566,12 +569,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAutoAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonAuto();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -581,12 +584,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFixAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonFix();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -596,12 +599,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonFloatAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonFloat();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -611,12 +614,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonEngAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.getInstance().pressButtonEng();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -626,12 +629,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonResetAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         MtCalculator.reset();
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -641,11 +644,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonOffAction(ActionEvent event) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         Platform.exit();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
     /**
@@ -656,11 +659,11 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        LOGGER.debug("begin");
+        LOGGER.debug(LOG_BEGIN);
 
         refreshView();
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 
 }
