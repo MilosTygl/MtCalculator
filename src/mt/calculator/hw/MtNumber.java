@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
  * @author milos.tygl
  */
 public class MtNumber {
-    
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_EXCEPTION = "exception";
 
@@ -66,6 +66,23 @@ public class MtNumber {
         LOGGER.debug("MtNumber(String string)");
 
         number = new BigDecimal(string);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static boolean isOutOfFixedRange(MtNumber n) {
+        if (n.getNumber().compareTo(BigDecimal.ZERO) == 0) {
+            return false;
+        }
+        if (n.getNumber().compareTo(new BigDecimal("100000000.0")) > 0) {
+            return true;
+        }
+        if (n.getNumber().compareTo(new BigDecimal("0.000000001")) < 0) {
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -1643,6 +1643,10 @@ public class MtCalculator {
             return "Error";
         }
 
+        if (autoMode && MtNumber.isOutOfFixedRange(register.getNumber())) {
+            pressButtonFloat();
+        }
+
         final String decimalFormatString;
         if (floatMode) {
             decimalFormatString = getFloatModeDecimalFormatString();
@@ -1654,6 +1658,7 @@ public class MtCalculator {
             LOGGER.debug(LOG_END1);
             return registerFormatedStringAutoMode(register);
         }
+        
         final DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
         String string;
