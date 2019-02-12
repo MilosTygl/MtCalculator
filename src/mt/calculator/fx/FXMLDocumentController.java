@@ -177,6 +177,36 @@ public class FXMLDocumentController implements Initializable {
      * @param event
      */
     @FXML
+    private void handleButtonReciprocalAction(ActionEvent event) {
+
+        LOGGER.debug(LOG_BEGIN);
+
+        MtCalculator.getInstance().pressButtonReciprocal();
+        refreshView();
+
+        LOGGER.debug(LOG_END);
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void handleButtonSquareRootAction(ActionEvent event) {
+
+        LOGGER.debug(LOG_BEGIN);
+
+        MtCalculator.getInstance().pressButtonSquareRoot();
+        refreshView();
+
+        LOGGER.debug(LOG_END);
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
     private void handleButtonEEXAction(ActionEvent event) {
 
         LOGGER.debug(LOG_BEGIN);

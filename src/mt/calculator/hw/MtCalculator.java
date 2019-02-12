@@ -404,11 +404,6 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (indF) {
-            pressButtonReciprocal();
-            LOGGER.debug(LOG_END1);
-            return;
-        }
         registerX = new MtRegister();
         registerLastX = new MtRegister();
         registerY = new MtRegister();
@@ -1359,9 +1354,15 @@ public class MtCalculator {
     /**
      *
      */
-    private void pressButtonSquareRoot() {
+    public void pressButtonSquareRoot() {
 
         LOGGER.debug(LOG_BEGIN);
+
+        if (indF) {
+            pressButtonSquare();
+            LOGGER.debug(LOG_END1);
+            return;
+        }
 
         indF = false;
         releaseButtonEEX();
@@ -1384,11 +1385,6 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (indF) {
-            pressButtonSquareRoot();
-            LOGGER.debug(LOG_END1);
-            return;
-        }
         registerT = registerZ;
         registerZ = registerY;
         registerY = registerX;
@@ -1451,11 +1447,6 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (indF) {
-            pressButtonSquare();
-            LOGGER.debug(LOG_END1);
-            return;
-        }
         reformatRegisterX();
         registerLastX = registerX;
         MtRegister register;
@@ -1658,7 +1649,7 @@ public class MtCalculator {
             LOGGER.debug(LOG_END1);
             return registerFormatedStringAutoMode(register);
         }
-        
+
         final DecimalFormat decimalFormat;
         decimalFormat = new DecimalFormat(decimalFormatString);
         String string;
