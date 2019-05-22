@@ -3,7 +3,9 @@ package mt.calculator.fx;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
+
 import mt.calculator.utils.properties.PropertyAccess;
+
 import org.apache.log4j.Logger;
 
 /**

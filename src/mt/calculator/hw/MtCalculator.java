@@ -3,8 +3,10 @@ package mt.calculator.hw;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+
 import mt.calculator.utils.properties.PropertyAccess;
 import mt.calculator.utils.properties.PropertyFileUtils;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -15,8 +17,8 @@ public class MtCalculator {
 
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
-    private static final String LOG_END1 = "end 1";
-    private static final String LOG_END2 = "end 2";
+    private static final String LOG_RETURN_1 = "return 1";
+    private static final String LOG_RETURN_2 = "return 2";
 
     private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
 
@@ -33,7 +35,6 @@ public class MtCalculator {
     private MtRegister registerS;
 
     private boolean autoEnter;
-
     private boolean autoMode;
     private boolean fixMode;
     private boolean fixMode1;
@@ -338,13 +339,13 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         if (!exponentPressed) {
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         exponentPressed = false;
         exponentPositions = 0;
         if (exponent.getNumber().getNumber().intValue() == 0) {
-            LOGGER.debug(LOG_END2);
+            LOGGER.debug(LOG_RETURN_2);
             return;
         }
         MtRegister register;
@@ -368,7 +369,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonCLEX();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
@@ -377,7 +378,7 @@ public class MtCalculator {
         if (!exponentPressed) {
             exponentPressed = true;
             exponentPositions = 1;
-            LOGGER.debug(LOG_END2);
+            LOGGER.debug(LOG_RETURN_2);
             return;
         }
         releaseButtonEEX();
@@ -424,7 +425,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonCLS();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         registerX = new MtRegister();
@@ -459,7 +460,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         if (exponentPositions > 2) {
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
@@ -468,7 +469,7 @@ public class MtCalculator {
         if (exponentPositions == 1) {
             exponent.setNumber(new MtNumber(BigDecimal.valueOf(digit)));
             exponentPositions++;
-            LOGGER.debug(LOG_END2);
+            LOGGER.debug(LOG_RETURN_2);
             return;
         }
         long exp = exponent.getNumber().getNumber().longValue();
@@ -499,7 +500,7 @@ public class MtCalculator {
         }
         if (exponentPressed) {
             pressButtonDigitExponent(digit);
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         MtNumber number;
@@ -562,7 +563,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonArcSin();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(1L);
@@ -579,7 +580,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonArcCos();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(2L);
@@ -596,7 +597,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonArcTan();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(3L);
@@ -613,7 +614,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonSin();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(4L);
@@ -630,7 +631,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonCos();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(5L);
@@ -647,7 +648,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonTan();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(6L);
@@ -664,7 +665,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonEPowX();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(7L);
@@ -681,7 +682,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonLog();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(8L);
@@ -698,7 +699,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonTenPowerX();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         pressButtonDigit(9L);
@@ -738,11 +739,11 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonPi();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         if (decimalPointPressed) {
-            LOGGER.debug(LOG_END2);
+            LOGGER.debug(LOG_RETURN_2);
             return;
         }
         if (autoEnter) {
@@ -1038,7 +1039,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonLn();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         reformatRegisterX();
@@ -1115,7 +1116,7 @@ public class MtCalculator {
             wrkExponent = new MtRegister();
             wrkExponent.setNumber(MtNumber.multiply(exponent.getNumber(), new MtNumber(-1L)));
             exponent = wrkExponent;
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         MtRegister register;
@@ -1154,7 +1155,7 @@ public class MtCalculator {
         if (indF) {
             indF = false;
             debugMode = !debugMode;
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         decimalPointPressed = false;
@@ -1193,7 +1194,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonDROP();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         reformatRegisterX();
@@ -1235,7 +1236,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonDUP();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         reformatRegisterX();
@@ -1296,7 +1297,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonYpowerX();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         reformatRegisterX();
@@ -1340,7 +1341,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonXpowerY();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
         registerLastX = registerX;
@@ -1360,7 +1361,7 @@ public class MtCalculator {
 
         if (indF) {
             pressButtonSquare();
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return;
         }
 
@@ -1646,7 +1647,7 @@ public class MtCalculator {
         } else if (fixMode) {
             decimalFormatString = getFixModeDecimalFormatString();
         } else { // default autoMode
-            LOGGER.debug(LOG_END1);
+            LOGGER.debug(LOG_RETURN_1);
             return registerFormatedStringAutoMode(register);
         }
 

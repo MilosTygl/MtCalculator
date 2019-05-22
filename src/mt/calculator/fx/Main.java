@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import mt.calculator.config.LogConfig;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
