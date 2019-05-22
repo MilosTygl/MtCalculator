@@ -3,7 +3,9 @@ package mt.calculator.utils.properties;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
 import mt.calculator.config.PropertyConfig;
+
 import org.apache.log4j.Logger;
 
 /**

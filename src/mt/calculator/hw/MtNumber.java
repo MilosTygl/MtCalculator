@@ -11,10 +11,10 @@ import org.apache.log4j.Logger;
  */
 public class MtNumber {
 
+    private static final Logger LOGGER = Logger.getLogger(MtNumber.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_EXCEPTION = "exception";
-
-    private static final Logger LOGGER = Logger.getLogger(MtNumber.class);
 
     private static final MathContext MATH_CONTEXT = MathContext.DECIMAL128;
 

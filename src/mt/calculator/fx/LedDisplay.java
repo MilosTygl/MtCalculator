@@ -14,10 +14,10 @@ import org.apache.log4j.Logger;
  */
 public class LedDisplay {
 
+    private static final Logger LOGGER = Logger.getLogger(LedDisplay.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
-
-    private static final Logger LOGGER = Logger.getLogger(LedDisplay.class);
 
     private String displayString;
     private int displayStringIndex;

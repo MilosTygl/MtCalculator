@@ -15,12 +15,12 @@ import org.apache.log4j.Logger;
  */
 public class MtCalculator {
 
+    private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
     private static final String LOG_RETURN_1 = "return 1";
     private static final String LOG_RETURN_2 = "return 2";
-
-    private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
 
     private static MtCalculator instance;
 

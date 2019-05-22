@@ -8,10 +8,10 @@ import org.apache.log4j.Logger;
  */
 public class PropertyAccess {
 
+    private static final Logger LOGGER = Logger.getLogger(PropertyAccess.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
-
-    private static final Logger LOGGER = Logger.getLogger(PropertyAccess.class);
 
     private PropertyAccess() {
     }

@@ -17,10 +17,12 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Main extends Application {
 
+    private static final Logger LOGGER = Logger.getLogger(Main.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
 
-    private static final Logger LOGGER = Logger.getLogger(Main.class);
+    private static final String APP_TITLE = "MT Calculator JavaFX [beta]";
 
     /**
      *
@@ -34,10 +36,11 @@ public class Main extends Application {
 
         Parent root;
         root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+
         Scene scene;
         scene = new Scene(root);
 
-        stage.setTitle("MT Calculator JavaFX [beta]");
+        stage.setTitle(APP_TITLE);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

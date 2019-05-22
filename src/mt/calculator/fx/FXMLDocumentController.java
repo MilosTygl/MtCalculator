@@ -20,10 +20,10 @@ import org.apache.log4j.Logger;
  */
 public class FXMLDocumentController implements Initializable {
 
+    private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
+
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
-
-    private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
 
     @FXML
     private Pane normalDisplayPane;
