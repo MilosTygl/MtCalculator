@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
+import mt.calculator.consts.Consts;
 import mt.calculator.utils.properties.PropertyAccess;
 
 import org.apache.log4j.Logger;
@@ -16,8 +17,8 @@ public class LedDisplay {
 
     private static final Logger LOGGER = Logger.getLogger(LedDisplay.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_END = "end";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
 
     private String displayString;
     private int displayStringIndex;

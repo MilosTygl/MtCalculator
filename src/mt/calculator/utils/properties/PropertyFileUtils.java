@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import mt.calculator.config.PropertyConfig;
+import mt.calculator.consts.Consts;
 
 import org.apache.log4j.Logger;
 
@@ -15,6 +16,10 @@ import org.apache.log4j.Logger;
 public class PropertyFileUtils {
 
     private static final Logger LOGGER = Logger.getLogger(PropertyFileUtils.class);
+
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
+    private static final String LOG_EXCEPTION = Consts.getLogException();
 
     private static PropertyFileUtils instance;
     private final Properties properties;

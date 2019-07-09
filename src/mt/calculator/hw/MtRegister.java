@@ -1,5 +1,7 @@
 package mt.calculator.hw;
 
+import mt.calculator.consts.Consts;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -9,6 +11,10 @@ import org.apache.log4j.Logger;
 public class MtRegister {
 
     private static final Logger LOGGER = Logger.getLogger(MtRegister.class);
+
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
+    private static final String LOG_EXCEPTION = Consts.getLogException();
 
     private MtNumber number;
 

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import mt.calculator.config.LogConfig;
+import mt.calculator.consts.Consts;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -19,10 +20,10 @@ public class Main extends Application {
 
     private static final Logger LOGGER = Logger.getLogger(Main.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_END = "end";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
 
-    private static final String APP_TITLE = "MT Calculator JavaFX 0.1";
+    private static final String APP_TITLE = Consts.getAppTitle();
 
     /**
      *

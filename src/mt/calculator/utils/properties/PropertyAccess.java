@@ -1,5 +1,7 @@
 package mt.calculator.utils.properties;
 
+import mt.calculator.consts.Consts;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -10,8 +12,9 @@ public class PropertyAccess {
 
     private static final Logger LOGGER = Logger.getLogger(PropertyAccess.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_END = "end";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
+    private static final String LOG_EXCEPTION = Consts.getLogException();
 
     private PropertyAccess() {
     }

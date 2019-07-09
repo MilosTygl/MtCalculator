@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
+import mt.calculator.consts.Consts;
 import mt.calculator.hw.MtCalculator;
 
 import org.apache.log4j.Logger;
@@ -22,8 +23,8 @@ public class FXMLDocumentController implements Initializable {
 
     private static final Logger LOGGER = Logger.getLogger(FXMLDocumentController.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_END = "end";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
 
     @FXML
     private Pane normalDisplayPane;

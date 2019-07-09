@@ -3,6 +3,8 @@ package mt.calculator.hw;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
+import mt.calculator.consts.Consts;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -13,8 +15,9 @@ public class MtNumber {
 
     private static final Logger LOGGER = Logger.getLogger(MtNumber.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_EXCEPTION = "exception";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
+    private static final String LOG_EXCEPTION = Consts.getLogException();
 
     private static final MathContext MATH_CONTEXT = MathContext.DECIMAL128;
 
@@ -71,6 +74,7 @@ public class MtNumber {
 
     /**
      *
+     * @param n
      * @return
      */
     public static boolean isOutOfFixedRange(MtNumber n) {
@@ -108,7 +112,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -135,7 +139,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -162,7 +166,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -189,7 +193,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -217,7 +221,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -270,7 +274,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -298,7 +302,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -326,7 +330,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -356,7 +360,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -394,7 +398,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -428,7 +432,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -462,7 +466,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -490,7 +494,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -518,7 +522,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -546,7 +550,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -574,7 +578,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -602,7 +606,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -630,7 +634,7 @@ public class MtNumber {
             wrkNumber.setNumber(null);
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return wrkNumber;
     }
@@ -648,7 +652,7 @@ public class MtNumber {
         int result;
         result = n1.getNumber().compareTo(n2.getNumber());
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
 
         return result;
     }
@@ -701,6 +705,6 @@ public class MtNumber {
             number = number.stripTrailingZeros();
         }
 
-        LOGGER.debug("end");
+        LOGGER.debug(LOG_END);
     }
 }

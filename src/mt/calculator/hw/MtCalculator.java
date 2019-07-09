@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
 
+import mt.calculator.consts.Consts;
 import mt.calculator.utils.properties.PropertyAccess;
 import mt.calculator.utils.properties.PropertyFileUtils;
 
@@ -17,10 +18,10 @@ public class MtCalculator {
 
     private static final Logger LOGGER = Logger.getLogger(MtCalculator.class);
 
-    private static final String LOG_BEGIN = "begin";
-    private static final String LOG_END = "end";
-    private static final String LOG_RETURN_1 = "return 1";
-    private static final String LOG_RETURN_2 = "return 2";
+    private static final String LOG_BEGIN = Consts.getLogBegin();
+    private static final String LOG_END = Consts.getLogEnd();
+    private static final String LOG_RETURN_1 = Consts.getLogReturn1();
+    private static final String LOG_RETURN_2 = Consts.getLogReturn2();
 
     private static MtCalculator instance;
 
