@@ -6,7 +6,7 @@ package mt.calculator.consts;
  */
 public class Consts {
 
-    private static final String APP_TITLE = "MT Calculator JavaFX 0.1";
+    private static final String APP_TITLE = "MT Calculator JavaFX 0.1.2";
 
     private static final String LOG_BEGIN = "begin";
     private static final String LOG_END = "end";
