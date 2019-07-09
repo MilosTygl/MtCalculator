@@ -35,24 +35,24 @@ public class MtCalculator {
     private MtRegister registerT;
     private MtRegister registerS;
 
-    private boolean autoEnter;
-    private boolean autoMode;
-    private boolean fixMode;
-    private boolean fixMode1;
+    private boolean indAutoEnter;
+    private boolean indAutoMode;
+    private boolean indFixMode;
+    private boolean indFixMode1;
     private long fixModeSize;
     private String fixModeLabel;
-    private boolean floatMode;
-    private boolean engMode;
+    private boolean indFloatMode;
+    private boolean indEngMode;
     private boolean indF;
-    private boolean forceRaiseStack;
-    private boolean degMode;
-    private boolean radMode;
-    private boolean eraseDisplay;
-    private boolean decimalPointPressed;
+    private boolean indForceRaiseStack;
+    private boolean indDegMode;
+    private boolean indRadMode;
+    private boolean indEraseDisplay;
+    private boolean indDecimalPointPressed;
     private int decimalPositions;
-    private boolean exponentPressed;
+    private boolean indExponentPressed;
     private int exponentPositions;
-    private boolean debugMode;
+    private boolean indDebugMode;
 
     /**
      *
@@ -62,7 +62,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         this.instanceUseCount = 0;
-        this.eraseDisplay = false;
+        this.indEraseDisplay = false;
         this.registerX = new MtRegister();
         this.exponent = new MtRegister();
         this.registerLastX = new MtRegister();
@@ -70,21 +70,21 @@ public class MtCalculator {
         this.registerZ = new MtRegister();
         this.registerT = new MtRegister();
         this.registerS = new MtRegister();
-        this.autoEnter = false;
-        this.autoMode = true;
-        this.fixMode = false;
-        this.fixMode1 = false;
-        this.floatMode = false;
-        this.engMode = false;
+        this.indAutoEnter = false;
+        this.indAutoMode = true;
+        this.indFixMode = false;
+        this.indFixMode1 = false;
+        this.indFloatMode = false;
+        this.indEngMode = false;
         this.indF = false;
-        this.degMode = true;
-        this.radMode = false;
-        this.forceRaiseStack = true;
-        this.decimalPointPressed = false;
+        this.indDegMode = true;
+        this.indRadMode = false;
+        this.indForceRaiseStack = true;
+        this.indDecimalPointPressed = false;
         this.decimalPositions = 0;
-        this.exponentPressed = false;
+        this.indExponentPressed = false;
         this.exponentPositions = 0;
-        this.debugMode = PropertyAccess.getPropertyDebugMode();
+        this.indDebugMode = PropertyAccess.getPropertyDebugMode();
 
         LOGGER.debug(LOG_END);
     }
@@ -112,8 +112,32 @@ public class MtCalculator {
      *
      * @return
      */
+    public boolean isAutoEnter() {
+        return indAutoEnter;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isForceRaiseStack() {
+        return indForceRaiseStack;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isDecimalPointPressed() {
+        return indDecimalPointPressed;
+    }
+
+    /**
+     *
+     * @return
+     */
     public boolean isDebugMode() {
-        return debugMode;
+        return indDebugMode;
     }
 
     /**
@@ -121,7 +145,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isNormalMode() {
-        return !debugMode;
+        return !indDebugMode;
     }
 
     /**
@@ -197,7 +221,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isDegMode() {
-        return degMode;
+        return indDegMode;
     }
 
     /**
@@ -205,7 +229,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isRadMode() {
-        return radMode;
+        return indRadMode;
     }
 
     /**
@@ -213,7 +237,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isAutoMode() {
-        return autoMode;
+        return indAutoMode;
     }
 
     /**
@@ -221,7 +245,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isFixMode() {
-        return fixMode;
+        return indFixMode;
     }
 
     /**
@@ -229,7 +253,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isFixMode1() {
-        return fixMode1;
+        return indFixMode1;
     }
 
     /**
@@ -237,7 +261,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isFloatMode() {
-        return floatMode;
+        return indFloatMode;
     }
 
     /**
@@ -245,7 +269,7 @@ public class MtCalculator {
      * @return
      */
     public boolean isEngMode() {
-        return engMode;
+        return indEngMode;
     }
 
     /**
@@ -299,8 +323,8 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        radMode = false;
-        degMode = true;
+        indRadMode = false;
+        indDegMode = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -312,8 +336,8 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        degMode = false;
-        radMode = true;
+        indDegMode = false;
+        indRadMode = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -339,11 +363,11 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (!exponentPressed) {
+        if (!isExponentPressed()) {
             LOGGER.debug(LOG_RETURN_1);
             return;
         }
-        exponentPressed = false;
+        indExponentPressed = false;
         exponentPositions = 0;
         if (exponent.getNumber().getNumber().intValue() == 0) {
             LOGGER.debug(LOG_RETURN_2);
@@ -356,7 +380,7 @@ public class MtCalculator {
         registerX = register;
         reformatRegisterX();
         exponent = new MtRegister();
-        forceRaiseStack = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -376,8 +400,8 @@ public class MtCalculator {
         if (MtNumber.compare(registerX.getNumber(), MtNumber.ZERO) == 0) {
             registerX.setNumber(MtNumber.ONE);
         }
-        if (!exponentPressed) {
-            exponentPressed = true;
+        if (!isExponentPressed()) {
+            indExponentPressed = true;
             exponentPositions = 1;
             LOGGER.debug(LOG_RETURN_2);
             return;
@@ -396,7 +420,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
         LOGGER.debug(LOG_END);
 
-        return exponentPressed;
+        return indExponentPressed;
     }
 
     /**
@@ -411,7 +435,7 @@ public class MtCalculator {
         registerY = new MtRegister();
         registerZ = new MtRegister();
         registerT = new MtRegister();
-        decimalPointPressed = false;
+        indDecimalPointPressed = false;
         decimalPositions = 0;
 
         LOGGER.debug(LOG_END);
@@ -430,8 +454,8 @@ public class MtCalculator {
             return;
         }
         registerX = new MtRegister();
-        forceRaiseStack = false;
-        decimalPointPressed = false;
+        indForceRaiseStack = false;
+        indDecimalPointPressed = false;
         decimalPositions = 0;
 
         LOGGER.debug(LOG_END);
@@ -445,7 +469,7 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        fixMode1 = false;
+        indFixMode1 = false;
         fixModeSize = digit;
         fixModeLabel = "Fix " + Long.toString(digit);
 
@@ -489,17 +513,17 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (autoEnter) {
+        if (isAutoEnter()) {
             pressButtonEnter();
-            autoEnter = false;
+            indAutoEnter = false;
         }
-        if (eraseDisplay) {
+        if (indEraseDisplay) {
             registerX = new MtRegister();
-            eraseDisplay = false;
+            indEraseDisplay = false;
             decimalPositions = 0;
-            decimalPointPressed = false;
+            indDecimalPointPressed = false;
         }
-        if (exponentPressed) {
+        if (isExponentPressed()) {
             pressButtonDigitExponent(digit);
             LOGGER.debug(LOG_RETURN_1);
             return;
@@ -507,7 +531,7 @@ public class MtCalculator {
         MtNumber number;
         number = registerX.getNumber();
         BigDecimal bd;
-        if (!decimalPointPressed) {
+        if (!isDecimalPointPressed()) {
             number = MtNumber.multiply(number, MtNumber.TEN);
             bd = new BigDecimal(digit);
         } else {
@@ -532,10 +556,10 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (fixMode1) {
+        if (isFixMode1()) {
             pressButtonDigitFixMode(digit);
         } else {
-            forceRaiseStack = true;
+            indForceRaiseStack = true;
             pressButtonAuto();
             pressButtonDigitData(digit);
         }
@@ -718,15 +742,15 @@ public class MtCalculator {
         indF = false;
         releaseButtonEEX();
         registerLastX = registerX;
-        if (forceRaiseStack) {
-            forceRaiseStack = false;
+        if (isForceRaiseStack()) {
+            indForceRaiseStack = false;
             raiseStack();
         }
         registerX = new MtRegister();
         registerX.setNumber(MtNumber.PI);
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -743,20 +767,20 @@ public class MtCalculator {
             LOGGER.debug(LOG_RETURN_1);
             return;
         }
-        if (decimalPointPressed) {
+        if (isDecimalPointPressed()) {
             LOGGER.debug(LOG_RETURN_2);
             return;
         }
-        if (autoEnter) {
+        if (isAutoEnter()) {
             pressButtonEnter();
-            autoEnter = false;
+            indAutoEnter = false;
         }
-        if (eraseDisplay) {
+        if (indEraseDisplay) {
             registerX = new MtRegister();
-            eraseDisplay = false;
+            indEraseDisplay = false;
             decimalPositions = 0;
         }
-        decimalPointPressed = true;
+        indDecimalPointPressed = true;
         decimalPositions++;
 
         LOGGER.debug(LOG_END);
@@ -778,9 +802,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -796,7 +820,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.degToRad(wrkNumber);
         }
         MtRegister register;
@@ -805,9 +829,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -823,7 +847,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcSin(registerX.getNumber());
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.radToDeg(wrkNumber);
         }
         MtRegister register;
@@ -832,9 +856,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -850,7 +874,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.degToRad(wrkNumber);
         }
         MtRegister register;
@@ -859,9 +883,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -877,7 +901,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcCos(registerX.getNumber());
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.radToDeg(wrkNumber);
         }
         MtRegister register;
@@ -886,9 +910,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -904,7 +928,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = registerX.getNumber();
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.degToRad(wrkNumber);
         }
         MtRegister register;
@@ -913,9 +937,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -931,7 +955,7 @@ public class MtCalculator {
         releaseButtonEEX();
         MtNumber wrkNumber;
         wrkNumber = MtNumber.arcTan(registerX.getNumber());
-        if (degMode) {
+        if (indDegMode) {
             wrkNumber = MtNumber.radToDeg(wrkNumber);
         }
         MtRegister register;
@@ -940,9 +964,9 @@ public class MtCalculator {
         registerLastX = registerX;
         registerX = register;
         registerT = registerZ;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -961,9 +985,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.ln(registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -982,9 +1006,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.ePowX(registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1003,9 +1027,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.log(registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1024,9 +1048,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.tenPowX(registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1052,9 +1076,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1075,9 +1099,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1098,9 +1122,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1112,7 +1136,7 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        if (exponentPressed) {
+        if (isExponentPressed()) {
             MtRegister wrkExponent;
             wrkExponent = new MtRegister();
             wrkExponent.setNumber(MtNumber.multiply(exponent.getNumber(), new MtNumber(-1L)));
@@ -1125,7 +1149,7 @@ public class MtCalculator {
         register.setNumber(MtNumber.multiply(registerX.getNumber(), new MtNumber(-1L)));
         registerLastX = registerX;
         registerX = register;
-        forceRaiseStack = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1155,15 +1179,15 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
         if (indF) {
             indF = false;
-            debugMode = !debugMode;
+            indDebugMode = !indDebugMode;
             LOGGER.debug(LOG_RETURN_1);
             return;
         }
-        decimalPointPressed = false;
+        indDecimalPointPressed = false;
         releaseButtonEEX();
         raiseStack();
-        forceRaiseStack = false;
-        eraseDisplay = true;
+        indForceRaiseStack = false;
+        indEraseDisplay = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1180,8 +1204,8 @@ public class MtCalculator {
         registerY = registerZ;
         registerZ = registerT;
         registerT = new MtRegister();
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1205,8 +1229,8 @@ public class MtCalculator {
         registerY = registerZ;
         registerZ = registerT;
         registerT = register;
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1222,8 +1246,8 @@ public class MtCalculator {
         registerT = registerZ;
         registerZ = registerY;
         registerY = registerX;
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1247,8 +1271,8 @@ public class MtCalculator {
         registerZ = registerY;
         registerY = registerX;
         registerX = register;
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1282,9 +1306,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1303,9 +1327,9 @@ public class MtCalculator {
         }
         reformatRegisterX();
         releaseButtonEEX();
-        forceRaiseStack = false;
+        indForceRaiseStack = false;
         registerS = registerX;
-        eraseDisplay = true;
+        indEraseDisplay = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1326,9 +1350,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1348,7 +1372,7 @@ public class MtCalculator {
         registerLastX = registerX;
         raiseStack();
         registerX = registerS;
-        eraseDisplay = true;
+        indEraseDisplay = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1373,9 +1397,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.squareRoot(registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1391,8 +1415,8 @@ public class MtCalculator {
         registerZ = registerY;
         registerY = registerX;
         registerX = registerLastX;
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1412,9 +1436,9 @@ public class MtCalculator {
         register.setNumber(MtNumber.divide(register.getNumber(), registerX.getNumber()));
         registerLastX = registerX;
         registerX = register;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1435,9 +1459,9 @@ public class MtCalculator {
         registerX = register;
         registerY = registerZ;
         registerZ = registerT;
-        eraseDisplay = true;
-        autoEnter = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indAutoEnter = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1455,8 +1479,8 @@ public class MtCalculator {
         register = registerX;
         registerX = registerY;
         registerY = register;
-        eraseDisplay = true;
-        forceRaiseStack = true;
+        indEraseDisplay = true;
+        indForceRaiseStack = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1468,11 +1492,11 @@ public class MtCalculator {
 
         LOGGER.debug(LOG_BEGIN);
 
-        autoMode = false;
-        fixMode = false;
-        fixMode1 = false;
-        floatMode = false;
-        engMode = false;
+        indAutoMode = false;
+        indFixMode = false;
+        indFixMode1 = false;
+        indFloatMode = false;
+        indEngMode = false;
 
         LOGGER.debug(LOG_END);
     }
@@ -1498,7 +1522,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         clearMode();
-        autoMode = true;
+        indAutoMode = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1511,8 +1535,8 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         clearMode();
-        fixMode = true;
-        fixMode1 = true;
+        indFixMode = true;
+        indFixMode1 = true;
         fixModeSize = 0;
         fixModeLabel = "Fix ?";
 
@@ -1527,7 +1551,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         clearMode();
-        floatMode = true;
+        indFloatMode = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1540,7 +1564,7 @@ public class MtCalculator {
         LOGGER.debug(LOG_BEGIN);
 
         clearMode();
-        engMode = true;
+        indEngMode = true;
 
         LOGGER.debug(LOG_END);
     }
@@ -1636,16 +1660,16 @@ public class MtCalculator {
             return "Error";
         }
 
-        if (autoMode && MtNumber.isOutOfFixedRange(register.getNumber())) {
+        if (isAutoMode() && MtNumber.isOutOfFixedRange(register.getNumber())) {
             pressButtonFloat();
         }
 
         final String decimalFormatString;
-        if (floatMode) {
+        if (isFloatMode()) {
             decimalFormatString = getFloatModeDecimalFormatString();
-        } else if (engMode) {
+        } else if (isEngMode()) {
             decimalFormatString = getEngModeDecimalFormatString();
-        } else if (fixMode) {
+        } else if (isFixMode()) {
             decimalFormatString = getFixModeDecimalFormatString();
         } else { // default autoMode
             LOGGER.debug(LOG_RETURN_1);
@@ -1685,10 +1709,10 @@ public class MtCalculator {
         String registerXFormatedString2;
         registerXFormatedString2 = registerFormatedString(registerX);
 
-        if (autoMode && decimalPointPressed && decimalPositions <= 1) {
+        if (isAutoMode() && isDecimalPointPressed() && decimalPositions <= 1) {
             registerXFormatedString2 = registerXFormatedString2.concat(".");
         }
-        if (exponentPressed) {
+        if (isExponentPressed()) {
             String registerXFormatedString3 = registerXFormatedString2.concat("               ");
             registerXFormatedString2 = registerXFormatedString3.substring(0, 12).concat(exponentFormatedString());
         }
